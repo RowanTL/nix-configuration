@@ -95,7 +95,7 @@
     packages = with pkgs; [
       kdePackages.kate
       webcord
-    #  thunderbird
+      partitionmanager # kde's parition manager
     ];
   };
 
@@ -141,6 +141,7 @@
         safe.directory = "/etc/nixos";
       };
     };
+    partition-manager.enable = true;
   };
 
   # various hardware configurations.
