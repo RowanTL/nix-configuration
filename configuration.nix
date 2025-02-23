@@ -5,10 +5,10 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  # imports =
+  #   [ # Include the results of the hardware scan.
+  #     ./hosts/desktop/hardware-configuration.nix
+  #   ];
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command"  "flakes" ];

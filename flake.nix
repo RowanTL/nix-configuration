@@ -13,11 +13,14 @@
   # very similar to Haskell name@(object) notation.
   outputs = { nixpkgs, ... } @ inputs:
   {
+    # A specific configuration for my desktop.
+    # Can make this more modular later for my server.
     nixosConfigurations.rowan-desktop = nixpkgs.lib.nixosSystem {
       # pass inputs straight to 
       specialArgs = { inherit inputs; };
       modules = [
         ./configuration.nix
+        ./hosts/desktop/hardware-configuration.nix
       ];
     };
   };
