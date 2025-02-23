@@ -80,6 +80,9 @@
     #media-session.enable = true;
   };
 
+  # Bluetooth :)
+  # services.blueman.enable = true;
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -137,8 +140,15 @@
     };
   };
 
-  hardware.graphics = {
-    enable = true;
+  # various hardware configurations.
+  hardware = {
+    graphics = {
+      enable = true;
+    };
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
   };
 
   # Some programs need SUID wrappers, can be configured further or are
