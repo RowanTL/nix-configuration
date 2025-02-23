@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
@@ -11,6 +11,7 @@
     ];
 
   nixpkgs.config.allowUnfree = true;
+  nix.settings.experimental-features = [ "nix-command"  "flakes" ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -104,7 +105,7 @@
       git
       stow
       wget
-      helix
+      inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}.helix # helix from the unstable repo thx to a flake
       brave
       librewolf
       steam
