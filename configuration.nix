@@ -93,6 +93,7 @@
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
+      webcord
     #  thunderbird
     ];
   };
