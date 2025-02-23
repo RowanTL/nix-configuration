@@ -112,6 +112,7 @@
       gamescope
       nil
       protonup
+      htop
     ];
     variables = {
       SUDO_EDITOR = "hx";
