@@ -95,7 +95,7 @@
     packages = with pkgs; [
       kdePackages.kate
       webcord
-      partitionmanager # kde's parition manager
+      # partitionmanager # kde's parition manager
     ];
   };
 
