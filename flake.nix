@@ -19,7 +19,7 @@
       # pass inputs straight to 
       specialArgs = { inherit inputs; };
       modules = [
-        ./configuration.nix
+        ./hosts/desktop/configuration.nix
         ./hosts/desktop/hardware-configuration.nix
       ];
     };
