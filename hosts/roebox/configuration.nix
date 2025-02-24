@@ -91,7 +91,7 @@
     settings = {
       PasswordAuthentication = false;
       AllowUsers = null;
-      useDns = true;
+      UseDns = true;
       X11Forwarding = true;
       PermitRootLogin = "no";
     };
