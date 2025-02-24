@@ -161,7 +161,7 @@
 
     virtualHosts."git.evotrade.org" = {
       serverName = "git.evotrade.org";
-      useACMEHost = "git.evotrade.org";
+      useACMEHost = "evotrade.org";
       acmeRoot = "/var/lib/acme/challenges-evotrade";
       addSSL = true;
       forceSSL = false;
@@ -178,6 +178,7 @@
     };
   };
 
+  # SSL cert renewal
   security.acme = {
     acceptTerms = true;
     defaults.email = "rowan.a.tl@protonmail.com";
