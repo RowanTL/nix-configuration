@@ -6,8 +6,9 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ../../nixosModules/git.nix
+      ../../nixosModules/tmux.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -158,6 +159,17 @@
       };
     };
 
+    virtualHosts."git.evotrade.org" = {
+      serverName = "git.evotrade.org";
+      useACMEHost = "git.evotrade.org";
+      acmeRoot = "/var/lib/acme/challenges-evotrade";
+      addSSL = true;
+      forceSSL = false;
+      locations."/" = {
+        proxyPass = "http://127.0.0.1:3001";
+      };
+    };
+
     virtualHosts.default = {
       serverName = "_";
       default = true;
@@ -173,6 +185,9 @@
       webroot = "/var/lib/acme/challenges-evotrade";
       email = "rowan.a.tl@protonmail.com";
       group = "nginx";
+      extraDomainNames = [
+        "git.evotrade.org"
+      ];
     };
   };
 
