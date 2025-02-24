@@ -14,14 +14,20 @@
   outputs = { nixpkgs, ... } @ inputs:
   {
     # A specific configuration for my desktop.
-    # Can make this more modular later for my server.
     nixosConfigurations.rowan-desktop = nixpkgs.lib.nixosSystem {
-      # pass inputs straight to 
       specialArgs = { inherit inputs; };
       modules = [
         ./hosts/desktop/configuration.nix
         ./hosts/desktop/hardware-configuration.nix
       ];
     };
-  };
+    # Server config
+    nixosConfigurations.roebox = nixpkgs.lib.nixosSystem {
+      # pass inputs straight to 
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./hosts/roebox/configuration.nix
+        ./hosts/roebox/hardware-configuration.nix
+      ];
+    };  };
 }
