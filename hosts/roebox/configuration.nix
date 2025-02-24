@@ -82,6 +82,7 @@
       SUDO_EDITOR = "hx";
       EDITOR = "hx";
     };
+    enableAllTerminfo = true;
   };
   
   # Some programs need SUID wrappers, can be configured further or are
