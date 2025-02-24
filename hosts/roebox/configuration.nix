@@ -55,7 +55,15 @@
   # https://bkiran.com/blog/using-nginx-in-nixos
   users.users.nginx.extraGroups = [ "acme" ];
 
-  # TODO: Add a git user for git.evotrade.org later.
+  users.users.git = {
+    isSystemUser = true;
+    group = "git";
+    home = "/var/lib/gitea-server";
+    createHome = true;
+    shell = "${pkgs.git}/bin/git-shell";
+  };
+
+  users.groups.git = {};
 
   # Environment specification
   environment = {
