@@ -51,6 +51,12 @@
     # ];
   };
 
+  # For nginx to work with acme
+  # https://bkiran.com/blog/using-nginx-in-nixos
+  users.users.nginx.extraGroups = [ "acme" ];
+
+  # TODO: Add a git user for git.evotrade.org later.
+
   # Environment specification
   environment = {
     systemPackages = with pkgs; [
@@ -125,11 +131,31 @@
 
     # The definitions of the individual sites go here.
     virtualHosts."evotrade.org" = {
+      serverName = "evotrade.org";
+      useACMEHost = "evotrade.org";
+      acmeRoot = "/var/lib/acme/challenges-evotrade";
       enableACME = true;
       forceSSL = true;
       locations."/" = {
         proxyPass = "http://127.0.0.1:3001";
       };
+    };
+
+    virtualHosts.default = {
+      serverName = "_";
+      default = true;
+      rejectSSL = true;
+      locations."/".return = "444";
+    };
+  };
+
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "rowan.a.tl@protonmail.com";
+    certs."evotrade.org" = {
+      webroot = "/var/lib/acme/challenges-evotrade";
+      email = "rowan.a.tl@protonmail.com";
+      group = "nginx";
     };
   };
 
