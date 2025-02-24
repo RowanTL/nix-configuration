@@ -5,10 +5,10 @@
 { config, pkgs, inputs, ... }:
 
 {
-  # imports =
-  #   [ # Include the results of the hardware scan.
-  #     ./hosts/desktop/hardware-configuration.nix
-  #   ];
+  imports =
+    [ # Include the results of the hardware scan.
+      ../../nixosModules/git.nix
+    ];
 
   nixpkgs.config.allowUnfree = true;
   nix.settings.experimental-features = [ "nix-command"  "flakes" ];
@@ -127,15 +127,15 @@
       gamescopeSession.enable = true;
     };
     gamemode.enable = true;
-    git = {
-      enable = true;
-      config = {
-        init.defaultBranch = "main";
-        user.name = "Rowan Torbitzky-Lane";
-        user.email = "rowan.a.tl@protonmail.com";
-        safe.directory = "/etc/nixos";
-      };
-    };
+    # git = {
+    #   enable = true;
+    #   config = {
+    #     init.defaultBranch = "main";
+    #     user.name = "Rowan Torbitzky-Lane";
+    #     user.email = "rowan.a.tl@protonmail.com";
+    #     safe.directory = "/etc/nixos";
+    #   };
+    # };
     partition-manager.enable = true;
   };
 
