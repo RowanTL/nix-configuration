@@ -15,6 +15,9 @@
   {
     # A specific configuration for my desktop.
     nixosConfigurations.rowan-desktop = nixpkgs.lib.nixosSystem {
+      # Inherit takes inputs from the current scope and passes it
+      # as an argument to the modules below allowing for all of the names
+      # inside of inputs to be accessed.
       specialArgs = { inherit inputs; };
       modules = [
         ./hosts/desktop/configuration.nix
@@ -29,5 +32,6 @@
         ./hosts/roebox/configuration.nix
         ./hosts/roebox/hardware-configuration.nix
       ];
-    };  };
+    };
+  };
 }
