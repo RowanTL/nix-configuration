@@ -134,7 +134,6 @@
       serverName = "evotrade.org";
       useACMEHost = "evotrade.org";
       acmeRoot = "/var/lib/acme/challenges-evotrade";
-      enableACME = true;
       forceSSL = true;
       locations."/" = {
         proxyPass = "http://127.0.0.1:3001";
