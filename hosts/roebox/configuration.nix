@@ -76,6 +76,7 @@
       librewolf
       nil
       htop
+      alacritty
     ];
     variables = {
       SUDO_EDITOR = "hx";
