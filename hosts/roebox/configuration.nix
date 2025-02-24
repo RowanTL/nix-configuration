@@ -61,7 +61,8 @@
     group = "git";
     home = "/var/lib/gitea-server";
     createHome = true;
-    shell = "${pkgs.git}/bin/git-shell";
+    # shell = "${pkgs.git}/bin/git-shell";
+    shell = "/var/lib/gitea-server/ssh-shell";
   };
 
   users.groups.git = {};
