@@ -59,7 +59,6 @@
       wget
       inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}.helix # helix from the unstable repo thx to a flake
       librewolf
-      steam
       nil
       htop
     ];
