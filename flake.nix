@@ -25,7 +25,7 @@
       ];
     };
     # Server config
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.roebox = nixpkgs.lib.nixosSystem {
       # pass inputs straight to 
       specialArgs = { inherit inputs; };
       modules = [
