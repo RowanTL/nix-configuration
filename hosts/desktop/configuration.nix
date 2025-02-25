@@ -90,7 +90,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       webcord
       haskellPackages.cabal-install
       unstablepkgs.haskellPackages.haskell-language-server
-      haskellPackages.ghc_9_10_1
+      haskell.compiler.ghc982
     ];
   };
 
