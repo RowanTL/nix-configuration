@@ -9,6 +9,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
   imports =
     [ # Include the results of the hardware scan.
       ../../nixosModules/git.nix
+      ../../nixosModules/tmux.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -88,9 +89,6 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     packages = with pkgs; [
       kdePackages.kate
       webcord
-      haskellPackages.cabal-install
-      unstablepkgs.haskellPackages.haskell-language-server
-      haskell.compiler.ghc982
     ];
   };
 
