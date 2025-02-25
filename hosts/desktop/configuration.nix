@@ -88,7 +88,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     packages = with pkgs; [
       kdePackages.kate
       webcord
-      haskellPackages.Cabal_3_12_1_0
+      haskellPackages.Cabal_3_10_3_0
       unstablepkgs.haskellPackages.haskell-language-server
       haskellPackages.ghc_9_10_1
     ];
