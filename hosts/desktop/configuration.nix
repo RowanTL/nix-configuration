@@ -4,6 +4,7 @@
 
 { config, pkgs, inputs, ... }:
 
+let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -87,7 +88,9 @@
     packages = with pkgs; [
       kdePackages.kate
       webcord
-      # partitionmanager # kde's parition manager
+      haskellPackages.Cabal_3_12_1_0
+      unstablepkgs.haskellPackages.haskell-language-server
+      haskellPackages.ghc_9_10_1
     ];
   };
 
@@ -97,7 +100,7 @@
       git
       stow
       wget
-      inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}.helix # helix from the unstable repo thx to a flake
+      unstablepkgs.helix # helix from the unstable repo thx to a flake
       brave
       librewolf
       steam
