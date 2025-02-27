@@ -47,9 +47,9 @@
     isNormalUser = true;
     description = "Rowan";
     extraGroups = [ "wheel" ];
-    # packages = with pkgs; [
-
-    # ];
+    packages = with pkgs; [
+      prismlauncher
+    ];
   };
 
   # For nginx to work with acme
