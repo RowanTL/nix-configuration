@@ -89,6 +89,15 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     packages = with pkgs; [
       kdePackages.kate
       webcord
+      (prismlauncher.override {
+        additionalPrograms = [ ffmpeg ];
+        jdks = [
+          graalvm-ce
+          zulu8
+          zulu17
+          zulu
+        ];
+      })
     ];
   };
 
