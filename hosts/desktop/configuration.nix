@@ -97,6 +97,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
           zulu17
           zulu
         ];
+        gamemodeSupport = true;
       })
     ];
   };
