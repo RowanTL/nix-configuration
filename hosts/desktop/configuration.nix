@@ -116,6 +116,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       nil
       protonup
       htop
+      youtube-music
     ];
     variables = {
       SUDO_EDITOR = "hx";
