@@ -117,6 +117,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       protonup
       htop
       youtube-music
+      ranger
     ];
     variables = {
       SUDO_EDITOR = "hx";
