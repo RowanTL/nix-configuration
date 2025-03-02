@@ -118,6 +118,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       htop
       youtube-music
       ranger
+      glow
     ];
     variables = {
       SUDO_EDITOR = "hx";
