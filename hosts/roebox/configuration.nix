@@ -162,7 +162,7 @@
       locations."/" = {
         proxyPass = "http://127.0.0.1:3009";
         extraConfig = ''
-          limit_req zone=mylimit;
+          limit_req zone=one;
         '';
       };
     };
@@ -176,7 +176,7 @@
       locations."/" = {
         proxyPass = "http://127.0.0.1:3000";
         extraConfig = ''
-          limit_req zone=mylimit;
+          limit_req zone=one;
         '';
       };
     };
