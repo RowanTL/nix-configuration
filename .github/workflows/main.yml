@@ -1,3 +1,4 @@
+# https://forrestjacobs.com/keeping-nixos-systems-up-to-date-with-github-actions/
 name: update-flake-lock
 on:
   workflow_dispatch: # allows manual triggering
@@ -16,3 +17,9 @@ jobs:
         uses: DeterminateSystems/update-flake-lock@main
         with:
           token: ${{ secrets.GH_ACTION_TOKEN }}
+      - name: Merge
+        run: gh pr merge --auto "${{ steps.update.outputs.pull-request-number }}" --rebase
+        env:
+          GITHUB_TOKEN: ${{secrets.GH_ACTION_TOKEN}}
+        if: ${{ steps.update.outputs.pull-request-number != '' }}
+           
