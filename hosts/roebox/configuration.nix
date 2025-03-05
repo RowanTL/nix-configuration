@@ -110,6 +110,7 @@
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [ 22 80 443 ];
   networking.firewall.allowedUDPPorts = [ 22 80 443 ];
+  networking.firewall.extraCommands = "iptables -A INPUT -s 20.171.207.204 -j DROP";
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
@@ -128,10 +129,10 @@
     appendHttpConfig = ''
       # Add HSTS header with preloading to HTTPS requests.
       # Adding this header to HTTP requests is discouraged
-      #map $scheme $hsts_header {
-      #    https   "max-age=31536000; includeSubdomains; preload";
-      #}
-      #add_header Strict-Transport-Security $hsts_header;
+      map $scheme $hsts_header {
+          https   "max-age=31536000; includeSubdomains; preload";
+      }
+      add_header Strict-Transport-Security $hsts_header;
 
       # Enable CSP for your services.
       #add_header Content-Security-Policy "script-src 'self'; object-src 'none'; base-uri 'none';" always;
@@ -150,7 +151,7 @@
 
       # Someone is scraping my all of my commit history at one commit per second?????
       # Gonna stop this from happening.
-      limit_req_zone $binary_remote_addr zone=one:10m rate=55r/m;
+      # limit_req_zone $binary_remote_addr zone=one:10m rate=55r/m;
     '';
 
     # The definitions of the individual sites go here.
@@ -161,9 +162,9 @@
       forceSSL = true;
       locations."/" = {
         proxyPass = "http://127.0.0.1:3009";
-        extraConfig = ''
-          limit_req zone=one;
-        '';
+        # extraConfig = ''
+          # limit_req zone=one;
+        # '';
       };
     };
 
@@ -175,9 +176,9 @@
       forceSSL = false;
       locations."/" = {
         proxyPass = "http://127.0.0.1:3000";
-        extraConfig = ''
-          limit_req zone=one;
-        '';
+        # extraConfig = ''
+          # limit_req zone=one;
+        # '';
       };
     };
 
