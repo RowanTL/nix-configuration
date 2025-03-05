@@ -147,6 +147,10 @@
 
       # This might create errors
       proxy_cookie_path / "/; secure; HttpOnly; SameSite=strict";
+
+      # Someone is scraping my all of my commit history at one commit per second?????
+      # Gonna stop this from happening.
+      limit_req_zone $binary_remote_addr zone=one:10m rate=55r/m;
     '';
 
     # The definitions of the individual sites go here.
@@ -157,6 +161,9 @@
       forceSSL = true;
       locations."/" = {
         proxyPass = "http://127.0.0.1:3009";
+        extraConfig = ''
+          limit_req zone=mylimit;
+        '';
       };
     };
 
@@ -168,6 +175,9 @@
       forceSSL = false;
       locations."/" = {
         proxyPass = "http://127.0.0.1:3000";
+        extraConfig = ''
+          limit_req zone=mylimit;
+        '';
       };
     };
 
