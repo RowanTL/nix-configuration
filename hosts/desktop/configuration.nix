@@ -119,6 +119,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       youtube-music
       ranger
       glow
+      signal-desktop
     ];
     variables = {
       SUDO_EDITOR = "hx";
