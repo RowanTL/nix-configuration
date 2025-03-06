@@ -18,8 +18,8 @@ jobs:
         with:
           token: ${{ secrets.GH_ACTION_TOKEN }}
       - name: Merge
-        run: gh pr merge --auto "${{ steps.update.outputs.pull-request-number }}" --rebase
+        run: "gh pr merge --auto ${{ steps.update.outputs.pull-request-number }}"
         env:
-          GITHUB_TOKEN: ${{secrets.GH_ACTION_TOKEN}}
-        if: ${{ steps.update.outputs.pull-request-number != '' }}
+          GH_TOKEN: ${{secrets.GH_ACTION_TOKEN}}
+        # if: ${{ steps.update.outputs.pull-request-number != '' }}
            
