@@ -67,6 +67,7 @@
 
   users.groups.git = {};
 
+  programs.firefox.enable = true;
   # Environment specification
   environment = {
     systemPackages = with pkgs; [
@@ -74,7 +75,6 @@
       stow
       wget
       inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}.helix # helix from the unstable repo thx to a flake
-      librewolf
       nil
       htop
     ];
