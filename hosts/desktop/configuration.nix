@@ -111,7 +111,6 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       unstablepkgs.helix # helix from the unstable repo thx to a flake
       brave
       librewolf
-      steam
       gamescope
       nil
       protonup
