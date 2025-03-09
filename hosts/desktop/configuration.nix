@@ -119,6 +119,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       ranger
       glow
       signal-desktop
+      steam
     ];
     variables = {
       SUDO_EDITOR = "hx";
