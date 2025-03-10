@@ -129,7 +129,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       kitty
       rofi-wayland
       (pass-wayland.withExtensions (subpkgs: with subpkgs; [
-        pass-tomp
+        pass-tomb
         pass-otp
       ]))
     ];
