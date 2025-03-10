@@ -6,12 +6,18 @@
   inputs = {
     nixpkgsUnstable.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
-    # home-manager.url = "github:nix-community/home-manager";
-    # home-manager.inputs.nixpkgs.follows = "nixpkgs"; # Follows can drammatically reduce flake size
+    home-manager.url = "github:nix-community/home-manager";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs"; # Follows can drammatically reduce flake size
   };
 
   # very similar to Haskell name@(object) notation.
-  outputs = { nixpkgs, ... } @ inputs:
+  outputs = inputs @ { nixpkgs, home-manager, ... }:
+    let home-manager-conf = home-manager.nixosModules.home-manager {
+      home-manager.useGlobalPkgs = true;
+      home-manager.useUserPackages = true;
+      # Do I need to have a home.nix for this?
+    };
+    in 
   {
     # A specific configuration for my desktop.
     nixosConfigurations.rowan-desktop = nixpkgs.lib.nixosSystem {
