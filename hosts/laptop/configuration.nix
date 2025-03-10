@@ -67,7 +67,6 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
   };
   programs.waybar.enable = true;
   security.polkit.enable = true;
-  xdg.configFile."sway/config".source = pkgs.lib.mkOverride 0 "/home/<user>/dotfiles/sway/config";
 
   services.displayManager.sddm = {
     enable = true;
