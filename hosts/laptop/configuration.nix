@@ -46,14 +46,14 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     LC_TIME = "en_US.UTF-8";
   };
 
-  nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
-  };
-
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   # services.xserver.enable = true;
+
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm = {
@@ -61,11 +61,6 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     wayland.enable = true;
   };
   # services.desktopManager.plasma6.enable = true;
-
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -80,6 +75,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  servives.gnome.gnome-keyring.enable = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -103,12 +99,13 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
   users.users.rowan = {
     isNormalUser = true;
     description = "Rowan Torbitzky-Lane";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird
     ];
   };
+  programs.light.enable = true;
 
   environment = {
     systemPackages = with pkgs; let themes = callPackage ../../nixosModules/sddmTheme.nix {}; in [
@@ -141,6 +138,8 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       themes.sddm-sugar-dark
       gtk3
       networkmanagerapplet
+      grim
+      wl-clipboard
     ];
     variables = {
       SUDO_EDITOR = "hx";
@@ -167,6 +166,15 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
 
   virtualisation.docker.enable = true;
 
+  # Used for monitor hot swapping
+  systemd.user.services.kanshi = {
+    description = "kanshi daemon";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+    };
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
@@ -174,5 +182,4 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }
