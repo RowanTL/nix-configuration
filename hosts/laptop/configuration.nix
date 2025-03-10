@@ -60,7 +60,6 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
   # services.desktopManager.plasma6.enable = true;
   programs.hyprland = {
     enable = true;
-    driSupport32Bit = true;
     xwayland.enable = true;
   };
 
