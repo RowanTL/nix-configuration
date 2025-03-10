@@ -12,12 +12,6 @@
 
   # very similar to Haskell name@(object) notation.
   outputs = inputs @ { nixpkgs, home-manager, ... }:
-    let home-manager-conf = home-manager.nixosModules.home-manager {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      # Do I need to have a home.nix for this?
-    };
-    in 
   {
     # A specific configuration for my desktop.
     nixosConfigurations.rowan-desktop = nixpkgs.lib.nixosSystem {
@@ -44,7 +38,11 @@
       modules = [
         ./hosts/laptop/configuration.nix
         ./hosts/laptop/hardware-configuration.nix
-        home-manager-conf
+        home-manager.nixosModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          # Do I need to have a home.nix for this?
+        }
       ];
     };
   };
