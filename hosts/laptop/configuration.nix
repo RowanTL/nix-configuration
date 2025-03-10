@@ -51,7 +51,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
   # services.xserver.enable = true;
 
   programs.sway = {
-    enable = true;
+    enable = false;
     wrapperFeatures.gtk = true;
     xwayland.enable = true;
     #extraOptions = [
@@ -144,6 +144,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       networkmanagerapplet
       grim
       wl-clipboard
+      sway
     ];
     variables = {
       SUDO_EDITOR = "hx";
