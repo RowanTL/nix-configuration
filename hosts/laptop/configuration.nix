@@ -54,9 +54,9 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     enable = true;
     wrapperFeatures.gtk = true;
     xwayland.enable = true;
-    extraOptions = [
-      "--config ~/.config/sway/config"
-    ];
+    #extraOptions = [
+    #  "--config ~/.config/sway/config"
+    #];
   };
 
   # Enable the KDE Plasma Desktop Environment.
