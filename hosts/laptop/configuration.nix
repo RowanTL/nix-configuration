@@ -130,6 +130,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     sessionVariables = {
       # WLR_NO_HARDWARE_CURSORS = "1"; # If cursor is invisible
       NIXOS_OZONE_WL = "1";
+    localBinInPath = true;
     };
   };
 
