@@ -140,6 +140,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       ]))
       themes.sddm-sugar-dark
       gtk3
+      networkmanagerapplet
     ];
     variables = {
       SUDO_EDITOR = "hx";
