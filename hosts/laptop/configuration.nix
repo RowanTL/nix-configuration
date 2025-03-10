@@ -57,24 +57,22 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     #extraOptions = [
     #  "--config ~/.config/sway/config"
     #];
+    extraSessionCommands = ''
+      export SDL_VIDEODRIVER=wayland
+      export QT_QPA_PLATFORM=wayland
+      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+      export _JAVA_AWT_WM_NONREPARENTING=1
+      export MOZ_ENABLE_WAYLAND=1
+    '';
   };
+  programs.waybar.enable = true;
   security.polkit.enable = true;
 
-  # services.displayManager.sddm = {
-    # enable = true;
-    # wayland.enable = true;
-  # };
-  services.greetd = {
+  services.displayManager.sddm = {
     enable = true;
-    settings = rec {
-      initialSession = {
-        command = "${pkgs.sway}/bin/sway";
-        user = "rowan";
-      };
-      defaultSession = initialSession;
-    };
+    wayland.enable = true;
   };
-  # services.desktopManager.plasma6.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
