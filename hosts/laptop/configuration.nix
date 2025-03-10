@@ -132,6 +132,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       swww
       kitty
       alacritty
+      foot
       rofi-wayland
       (pass-wayland.withExtensions (subpkgs: with subpkgs; [
         pass-tomb
