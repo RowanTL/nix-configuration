@@ -58,9 +58,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     #  "--config ~/.config/sway/config"
     #];
   };
-  xdg.configFile."sway/config".source = pkgs.lib.mkOverride 0 "/home/rowan/dotfiles/sway/config";
 
-  # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
@@ -153,6 +151,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     sessionVariables = {
       # WLR_NO_HARDWARE_CURSORS = "1"; # If cursor is invisible
       NIXOS_OZONE_WL = "1";
+      XDG_CONFIG_HOME = "$HOME/.config";
     };
   };
 
