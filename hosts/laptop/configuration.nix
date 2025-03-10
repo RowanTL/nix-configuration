@@ -75,7 +75,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  servives.gnome.gnome-keyring.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
