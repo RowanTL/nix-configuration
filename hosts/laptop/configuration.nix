@@ -58,6 +58,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     #  "--config ~/.config/sway/config"
     #];
   };
+  security.polkit.enable = true;
 
   services.displayManager.sddm = {
     enable = true;
