@@ -33,5 +33,12 @@
         ./hosts/roebox/hardware-configuration.nix
       ];
     };
+    nixosConfigurations.rowan-laptop = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; };
+      modules = [
+        ./hosts/laptop/configuration.nix
+        ./hosts/laptop/hardware-configuration.nix
+      ];
+    };
   };
 }
