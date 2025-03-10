@@ -111,7 +111,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
   };
 
   environment = {
-    systemPackages = with pkgs; [
+    systemPackages = with pkgs; let themes = callPackage ../../nixosModules/sddmTheme.nix {}; in [
       git
       stow
       wget
@@ -136,6 +136,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
         pass-tomb
         pass-otp
       ]))
+      themes.sddm-sugar-dark
     ];
     variables = {
       SUDO_EDITOR = "hx";
