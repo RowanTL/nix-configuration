@@ -51,13 +51,14 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
   # services.xserver.enable = true;
 
   programs.sway = {
-    enable = false;
+    enable = true;
     wrapperFeatures.gtk = true;
     xwayland.enable = true;
     #extraOptions = [
     #  "--config ~/.config/sway/config"
     #];
   };
+  xdg.configFile."sway/config".source = pkgs.lib.mkOverride 0 "/home/rowan/dotfiles/sway/config";
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm = {
@@ -144,7 +145,6 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       networkmanagerapplet
       grim
       wl-clipboard
-      sway
     ];
     variables = {
       SUDO_EDITOR = "hx";
