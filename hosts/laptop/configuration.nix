@@ -131,6 +131,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       libnotify
       swww
       kitty
+      alacritty
       rofi-wayland
       (pass-wayland.withExtensions (subpkgs: with subpkgs; [
         pass-tomb
