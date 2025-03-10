@@ -60,9 +60,19 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
   };
   security.polkit.enable = true;
 
-  services.displayManager.sddm = {
+  # services.displayManager.sddm = {
+    # enable = true;
+    # wayland.enable = true;
+  # };
+  services.greetd = {
     enable = true;
-    wayland.enable = true;
+    settings = rec {
+      initialSession = {
+        command = "${pkgs.sway}/bin/sway";
+        user = "rowan";
+      };
+      defaultSession = initialSession;
+    };
   };
   # services.desktopManager.plasma6.enable = true;
 
@@ -75,6 +85,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    wlr.enable = true;
   };
 
   # Enable CUPS to print documents.
