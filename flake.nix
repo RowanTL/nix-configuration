@@ -44,6 +44,7 @@
       modules = [
         ./hosts/laptop/configuration.nix
         ./hosts/laptop/hardware-configuration.nix
+        home-manager-conf
       ];
     };
   };
