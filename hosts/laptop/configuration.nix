@@ -46,18 +46,33 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     LC_TIME = "en_US.UTF-8";
   };
 
+  nix.settings = {
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+  };
+
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  # services.displayManager.sddm.enable = true;
+  # services.desktopManager.plasma6.enable = true;
+  programs.hyprland = {
+    enable = true;
+    driSupport32Bit = true;
+    xwayland.enable = true;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "colemak";
+  };
+
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
   # Enable CUPS to print documents.
@@ -108,16 +123,33 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       glow
       signal-desktop
       pinentry-curses
+      waybar
+      mako
+      libnotify
+      swww
+      kitty
+      rofi-wayland
+      (pass-wayland.withExtensions (subpkgs: with subpkgs; [
+        pass-tomp
+        pass-otp
+      ]))
     ];
     variables = {
       SUDO_EDITOR = "hx";
       EDITOR = "hx";
     };
+    sessionVariables = {
+      # WLR_NO_HARDWARE_CURSORS = "1"; # If cursor is invisible
+      NIXOS_OZONE_WL = "1";
+    };
   };
 
-  hardware.bluetooth = {
-    enable = true;
-    powerOnBoot = true;
+  hardware = {
+    bluetooth = {
+      enable = true;
+      powerOnBoot = true;
+    };
+    opengl.enable = true;
   };
 
   programs.gnupg.agent = {
