@@ -137,6 +137,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
         pass-otp
       ]))
       themes.sddm-sugar-dark
+      gtk3
     ];
     variables = {
       SUDO_EDITOR = "hx";
