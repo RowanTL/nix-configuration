@@ -10,6 +10,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     [
       ../../nixosModules/git.nix
       ../../nixosModules/tmux.nix
+      ../../nixosModules/myVSCodium.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -49,26 +50,6 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
   # services.xserver.enable = true;
-
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-    xwayland.enable = true;
-    #extraOptions = [
-    #  "--config ~/.config/sway/config"
-    #];
-    extraSessionCommands = ''
-      export SDL_VIDEODRIVER=wayland
-      export QT_QPA_PLATFORM=wayland
-      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-      export _JAVA_AWT_WM_NONREPARENTING=1
-      export MOZ_ENABLE_WAYLAND=1
-    '';
-  };
-  programs.waybar.enable = true;
-  security.polkit.enable = true;
-  xdg.configFile."sway/config".source = pkgs.lib.mkOverride 0 "/home/rowan/dotfiles/sway/config";
-
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
@@ -89,7 +70,6 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.gnome.gnome-keyring.enable = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -137,23 +117,13 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       glow
       signal-desktop
       pinentry-curses
-      waybar
-      mako
-      libnotify
-      swww
       kitty
-      alacritty
-      foot
-      rofi-wayland
       (pass-wayland.withExtensions (subpkgs: with subpkgs; [
         pass-tomb
         pass-otp
       ]))
-      themes.sddm-sugar-dark
-      gtk3
-      networkmanagerapplet
-      grim
       wl-clipboard
+      unzip
     ];
     variables = {
       SUDO_EDITOR = "hx";
@@ -162,8 +132,8 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     sessionVariables = {
       # WLR_NO_HARDWARE_CURSORS = "1"; # If cursor is invisible
       NIXOS_OZONE_WL = "1";
-      XDG_CONFIG_HOME = "$HOME/.config";
     };
+    localBinInPath = true;
   };
 
   hardware = {
@@ -180,15 +150,6 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
   };
 
   virtualisation.docker.enable = true;
-
-  # Used for monitor hot swapping
-  systemd.user.services.kanshi = {
-    description = "kanshi daemon";
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
-    };
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
