@@ -122,6 +122,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
         pass-otp
       ]))
       wl-clipboard
+      thunderbird
     ];
     variables = {
       SUDO_EDITOR = "hx";
