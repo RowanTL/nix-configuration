@@ -11,6 +11,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       ../../nixosModules/git.nix
       ../../nixosModules/tmux.nix
       ../../nixosModules/myVSCodium.nix
+      ../../nixosModules/myPass.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -116,12 +117,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       ranger
       glow
       signal-desktop
-      pinentry-curses
       kitty
-      (pass-wayland.withExtensions (subpkgs: with subpkgs; [
-        pass-tomb
-        pass-otp
-      ]))
       wl-clipboard
       unzip
     ];

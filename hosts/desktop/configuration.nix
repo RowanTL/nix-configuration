@@ -10,6 +10,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     [ # Include the results of the hardware scan.
       ../../nixosModules/git.nix
       ../../nixosModules/tmux.nix
+      ../../nixosModules/myPass.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -120,6 +121,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       glow
       signal-desktop
       steam
+      protonvpn-gui
     ];
     variables = {
       SUDO_EDITOR = "hx";
@@ -156,10 +158,10 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-    # enable = true;
-    # enableSSHSupport = true;
-  # };
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   virtualisation.docker.enable = true;  
 
