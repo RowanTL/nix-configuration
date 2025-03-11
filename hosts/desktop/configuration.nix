@@ -10,6 +10,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     [ # Include the results of the hardware scan.
       ../../nixosModules/git.nix
       ../../nixosModules/tmux.nix
+      ../../nixosModules/myPass.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
