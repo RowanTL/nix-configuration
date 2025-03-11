@@ -123,6 +123,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       ]))
       wl-clipboard
       thunderbird
+      protonmail-bridge
     ];
     variables = {
       SUDO_EDITOR = "hx";
