@@ -122,8 +122,6 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
         pass-otp
       ]))
       wl-clipboard
-      thunderbird
-      protonmail-bridge
     ];
     variables = {
       SUDO_EDITOR = "hx";
