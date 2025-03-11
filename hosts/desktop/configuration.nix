@@ -120,6 +120,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       glow
       signal-desktop
       steam
+      protonvpn-gui
     ];
     variables = {
       SUDO_EDITOR = "hx";
