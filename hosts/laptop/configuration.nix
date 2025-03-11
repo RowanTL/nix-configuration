@@ -102,7 +102,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
   programs.light.enable = true;
 
   environment = {
-    systemPackages = with pkgs; let themes = callPackage ../../nixosModules/sddmTheme.nix {}; in [
+    systemPackages = with pkgs; [
       git
       stow
       wget
