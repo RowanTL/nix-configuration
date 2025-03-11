@@ -126,6 +126,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     variables = {
       SUDO_EDITOR = "hx";
       EDITOR = "hx";
+      NIXPKGS_ALLOW_UNFREE = 1;
     };
     sessionVariables = {
      STEAM_EXTRA_COMPAT_TOOLS_PATHS = "/home/rowan/.steam/root/compatibilitytools.d";
