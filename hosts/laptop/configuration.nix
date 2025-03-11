@@ -10,6 +10,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     [
       ../../nixosModules/git.nix
       ../../nixosModules/tmux.nix
+      ../../nixosModules/myVSCodium.nix
     ];
 
   nixpkgs.config.allowUnfree = true;
