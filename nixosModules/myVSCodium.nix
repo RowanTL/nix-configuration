@@ -13,7 +13,7 @@
         ms-azuretools.vscode-docker
         ms-vscode-remote.remote-ssh
         haskell.haskell
-      ] + pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "calva";
           publisher = "betterthantomorrow";
