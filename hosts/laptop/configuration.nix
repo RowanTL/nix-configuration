@@ -4,9 +4,6 @@
 
 { config, pkgs, inputs, ... }:
 
-let
-  unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system};
-in
 {
   imports =
     [
@@ -23,7 +20,7 @@ in
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}.linuxKernel.packages.linux_zen;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   networking.hostName = "rowan-laptop"; # Define your hostname.
 
@@ -118,7 +115,7 @@ in
       git
       stow
       wget
-      unstablepkgs.helix # helix from the unstable repo thx to a flake
+      helix
       brave
       librewolf
       nil
