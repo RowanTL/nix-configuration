@@ -134,6 +134,7 @@
       rofi-wayland
       gtk3
       waybar
+      pavucontrol
     ];
     variables = {
       SUDO_EDITOR = "hx";
