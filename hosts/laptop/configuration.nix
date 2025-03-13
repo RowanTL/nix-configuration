@@ -133,6 +133,7 @@
       swww
       rofi-wayland
       gtk3
+      waybar
     ];
     variables = {
       SUDO_EDITOR = "hx";
