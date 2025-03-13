@@ -48,19 +48,14 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  # services.xserver.enable = true;
+  # Sway is going into home manager
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
   };
   services.desktopManager.plasma6.enable = true;
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
-
+  security.polkit.enable = true;  # needed for sway
+  
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
