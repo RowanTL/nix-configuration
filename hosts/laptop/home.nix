@@ -71,7 +71,7 @@
     # EDITOR = "emacs";
   };
 
-  # xdg.configFile."sway/config".source = ./configs/sway/config;
+  xdg.configFile."sway/config".source = ./configs/sway/config;
   wayland.windowManager.sway = {
     enable = true;
   };
