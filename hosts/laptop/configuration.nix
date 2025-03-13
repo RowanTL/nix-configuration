@@ -10,7 +10,6 @@
       ./hardware-configuration.nix
       ../../nixosModules/git.nix
       ../../nixosModules/tmux.nix
-      ../../nixosModules/myVSCodium.nix
       ../../nixosModules/myPass.nix
       inputs.home-manager.nixosModules.default
     ];
