@@ -53,7 +53,14 @@
     wayland.enable = true;
   };
   services.desktopManager.plasma6.enable = true;
-  programs.sway.enable = true;
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+    xwayland.enable = true;
+    extraSessionCommands = ''
+      export _JAVA_AWT_WM_NONREPARENTING=1
+    '';
+  };
   security.polkit.enable = true;  # needed for sway
   
   # Configure keymap in X11
@@ -124,6 +131,7 @@
       glow
       signal-desktop
       kitty
+      alacritty
       unzip
       grim
       networkmanagerapplet
