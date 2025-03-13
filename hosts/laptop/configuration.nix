@@ -56,6 +56,10 @@
     wayland.enable = true;
   };
   services.desktopManager.plasma6.enable = true;
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -125,8 +129,15 @@
       glow
       signal-desktop
       kitty
-      wl-clipboard
       unzip
+      grim
+      networkmanagerapplet
+      wl-clipboard
+      mako
+      libnotify
+      swww
+      rofi-wayland
+      gtk3
     ];
     variables = {
       SUDO_EDITOR = "hx";
