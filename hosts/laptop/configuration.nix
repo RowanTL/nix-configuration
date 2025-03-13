@@ -48,12 +48,12 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Sway is going into home manager
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
   };
   services.desktopManager.plasma6.enable = true;
+  programs.sway.enable = true;
   security.polkit.enable = true;  # needed for sway
   
   # Configure keymap in X11
