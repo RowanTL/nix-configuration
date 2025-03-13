@@ -146,6 +146,10 @@
     localBinInPath = true;
   };
 
+  fonts.packages = with pkgs; [
+    nerdfonts
+  ];
+
   hardware = {
     bluetooth = {
       enable = true;
