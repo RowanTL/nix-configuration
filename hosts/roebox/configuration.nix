@@ -7,6 +7,7 @@
 {
   imports =
     [
+      ./hardware-configuration.nix
       ../../nixosModules/git.nix
       ../../nixosModules/tmux.nix
     ];

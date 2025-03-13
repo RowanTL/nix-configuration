@@ -4,14 +4,14 @@
 
 { config, pkgs, inputs, ... }:
 
-let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
 {
   imports =
     [
+      ./hardware-configuration.nix
       ../../nixosModules/git.nix
       ../../nixosModules/tmux.nix
-      ../../nixosModules/myVSCodium.nix
       ../../nixosModules/myPass.nix
+      inputs.home-manager.nixosModules.default
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -19,7 +19,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}.linuxKernel.packages.linux_zen;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   networking.hostName = "rowan-laptop"; # Define your hostname.
 
@@ -48,15 +48,14 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  # You can disable this if you're only using the Wayland session.
-  # services.xserver.enable = true;
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
   };
   services.desktopManager.plasma6.enable = true;
-
+  programs.sway.enable = true;
+  security.polkit.enable = true;  # needed for sway
+  
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -102,12 +101,19 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
   };
   programs.light.enable = true;
 
+  home-manager = {
+    extraSpecialArgs = {inherit inputs; };
+    users = {
+      "rowan" = import ./home.nix;
+    };
+  };
+
   environment = {
-    systemPackages = with pkgs; let themes = callPackage ../../nixosModules/sddmTheme.nix {}; in [
+    systemPackages = with pkgs; [
       git
       stow
       wget
-      unstablepkgs.helix # helix from the unstable repo thx to a flake
+      helix
       brave
       librewolf
       nil
@@ -118,8 +124,17 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
       glow
       signal-desktop
       kitty
-      wl-clipboard
       unzip
+      grim
+      networkmanagerapplet
+      wl-clipboard
+      mako
+      libnotify
+      swww
+      rofi-wayland
+      gtk3
+      waybar
+      pavucontrol
     ];
     variables = {
       SUDO_EDITOR = "hx";
@@ -131,6 +146,10 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     };
     localBinInPath = true;
   };
+
+  fonts.packages = with pkgs; [
+    font-awesome
+  ];
 
   hardware = {
     bluetooth = {
