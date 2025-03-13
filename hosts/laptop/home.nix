@@ -71,10 +71,10 @@
     # EDITOR = "emacs";
   };
 
-  xdg.configFile."sway/config".source = ./configs/sway/config;
-  wayland.windowManager.sway = {
-    enable = true;
-  };
+  # xdg.configFile."sway/config".source = ./configs/sway/config;
+  # wayland.windowManager.sway = {
+    # enable = true;
+  # };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
