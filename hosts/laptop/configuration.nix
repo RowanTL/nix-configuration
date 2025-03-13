@@ -4,14 +4,18 @@
 
 { config, pkgs, inputs, ... }:
 
-let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
+let
+  unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system};
+in
 {
   imports =
     [
+      ./hardware-configuration.nix
       ../../nixosModules/git.nix
       ../../nixosModules/tmux.nix
       ../../nixosModules/myVSCodium.nix
       ../../nixosModules/myPass.nix
+      inputs.home-manager.nixosModules.default
     ];
 
   nixpkgs.config.allowUnfree = true;
@@ -101,6 +105,13 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
     ];
   };
   programs.light.enable = true;
+
+  home-manager = {
+    extraSpecialArgs = {inherit inputs; };
+    users = {
+      "rowan" = import ./home.nix;
+    };
+  };
 
   environment = {
     systemPackages = with pkgs; [

@@ -8,6 +8,7 @@ let unstablepkgs = inputs.nixpkgsUnstable.legacyPackages.${pkgs.system}; in
 {
   imports =
     [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
       ../../nixosModules/git.nix
       ../../nixosModules/tmux.nix
       ../../nixosModules/myPass.nix
