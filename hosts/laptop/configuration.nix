@@ -65,6 +65,7 @@
     '';
   };
   security.polkit.enable = true;  # needed for sway
+  services.gnome.gnome-keyring.enable = true;
   
   # Configure keymap in X11
   services.xserver.xkb = {
