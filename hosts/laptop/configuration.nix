@@ -147,6 +147,8 @@
       gtk3
       waybar
       pavucontrol
+      texliveSmall
+      kile
       (prismlauncher.override {
         # Add binary required by some mod
         additionalPrograms = [ ffmpeg ];
