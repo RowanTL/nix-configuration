@@ -138,6 +138,7 @@
       alacritty
       unzip
       grim
+      slurp
       networkmanagerapplet
       wl-clipboard
       mako
