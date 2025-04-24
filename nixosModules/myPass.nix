@@ -8,4 +8,5 @@
       pass-otp
     ]))
   ];
+  environment.etc."profile.d/pass_completions.sh".source = "${pkgs.pass-wayland.extensions.pass-otp}/share/bash-completion/completions/pass-otp";
 }
