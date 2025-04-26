@@ -150,7 +150,7 @@
       pavucontrol
       texliveSmall
       kile
-      protonvpn-gui
+      # protonvpn-gui
       vlc
       vlc-bittorrent
       webtorrent_desktop
