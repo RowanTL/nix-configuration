@@ -150,6 +150,10 @@
       pavucontrol
       texliveSmall
       kile
+      protonvpn-gui
+      vlc
+      vlc-bittorrent
+      webtorrent_desktop
       (prismlauncher.override {
         # Add binary required by some mod
         additionalPrograms = [ ffmpeg ];
