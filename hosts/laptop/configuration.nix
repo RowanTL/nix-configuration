@@ -215,7 +215,7 @@
       overrideDevices = true;
       overrideFolders = true;
       devices = {
-        "desktop" = { id = ""; };
+        "desktop" = { id = "D4GECIU-MUGKFZL-4ZRKU6I-W5S7I7W-DF4R35J-Q6A2NF5-QF2BHTF-5PUEHQC"; };
       };
       folders = {
         "various" = {
