@@ -170,7 +170,7 @@
     enable = true;
     dataDir = "/home/rowan";
     openDefaultPorts = true;
-    configDir = "home/rowan/.config/syncthing";
+    configDir = "/home/rowan/.config/syncthing";
     user = "rowan";
     group = "users";
     guiAddress = "0.0.0.0:8384";
