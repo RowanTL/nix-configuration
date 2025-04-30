@@ -178,7 +178,7 @@
       overrideDevices = true;
       overrideFolders = true;
       devices = {
-        "laptop" = { id = ""; };
+        "laptop" = { id = "WD3DKO6-WLXZ7UM-CKCNE7Z-WEMTY2L-O2DZ2K7-QYYENNF-SHI5P7O-NZWQ7QC"; };
       };
       folders = {
         "various" = {
