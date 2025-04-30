@@ -8,7 +8,7 @@
     # nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-24.11";
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs"; # Follows can drammatically reduce flake size
+    home-manager.inputs.nixpkgs.follows = "nixpkgs"; # Follows can dramatically reduce flake size
   };
 
   # very similar to Haskell name@(object) notation.

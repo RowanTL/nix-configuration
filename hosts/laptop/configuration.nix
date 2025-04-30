@@ -28,7 +28,10 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    wifi.powersave = true;
+  };
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
@@ -52,9 +55,17 @@
     enable = true;
     wayland.enable = true;
   };
-  services.desktopManager.plasma6.enable = true;
-  programs.sway.enable = true;
+  # services.desktopManager.plasma6.enable = true;
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+    xwayland.enable = true;
+    extraSessionCommands = ''
+      export _JAVA_AWT_WM_NONREPARENTING=1
+    '';
+  };
   security.polkit.enable = true;  # needed for sway
+  services.gnome.gnome-keyring.enable = true;
   
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -70,6 +81,12 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  # Discover network printers
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -124,8 +141,10 @@
       glow
       signal-desktop
       kitty
+      alacritty
       unzip
       grim
+      slurp
       networkmanagerapplet
       wl-clipboard
       mako
@@ -135,6 +154,24 @@
       gtk3
       waybar
       pavucontrol
+      texliveSmall
+      kile
+      # protonvpn-gui
+      vlc
+      vlc-bittorrent
+      webtorrent_desktop
+      (prismlauncher.override {
+        # Add binary required by some mod
+        additionalPrograms = [ ffmpeg ];
+
+        # Change Java runtimes available to Prism Launcher
+        jdks = [
+          graalvm-ce
+          zulu8
+          zulu17
+          zulu
+        ];
+      })
     ];
     variables = {
       SUDO_EDITOR = "hx";
