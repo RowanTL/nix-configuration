@@ -166,6 +166,35 @@
 
   virtualisation.docker.enable = true;  
 
+  services.syncthing = {
+    enable = true;
+    dataDir = "/home/rowan";
+    openDefaultPorts = true;
+    configDir = "home/rowan/.config/syncthing";
+    user = "rowan";
+    group = "users";
+    guiAddress = "0.0.0.0:8384";
+    declarative = {
+      overrideDevices = true;
+      overrideFolders = true;
+      devices = {
+        "laptop" = { id = ""; };
+      };
+      folders = {
+        "various" = {
+          path = "/home/rowan/various";
+          devices = [ "laptop" ];
+          versoning = {
+            type = "simple";
+            params = {
+              keep = "10";
+            };
+          };
+        };
+      };
+    };
+  };
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
