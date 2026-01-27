@@ -34,7 +34,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-            home-manager.users.rowan = import ./home;
+            home-manager.users.rowan = import ./modules/home;
 
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }
