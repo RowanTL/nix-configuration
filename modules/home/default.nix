@@ -5,7 +5,7 @@
 {
   imports = [
     "helix.nix"
-  ]
+  ];
 
   home.username = "rowan";
   home.homeDirectory = "/home/rowan";
