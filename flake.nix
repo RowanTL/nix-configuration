@@ -27,7 +27,7 @@
         specialArgs = { inherit system; };
 
         modules = [
-          ./rowan-server/configuration.nix
+          ./hosts/rowan-server/configuration.nix
 
           home-manager.nixosModules.home-manager
           {
