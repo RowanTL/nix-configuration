@@ -3,6 +3,10 @@
 # Thanks to this tutorial
 # https://nixos-and-flakes.thiscute.world/nixos-with-flakes/start-using-home-manager
 {
+  imports = [
+    "helix.nix"
+  ]
+
   home.username = "rowan";
   home.homeDirectory = "/home/rowan";
 
