@@ -4,7 +4,7 @@
 # https://nixos-and-flakes.thiscute.world/nixos-with-flakes/start-using-home-manager
 {
   imports = [
-    "helix.nix"
+    "./helix.nix"
   ];
 
   home.username = "rowan";
