@@ -77,11 +77,12 @@
     unixtools.net-tools
   ];
 
-  # basic configuration of git, please change to your own
   programs.git = {
     enable = true;
-    userName = "Rowan Torbitzky-Lane";
-    userEmail = "rowan.a.tl@protonmail.com";
+    settings = {
+      user.name = "Rowan Torbitzky-Lane";
+      user.email = "rowan.a.tl@protonmail.com";
+    };
   };
 
   programs.librewolf = {
