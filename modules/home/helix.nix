@@ -6,8 +6,8 @@
       = lib.mkEnableOption "enable custom helix";  
   };
   
-  programs = lib.mkIf config.helix.enable {
-    helix = {
+  config = lib.mkIf config.helix.enable {
+    programs.helix = {
       enable = true;
       settings = {
         theme = "gruvbox_light_hard";
