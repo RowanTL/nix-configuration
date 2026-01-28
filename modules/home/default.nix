@@ -5,6 +5,7 @@
 {
   imports = [
     ./helix.nix
+    ./git.nix
   ];
 
   home.username = "rowan";
@@ -81,14 +82,6 @@
     unixtools.net-tools
   ];
 
-  programs.git = {
-    enable = true;
-    settings = {
-      user.name = "Rowan Torbitzky-Lane";
-      user.email = "rowan.a.tl@protonmail.com";
-    };
-  };
-
   programs.librewolf = {
     enable = true;
     # Can add extra config here if wanted
@@ -123,8 +116,9 @@
     # };
   };
 
-  # Enable my custom helix config
+  # Enable my custom configs
   helix.enable = true;
+  git.enable = true;
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
