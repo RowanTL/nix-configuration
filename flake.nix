@@ -40,6 +40,21 @@
           }
         ];
       };
+      rowan-laptop-test = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit system; };
+
+        modules = [
+          ./hosts/rowan-laptop-test/configuration.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
+            home-manager.users.rowan = import ./modules/home;
+          }
+        ];
+      };
     };
   };
 }
