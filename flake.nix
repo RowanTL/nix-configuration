@@ -34,7 +34,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-            home-manager.users.rowan = import ./modules/home;
+            home-manager.users.rowan = import ./hosts/rowan-server/home.nix;
 
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }
@@ -51,7 +51,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
 
-            home-manager.users.rowan = import ./modules/home;
+            home-manager.users.rowan = import ./hosts/rowan-laptop-test/home.nix;
           }
         ];
       };

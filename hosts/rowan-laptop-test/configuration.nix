@@ -24,6 +24,9 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # enable polkit for sway
+  security.polkit.enable = true;
+
   # Set your time zone.
   time.timeZone = "America/Chicago";
 
