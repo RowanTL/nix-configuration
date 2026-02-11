@@ -122,6 +122,8 @@
 
   # Sway Configuration
   # https://d19qhx4ioawdt7.cloudfront.net/docs/nix-home-manager-sway.html
+  # Entirety of OP's sway configuration in nix.
+  # https://git.sr.ht/~lafrenierejm/dotfiles/tree/main/item/nix/home/sway.nix
   wayland.windowManager.sway =
     let
       mod = "Mod4";
