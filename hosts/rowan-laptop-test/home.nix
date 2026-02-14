@@ -239,6 +239,12 @@
   };
   programs.waybar = {
     enable = true;
+    systemd.enable = true;
+    mainbar = {
+      modules-left = [
+        "sway/workspaces"
+      ];
+    };
   };
 
   # This value determines the home Manager release that your
