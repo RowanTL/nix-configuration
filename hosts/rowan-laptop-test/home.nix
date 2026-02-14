@@ -242,10 +242,12 @@
   programs.waybar = {
     enable = true;
     systemd.enable = true;
-    mainbar = {
-      modules-left = [
-        "sway/workspaces"
-      ];
+    settings = {
+      mainbar = {
+        modules-left = [
+          "sway/workspaces"
+        ];
+      };
     };
   };
 
