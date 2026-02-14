@@ -131,6 +131,7 @@
       down = "n";
       up = "e";
       right = "i";
+      resize_amt = 10;
     in {
     enable = true;
     wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps
@@ -142,17 +143,17 @@
           ws = toString num;
         in {
           "${mod}+${ws}" = "workspace number ${ws}";
-          "${mod}+Shift+${ws}" = "move container to workspace ${ws}";
+          "${mod}+Shift+${ws}" = "move container to workspace number ${ws}";
         }) [1 2 3 4 5 6 7 8 9 0]))
 
         (lib.attrsets.concatMapAttrs (key: direction: {
             "${mod}+${key}" = "focus ${direction}";
-            "${mod}+Ctrl+${key}" = "move ${direction}";
+            "${mod}+Shift+${key}" = "move ${direction}";
           }) {
-            left = left;
-            down = down;
-            up = up;
-            right = right;
+            "${left}" = left;
+            "${down}" = down;
+            "${up}" = up;
+            "${right}" = right;
           })
 
         {
@@ -173,9 +174,58 @@
           "--release Print" = "exec --no-startup-id ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
           "${mod}+l" = "exec ${pkgs.swaylock-fancy}/bin/swaylock-fancy";
           "${mod}+Ctrl+q" = "exit";
+          "${mod}+p" = "mode \"resize\"";
+          # swap focus between tiling area and floating area
+          "${mod}+space" = "focus mode_toggle";
+          # toggle current focus between tiling and floating mode
+          "${mod}+Shift+space" = "floating toggle";
+
+          # Move focus with arrow keys
+          "${mod}+Left" = "focus left";
+          "${mod}+Down" = "focus down";
+          "${mod}+Up" = "focus up";
+          "${mod}+Right" = "focus right";
+          # Move focused window with arrow keys
+          "${mod}+Shift+Left" = "move left";
+          "${mod}+Shift+Down" = "move down";
+          "${mod}+Shift+Up" = "move up";
+          "${mod}+Shift+Right" = "move right";
+
+          # scratchpad stuff
+          # Move currently focused window to the scratchpad
+          "${mod}+Shift+minus" = "move scratchpad";
+          # Show/hide (focused) scratchpad window. If multiple scratchpad windows,
+          # cycles throught them
+          "${mod}+minus" = "scratchpad show";
         }
       ];
       focus.followMouse = false;
+      modes = {
+        resize = {
+          # for n, e, i, o keys
+          ${left} = "resize shrink width ${resize_amt} px";
+          ${down} = "resize grow height ${resize_amt} px";
+          ${up} = "resize shrink height ${resize_amt} px";
+          ${right} = "resize grow width ${resize_amt} px";
+          # for arrow keys
+          "Left" = "resize shrink width ${resize_amt} px";
+          "Down "= "resize grow height ${resize_amt} px";
+          "Up" = "resize shrink height ${resize_amt} px";
+          "Right" = "resize grow width ${resize_amt} px";
+
+          # return to default mode
+          "Return" = "mode \"default\"";
+          "Escape" = "mode \"default\"";
+        };
+      };
+      input = {
+        "type:keyboard" = {
+          "xkb_layout" = "us, us";
+          "xkb_variant" = "colemak,";
+          "xkb_options" = "grp:alt_shift_toggle";
+        };
+      };
+      bars = [];
     };
   };
   programs.rofi = {
@@ -186,6 +236,9 @@
     extraConfig = {
       show-icons = true;
     };
+  };
+  programs.waybar = {
+    enable = true;
   };
 
   # This value determines the home Manager release that your
