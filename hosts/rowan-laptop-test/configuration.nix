@@ -24,8 +24,11 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # enable polkit for sway
+  # sway configuration stuff
   security.polkit.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  programs.light.enable = true;
+  programs.sway.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
@@ -55,7 +58,7 @@
   users.users.rowan = {
     isNormalUser = true;
     description = "rowan";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     packages = with pkgs; [];
   };
 
