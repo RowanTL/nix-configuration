@@ -131,7 +131,7 @@
       down = "n";
       up = "e";
       right = "i";
-      resize_amt = 10;
+      resize_amt = "10";
     in {
     enable = true;
     wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps
