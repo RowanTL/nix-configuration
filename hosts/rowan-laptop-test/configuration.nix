@@ -77,7 +77,8 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
+  # Display Manager
+  services.displayManager.ly.enable = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
