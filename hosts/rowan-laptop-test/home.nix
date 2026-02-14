@@ -150,10 +150,10 @@
             "${mod}+${key}" = "focus ${direction}";
             "${mod}+Shift+${key}" = "move ${direction}";
           }) {
-            "${left}" = left;
-            "${down}" = down;
-            "${up}" = up;
-            "${right}" = right;
+            "${left}" = "left";
+            "${down}" = "down";
+            "${up}" = "up";
+            "${right}" = "right";
           })
 
         {
