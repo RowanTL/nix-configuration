@@ -6,6 +6,7 @@
   imports = [
     ./../../modules/home/helix.nix
     ./../../modules/home/git.nix
+    ./../../modules/home/ssh.nix
   ];
 
   home.username = "rowan";
@@ -119,6 +120,7 @@
   # Enable my custom configs
   helix.enable = true;
   git.enable = true;
+  ssh.enable = true;
 
   # Sway Configuration
   # https://d19qhx4ioawdt7.cloudfront.net/docs/nix-home-manager-sway.html
@@ -239,6 +241,12 @@
   };
   programs.waybar = {
     enable = true;
+    systemd.enable = true;
+    mainbar = {
+      modules-left = [
+        "sway/workspaces"
+      ];
+    };
   };
 
   # This value determines the home Manager release that your
