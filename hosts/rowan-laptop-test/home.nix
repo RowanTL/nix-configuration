@@ -228,7 +228,25 @@
         };
       };
       bars = [
-        {command = "${pkgs.waybar}/bin/waybar"; }
+        # {command = "${pkgs.waybar}/bin/waybar"; }
+      ];
+      startup = [
+        {
+          command = "systemctl --user restart kanshi";
+          always = true;
+        }
+        {
+          command = "systemctl --user restart waybar";
+          always = true;
+        }
+        {
+          command = "systemctl --user restart swayidle";
+          always = true;
+        }
+        # {
+        #   command = "systemctl --user restart swayr";
+        #   always = true;
+        # }
       ];
     };
   };
@@ -265,6 +283,27 @@
 
   services.kanshi = {
     enable = true;
+  };
+
+  services.swayidle = {
+    enable = true;
+    events = [
+      {
+        event = "before-sleep";
+        command = "${pkgs.swaylock-fancy}/bin/swaylock-fancy -fF";
+      }
+      {
+        event = "lock";
+        command = "lock";
+      }
+    ];
+    timeouts = [
+      {
+        timeout = 600;
+        command = "${pkgs.sway}/bin/swaymsg \"output * power off\"";
+        resumeCommand = "${pkgs.sway}/bin/swaymsg \"output * power on\"";
+      }
+    ];
   };
 
   # This value determines the home Manager release that your
