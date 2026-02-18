@@ -228,17 +228,17 @@
         };
       };
       bars = [
-        # {command = "${pkgs.waybar}/bin/waybar"; }
+        {command = "${pkgs.waybar}/bin/waybar"; }
       ];
       startup = [
-        {
-          command = "systemctl --user restart kanshi";
-          always = true;
-        }
-        {
-          command = "systemctl --user restart waybar";
-          always = true;
-        }
+        # {
+        #   command = "systemctl --user restart kanshi";
+        #   always = true;
+        # }
+        # {
+        #   command = "systemctl --user restart waybar";
+        #   always = true;
+        # }
         {
           command = "systemctl --user restart swayidle";
           always = true;
@@ -281,25 +281,16 @@
     SUDO_EDITOR = "hx";
   };
 
-  services.kanshi = {
-    enable = true;
-  };
+  # don't really need this at the moment
+  # services.kanshi = {
+  #   enable = true;
+  # };
 
   services.swayidle = {
     enable = true;
-    # events = [
-    #   {
-    #     event = "before-sleep";
-    #     command = "${pkgs.swaylock-fancy}/bin/swaylock-fancy -fF";
-    #   }
-    #   {
-    #     event = "lock";
-    #     command = "lock";
-    #   }
-    # ];
     events = {
-      before-sleep = "${pkgs.swaylock-fancy}/bin/swaylock-fancy -fF";
-      lock = "lock";
+      "before-sleep" = "${pkgs.swaylock-fancy}/bin/swaylock-fancy -fF";
+      "lock" = "lock";
     };
     timeouts = [
       {
