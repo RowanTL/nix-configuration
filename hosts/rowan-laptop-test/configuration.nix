@@ -15,7 +15,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "rowan-laptop-test"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -29,6 +28,7 @@
   services.gnome.gnome-keyring.enable = true;
   programs.light.enable = true;
   programs.sway.enable = true;
+  programs.waybar.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
