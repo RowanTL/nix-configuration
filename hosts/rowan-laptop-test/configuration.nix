@@ -28,7 +28,6 @@
   services.gnome.gnome-keyring.enable = true;
   programs.light.enable = true;
   programs.sway.enable = true;
-  programs.waybar.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
