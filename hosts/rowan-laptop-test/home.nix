@@ -251,6 +251,20 @@
     };
   };
 
+  home.file.".hm-graphical-session".text = pkgs.lib.concatStringsSep "\n" [
+    "export MOZ_ENABLE_WAYLAND=1"
+    "export NIXOS_OZONE_WL=1" # Electron
+  ];
+  home.sessionVariables = {
+    XDG_CURRENT_DESKTOP = "sway";
+    EDITOR = "hx";
+    SUDO_EDITOR = "hx";
+  };
+
+  services.kanshi = {
+    enable = true;
+  };
+
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new home Manager release introduces backwards
