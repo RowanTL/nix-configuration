@@ -287,16 +287,20 @@
 
   services.swayidle = {
     enable = true;
-    events = [
-      {
-        event = "before-sleep";
-        command = "${pkgs.swaylock-fancy}/bin/swaylock-fancy -fF";
-      }
-      {
-        event = "lock";
-        command = "lock";
-      }
-    ];
+    # events = [
+    #   {
+    #     event = "before-sleep";
+    #     command = "${pkgs.swaylock-fancy}/bin/swaylock-fancy -fF";
+    #   }
+    #   {
+    #     event = "lock";
+    #     command = "lock";
+    #   }
+    # ];
+    events = {
+      before-sleep = "${pkgs.swaylock-fancy}/bin/swaylock-fancy -fF";
+      lock = "lock";
+    };
     timeouts = [
       {
         timeout = 600;
