@@ -270,6 +270,7 @@
       mainbar = {
         modules-left = [
           "sway/workspaces"
+          "sway/mode"
         ];
         modules-center = [
           "sway/window"
@@ -306,6 +307,9 @@
         };
         workspaces = {
           sort-by-number = true;
+        };
+        mode = {
+          format = "<span style=\"italic\">{}</span>";
         };
       };
     };
