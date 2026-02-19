@@ -298,7 +298,7 @@
         };
         network = {
           format-wifi = "{essid} ({signalStrength})";
-          format-ethernet = "{essid}/{cidr}";
+          format-ethernet = "{ipaddr}/{cidr}";
           tooltip-format = "{ifname} via {gwaddr}";
           format-linked = "{ifname} (No IP)";
           format-disconnected = "Disconnected";
