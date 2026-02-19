@@ -204,5 +204,23 @@
       "export MOZ_ENABLE_WAYLAND=1"
       "export NIXOS_OZONE_WL=1" # Electron
     ];
+    home.sessionVariables = {
+      XDG_CURRENT_DESKTOP = "sway";
+    };
+
+    services.swayidle = {
+      enable = true;
+      events = {
+        "before-sleep" = "${pkgs.swaylock-fancy}/bin/swaylock-fancy -fF";
+        "lock" = "lock";
+      };
+      timeouts = [
+        {
+          timeout = 600;
+          command = "${pkgs.sway}/bin/swaymsg \"output * power off\"";
+          resumeCommand = "${pkgs.sway}/bin/swaymsg \"output * power on\"";
+        }
+      ];
+    };
   };
 }
