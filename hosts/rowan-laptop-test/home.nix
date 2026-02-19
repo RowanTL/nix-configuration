@@ -146,7 +146,7 @@
         in {
           "${mod}+${ws}" = "workspace number ${ws}";
           "${mod}+Shift+${ws}" = "move container to workspace number ${ws}";
-        }) [1 2 3 4 5 6 7 8 9 0]))
+        }) [1 2 3 4 5 6 7 8 9]))
 
         (lib.attrsets.concatMapAttrs (key: direction: {
             "${mod}+${key}" = "focus ${direction}";
@@ -159,6 +159,10 @@
           })
 
         {
+          # special case for workspace 10
+          "${mod}+0" = "workspace number 10";
+          "${mod}+Shift+0" = "move container to workspace number 10";
+           
           "${mod}+Return" = "exec --no-startup-id ${pkgs.alacritty}/bin/alacritty";
           "${mod}+d" = "exec --no-startup-id rofi -show drun -show-icons";
 
