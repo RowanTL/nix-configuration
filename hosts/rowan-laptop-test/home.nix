@@ -271,6 +271,7 @@
           "sway/window"
         ];
         modules-right = [
+          "network"
           "battery"
           "clock"
         ];
@@ -290,6 +291,14 @@
           format-plugged = "{capacity}%p";
           format-alt = "{time}";
           format-icons = [];
+        };
+        network = {
+          format-wifi = "{essid} ({signalStrength})";
+          format-ethernet = "{essid}/{cidr}";
+          tooltip-format = "{ifname} via {gwaddr}";
+          format-linked = "{ifname} (No IP)";
+          format-disconnected = "Disconnected";
+          format-alt = "{ifname}: {ipaddr}/{cidr}";
         };
         workspaces = {
           sort-by-number = true;
