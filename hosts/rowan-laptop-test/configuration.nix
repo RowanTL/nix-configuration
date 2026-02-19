@@ -114,6 +114,23 @@
   # Display Manager
   services.displayManager.ly.enable = true;
 
+  # Syncthing
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+    settings = {
+      devices = {
+        "desktop" = {id = "OJYCLD3-L7O6TLX-E6GGVQ2-XMPNIWR-EJMW56I-2OMCG7H-AJDIXKE-DISX4AJ"; };
+      };
+      folders = {
+        "Documents" = {
+          path = "/home/rowan/Documents";
+          devices = [ "desktop" ];
+        };
+      };
+    };
+  };
+
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
