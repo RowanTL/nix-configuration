@@ -175,7 +175,7 @@
           "${mod}+Shift+r" = "exec swaymsg reload";
           "--release Print" = "exec --no-startup-id ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
           "${mod}+l" = "exec ${pkgs.swaylock-fancy}/bin/swaylock-fancy";
-          "${mod}+Ctrl+q" = "exit";
+          "${mod}+Shift+l" = "exit";
           "${mod}+p" = "mode \"resize\"";
           # swap focus between tiling area and floating area
           "${mod}+space" = "focus mode_toggle";
@@ -267,6 +267,33 @@
         modules-left = [
           "sway/workspaces"
         ];
+        modules-center = [
+          "sway/window"
+        ];
+        modules-right = [
+          "battery"
+          "clock"
+        ];
+        clock = {
+          format = "{:%Y-%m-%d %H:%M}";
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+        };
+        battery = {
+          states = {
+            good = 95;
+            warning = 30;
+            critical = 15;
+          };
+          format = "{capacity}%";
+          format-full = "{capacity}%";
+          format-charging = "{capacity}%!";
+          format-plugged = "{capacity}%p";
+          format-alt = "{time}";
+          format-icons = [];
+        };
+        workspaces = {
+          sort-by-number = true;
+        };
       };
     };
   };
