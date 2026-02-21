@@ -118,13 +118,16 @@
   services.syncthing = {
     enable = true;
     openDefaultPorts = true;
+    user = "rowan";
+    dataDir = "/home/rowan/syncthing";
+    configDir = "/home/rowan/.config/syncthing";
     settings = {
       devices = {
         "desktop" = {id = "OJYCLD3-L7O6TLX-E6GGVQ2-XMPNIWR-EJMW56I-2OMCG7H-AJDIXKE-DISX4AJ"; };
       };
       folders = {
-        "Documents" = {
-          path = "/home/rowan/Documents";
+        "bvjky-kxgig" = {
+          path = "/home/rowan/Sync";
           devices = [ "desktop" ];
         };
       };
