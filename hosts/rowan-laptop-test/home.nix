@@ -9,6 +9,7 @@
     ./../../modules/home/git.nix
     ./../../modules/home/ssh.nix
     ./../../modules/home/sway.nix
+    ./../../modules/home/zed.nix
   ];
 
   home.username = "rowan";
@@ -54,6 +55,7 @@
   # Enable my custom configs
   # others are enabled in modules/home/default.nix
   home-sway.enable = true;
+  home-zed.enable = true;
 
   # don't really need this at the moment
   # services.kanshi = {
