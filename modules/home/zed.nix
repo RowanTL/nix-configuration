@@ -6,7 +6,7 @@
       = lib.mkEnableOption "enable custom zed";  
   };
   
-  config = lib.mkIf config.zed.enable {
+  config = lib.mkIf config.home-zed.enable {
     programs.zed-editor = {
       enable = true;
       extensions = [ "nix" "toml" "rust" "python" ];

@@ -6,7 +6,7 @@
       = lib.mkEnableOption "enable custom ssh config";  
   };
   
-  config = lib.mkIf config.ssh.enable {
+  config = lib.mkIf config.home-ssh.enable {
     programs.ssh = {
       enable = true;
       extraConfig = "

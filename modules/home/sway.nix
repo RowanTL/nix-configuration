@@ -6,7 +6,7 @@
       lib.mkEnableOption "enable custom sway config";
   };
 
-  config = lib.mkIf config.sway.enable {
+  config = lib.mkIf config.home-sway.enable {
     # Sway Configuration
     # https://d19qhx4ioawdt7.cloudfront.net/docs/nix-home-manager-sway.html
     # Entirety of OP's sway configuration in nix.

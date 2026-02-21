@@ -6,7 +6,7 @@
       = lib.mkEnableOption "enable custom helix";  
   };
   
-  config = lib.mkIf config.helix.enable {
+  config = lib.mkIf config.home-helix.enable {
     programs.helix = {
       enable = true;
       settings = {

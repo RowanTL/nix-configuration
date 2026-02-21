@@ -6,7 +6,7 @@
       = lib.mkEnableOption "enable custom git";  
   };
   
-  config = lib.mkIf config.git.enable {
+  config = lib.mkIf config.home-git.enable {
     programs.git = {
       enable = true;
       settings = {
