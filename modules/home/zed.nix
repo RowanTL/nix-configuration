@@ -52,7 +52,7 @@
         {
           context = "(VimControl && !menu)";
           bindings = {
-            "g f" = "editor::PreviousWordEnd";
+            "g f" = "vim::PreviousWordEnd";
           };
         }
         {
@@ -100,13 +100,13 @@
         {
           context = "(VimControl && !menu)";
           bindings = {
-            j = "null";
+            j = null;
           };
         }
         {
           context = "(VimControl && !menu)";
           bindings = {
-            "g j" = "null";
+            "g j" = null;
           };
         }
         {
@@ -118,7 +118,7 @@
         {
           context = "(VimControl && !menu)";
           bindings = {
-            ctrl-j = "null";
+            ctrl-j = null;
           };
         }
         {
@@ -178,19 +178,19 @@
         {
           context = "((vim_mode == normal || vim_mode == helix_normal) && !menu)";
           bindings = {
-            shift-l = "editor::InsertFirstNonWhitespace";
+            shift-l = "vim::InsertFirstNonWhitespace";
           };
         }
         {
           context = "((vim_mode == normal || vim_mode == helix_normal) && !menu)";
           bindings = {
-            shift-i = "null";
+            shift-i = null;
           };
         }
         {
           context = "vim_mode == visual";
           bindings = {
-            shift-i = "null";
+            shift-i = null;
           };
         }
         {
@@ -202,7 +202,7 @@
         {
           context = "(VimControl || (!Editor && !Terminal))";
           bindings = {
-            "ctrl-w l" = "null";
+            "ctrl-w l" = null;
           };
         }
         {
@@ -214,7 +214,7 @@
         {
           context = "(VimControl || (!Editor && !Terminal))";
           bindings = {
-            "ctrl-w j" = "null";
+            "ctrl-w j" = null;
           };
         }
         {
