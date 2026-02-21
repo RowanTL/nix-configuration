@@ -122,13 +122,13 @@
           };
         }
         {
-          context = "(vim_mode == helix_mode && !menu)";
+          context = "(vim_mode == helix_normal && !menu)";
           bindings = {
             l = "vim::HelixInsert";
           };
         }
         {
-          context = "(vim_mode == helix_mode && !menu)";
+          context = "(vim_mode == helix_normal && !menu)";
           bindings = {
             i = "vim::WrappingRight";
           };
@@ -140,7 +140,7 @@
           };
         }
         {
-          context = "(vim_mode == helix_mode && !menu)";
+          context = "(vim_mode == helix_normal && !menu)";
           bindings = {
             "g e" = "vim::EndOfDocument";
           };
