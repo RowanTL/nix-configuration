@@ -6,7 +6,7 @@
       = lib.mkEnableOption "enable basic programs for sway";  
   };
   
-  config = lib.mkIf config.git.enable {
+  config = lib.mkIf config.sway.enable {
     security.polkit.enable = true;
     services.gnome.gnome-keyring.enable = true;
     programs.light.enable = true;
