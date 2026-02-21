@@ -2,7 +2,7 @@
 
 {
   options = {
-    sway.enable =
+    home-sway.enable =
       lib.mkEnableOption "enable custom sway config";
   };
 

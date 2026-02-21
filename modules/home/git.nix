@@ -2,7 +2,7 @@
 
 {
   options = {
-    git.enable
+    home-git.enable
       = lib.mkEnableOption "enable custom git";  
   };
   

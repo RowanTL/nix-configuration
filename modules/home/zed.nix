@@ -2,7 +2,7 @@
 
 {
   options = {
-    zed.enable
+    home-zed.enable
       = lib.mkEnableOption "enable custom zed";  
   };
   

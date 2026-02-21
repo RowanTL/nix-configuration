@@ -6,6 +6,7 @@
   imports = [
     ./helix.nix
     ./git.nix
+    ./ssh.nix
   ];
 
   home.username = "rowan";
@@ -91,16 +92,6 @@
   # alacritty - a cross-platform, GPU-accelerated terminal emulator
   programs.alacritty = {
     enable = true;
-    # custom settings
-    # settings = {
-      # env.TERM = "xterm-256color";
-      # font = {
-        # size = 12;
-        # draw_bold_text_with_bright_colors = true;
-      # };
-      # scrolling.multiplier = 5;
-      # selection.save_to_clipboard = true;
-    # };
   };
 
   programs.bash = {
@@ -117,8 +108,14 @@
   };
 
   # Enable my custom configs
-  helix.enable = true;
-  git.enable = true;
+  home-helix.enable = true;
+  home-git.enable = true;
+  home-ssh.enable = true;
+
+  home.sessionVariables = {
+    EDITOR = "hx";
+    SUDO_EDITOR = "hx";
+  };
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage

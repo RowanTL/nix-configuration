@@ -4,6 +4,7 @@
 # https://nixos-and-flakes.thiscute.world/nixos-with-flakes/start-using-home-manager
 {
   imports = [
+    ./../../modules/home
     ./../../modules/home/helix.nix
     ./../../modules/home/git.nix
     ./../../modules/home/ssh.nix
@@ -37,56 +38,6 @@
     # "Xft.dpi" = 172;
   # };
 
-  home.packages = with pkgs; [
-    neofetch
-    brave
-
-    # archives
-    zip
-    xz
-    unzip
-    p7zip
-
-    # misc
-    file
-    which
-    tree
-    gnused
-    gnutar
-    gawk
-    zstd
-    gnupg
-
-    # nix related
-    #
-    # it provides the command `nom` works just like `nix`
-    # with more details log output
-    nix-output-monitor
-
-    # productivity
-    glow # markdown previewer in terminal
-
-    btop  # replacement of htop/nmon
-
-    # system tools
-    sysstat
-    lm_sensors # for `sensors` command
-    ethtool
-    pciutils # lspci
-    usbutils # lsusb
-    unixtools.net-tools
-  ];
-
-  programs.librewolf = {
-    enable = true;
-    # https://nixos.wiki/wiki/Librewolf
-  };
-
-  # alacritty - a cross-platform, GPU-accelerated terminal emulator
-  programs.alacritty = {
-    enable = true;
-  };
-
   programs.bash = {
     enable = true;
     enableCompletion = true;
@@ -101,15 +52,8 @@
   };
 
   # Enable my custom configs
-  helix.enable = true;
-  git.enable = true;
-  ssh.enable = true;
-  sway.enable = true;
-
-  home.sessionVariables = {
-    EDITOR = "hx";
-    SUDO_EDITOR = "hx";
-  };
+  # others are enabled in modules/home/default.nix
+  home-sway.enable = true;
 
   # don't really need this at the moment
   # services.kanshi = {

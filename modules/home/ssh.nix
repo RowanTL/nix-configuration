@@ -2,7 +2,7 @@
 
 {
   options = {
-    ssh.enable
+    home-ssh.enable
       = lib.mkEnableOption "enable custom ssh config";  
   };
   

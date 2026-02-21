@@ -2,7 +2,7 @@
 
 {
   options = {
-    helix.enable
+    home-helix.enable
       = lib.mkEnableOption "enable custom helix";  
   };
   
