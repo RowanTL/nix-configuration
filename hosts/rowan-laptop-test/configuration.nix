@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../../modules/os/sway.nix
     ];
 
   # Bootloader.
@@ -24,10 +25,7 @@
   networking.networkmanager.enable = true;
 
   # sway configuration stuff
-  security.polkit.enable = true;
-  services.gnome.gnome-keyring.enable = true;
-  programs.light.enable = true;
-  programs.sway.enable = true;
+  sway.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
