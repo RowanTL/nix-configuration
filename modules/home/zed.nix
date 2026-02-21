@@ -64,7 +64,7 @@
         {
           context = "(vim_mode == helix_normal && !menu)";
           bindings = {
-            "g k" = "editor::ActivateNextItem";
+            "g k" = "pane::ActivateNextItem";
           };
         }
         {
