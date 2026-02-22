@@ -15,7 +15,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "rowan-laptop-test"; # Define your hostname.
+  networking.hostName = "rowan-laptop";
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
