@@ -23,6 +23,21 @@
   in
   {
     nixosConfigurations = {
+      rowan-laptop = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit system; };
+
+        modules = [
+          ./hosts/rowan-laptop/configuration.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+
+            home-manager.users.rowan = import ./hosts/rowan-laptop/home.nix;
+          }
+        ];
+      };
       rowan-server = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit system; };
 
