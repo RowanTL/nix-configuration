@@ -67,7 +67,7 @@
           outputs = [
             {
               criteria = "eDP-1";
-              scale = 1.2;
+              scale = 1.1;
               status = "enable";
             }
           ];
