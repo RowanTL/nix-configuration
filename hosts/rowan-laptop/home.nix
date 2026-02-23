@@ -57,10 +57,17 @@
   home-sway.enable = true;
   home-zed.enable = true;
 
-  # don't really need this at the moment
-  # services.kanshi = {
-  #   enable = true;
-  # };
+  # need to scale my stuff
+  services.kanshi = {
+    enable = true;
+    profiles = {
+      main = {
+        criteria = "eDP-1";
+        scale = 1.5
+        status = "enable";
+      };
+    };
+  };
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
