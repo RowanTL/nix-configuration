@@ -169,7 +169,7 @@
             "clock"
           ];
           clock = {
-            format = "{:%Y-%m-%d %H:%M}";
+            format = "{:%Y-%m-%d %H:%M:%S}";
             tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
           };
           battery = {
@@ -186,7 +186,7 @@
             format-icons = [];
           };
           network = {
-            format-wifi = "{essid} ({signalStrength})";
+            format-wifi = "{essid} ({signalStrength}%)";
             format-ethernet = "{ipaddr}/{cidr}";
             tooltip-format = "{ifname} via {gwaddr}";
             format-linked = "{ifname} (No IP)";
