@@ -63,15 +63,14 @@
     settings = [
       {
         profile = {
-          main = {
-            outputs = [
-              {
-                criteria = "eDP-1";
-                scale = 1.2;
-                status = "enable";
-              }
-            ];
-          };
+          name = "main";
+          outputs = [
+            {
+              criteria = "eDP-1";
+              scale = 1.2;
+              status = "enable";
+            }
+          ];
         };
       }
     ];
