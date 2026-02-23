@@ -79,12 +79,12 @@
             k = "vim::MoveToNextMatch";
           };
         }
-        {
-          context = "(VimControl && !menu)";
-          bindings = {
-            "g n" = [ "vim::Down" {display_lines = true; } ];
-          };
-        }
+        # {
+        #   context = "(VimControl && !menu)";
+        #   bindings = {
+        #     "g n" = [ "vim::Down" {display_lines = true; } ];
+        #   };
+        # }
         {
           context = "(VimControl && !menu)";
           bindings = {
