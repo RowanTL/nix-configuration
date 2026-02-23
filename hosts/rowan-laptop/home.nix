@@ -62,9 +62,13 @@
     enable = true;
     profiles = {
       main = {
-        criteria = "eDP-1";
-        scale = 1.5;
-        status = "enable";
+        outputs = [
+          {
+            criteria = "eDP-1";
+            scale = 1.5;
+            status = "enable";
+          }
+        ];
       };
     };
   };
