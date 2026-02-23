@@ -229,6 +229,18 @@
             "ctrl-w e" = "workspace::ActivatePaneUp";
           };
         }
+        {
+          context = "((vim_mode == helix_normal || vim_mode == helix_select) && !menu)";
+          bindings = {
+            "g p" = "pane::ActivatePreviousItem";
+          };
+        }
+        {
+          context = "((vim_mode == helix_normal || vim_mode == helix_select) && !menu)";
+          bindings = {
+            "g n" = "pane::ActivateNextItem";
+          };
+        }
       ];
     };
   };
