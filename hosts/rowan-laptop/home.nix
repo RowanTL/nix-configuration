@@ -60,17 +60,21 @@
   # need to scale my stuff
   services.kanshi = {
     enable = true;
-    profiles = {
-      main = {
-        outputs = [
-          {
-            criteria = "eDP-1";
-            scale = 1.5;
-            status = "enable";
-          }
-        ];
-      };
-    };
+    settings = [
+      {
+        profile = {
+          main = {
+            outputs = [
+              {
+                criteria = "eDP-1";
+                scale = 1.2;
+                status = "enable";
+              }
+            ];
+          };
+        };
+      }
+    ];
   };
 
   # This value determines the home Manager release that your
