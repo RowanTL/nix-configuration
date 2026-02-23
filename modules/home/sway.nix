@@ -214,7 +214,7 @@
     services.swayidle = {
       enable = true;
       events = {
-        "before-sleep" = "${pkgs.swaylock-fancy}/bin/swaylock-fancy -fF";
+        "before-sleep" = "${pkgs.swaylock-fancy}/bin/swaylock-fancy";
         "lock" = "lock";
       };
       timeouts = [
