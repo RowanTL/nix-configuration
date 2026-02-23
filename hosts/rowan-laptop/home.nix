@@ -63,7 +63,7 @@
     profiles = {
       main = {
         criteria = "eDP-1";
-        scale = 1.5
+        scale = 1.5;
         status = "enable";
       };
     };
