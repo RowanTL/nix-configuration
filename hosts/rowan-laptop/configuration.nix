@@ -74,9 +74,9 @@
   hardware.graphics = {
     enable = true;
     # https://wiki.nixos.org/wiki/Intel_Graphics
-    extraPackages = with pkgs; [
-      intel-media-sdk
-    ];
+    # extraPackages = with pkgs; [
+      # intel-media-sdk # marked as insecure so don't use
+    # ];
   };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
