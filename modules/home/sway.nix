@@ -25,6 +25,9 @@
       config = {
         modifier = mod;
         terminal = "alacritty"; 
+        fonts = {
+          size = 11.0;
+        }
         keybindings = lib.attrsets.mergeAttrsList [
           (lib.attrsets.mergeAttrsList (map (num: let
             ws = toString num;
