@@ -132,7 +132,7 @@
           #   always = true;
           # }
           {
-            command = "systemctl --user restart swayidle";
+            command = "sleep 5 && systemctl --user restart swayidle";
             always = true;
           }
           # {
