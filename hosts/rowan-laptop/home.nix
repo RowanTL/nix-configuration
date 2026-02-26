@@ -39,6 +39,10 @@
     # "Xft.dpi" = 172;
   # };
 
+  home.packages = with pkgs; [
+    legcord
+  ];
+
   programs.bash = {
     enable = true;
     enableCompletion = true;
