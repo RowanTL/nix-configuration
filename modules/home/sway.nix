@@ -66,7 +66,7 @@
 
             "${mod}+Shift+r" = "exec swaymsg reload";
             "--release Print" = "exec --no-startup-id ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
-            "${mod}+l" = "exec ${pkgs.swaylock-fancy}/bin/swaylock-fancy";
+            "${mod}+l" = "exec ${pkgs.swaylock}/bin/swaylock";
             "${mod}+Shift+l" = "exit";
             "${mod}+p" = "mode \"resize\"";
             # swap focus between tiling area and floating area
@@ -214,7 +214,7 @@
     services.swayidle = {
       enable = true;
       events = {
-        "before-sleep" = "${pkgs.swaylock-fancy}/bin/swaylock-fancy";
+        "before-sleep" = "${pkgs.swaylock}/bin/swaylock";
         "lock" = "lock";
       };
       timeouts = [
@@ -229,7 +229,7 @@
       grim
       mako # notifications
       slurp
-      swaylock-fancy
+      swaylock
       wl-clipboard
       libsForQt5.qt5ct
       libsForQt5.qtstyleplugin-kvantum
