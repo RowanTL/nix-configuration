@@ -1,8 +1,20 @@
 # Overview
 
-This repo contains my NixOS configuration files. Subject to change as I learn more
-about flakes...
+This repo contains my NixOS configuration files.
 
-# TODO
+## Tree Structure
 
-- [ ] Make git modular as there is repeated code.
+### hosts folder
+
+This folder holds the code for the machines that share this configuration. My main
+machine is `rowan-laptop` at the moment.
+
+### modules folder
+
+This is split into to main categories. I have configuration used by home-manager and
+configuration used by nix directly. This is subject to change as I learn more.
+
+Basically the `home` folder contains configurations I use exclusively for `home-manager`. The
+`os` folder contains configurations used exclusively by the various `configuration.nix`s.
+
+The `default.nix` files contain configuration I deem common among my various machines.
