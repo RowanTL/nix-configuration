@@ -214,7 +214,7 @@
     services.swayidle = {
       enable = true;
       events = {
-        "before-sleep" = "${pkgs.swaylock}/bin/swaylock";
+        "before-sleep" = "${pkgs.swaylock}/bin/swaylock --daemonize";
         "lock" = "lock";
       };
       timeouts = [
@@ -222,6 +222,10 @@
           timeout = 600;
           command = "${pkgs.sway}/bin/swaymsg \"output * power off\"";
           resumeCommand = "${pkgs.sway}/bin/swaymsg \"output * power on\"";
+        }
+        {
+          timeout = 660;
+          command = "${pkgs.systemd}/bin/systemctl suspend";
         }
       ];
     };
