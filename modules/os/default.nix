@@ -8,6 +8,7 @@
   config = {
     environment.systemPackages = with pkgs; [
       pavucontrol
+      ncdu
     ];
     pass.enable = true;
   };
