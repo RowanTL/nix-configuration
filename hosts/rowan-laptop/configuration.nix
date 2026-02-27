@@ -10,6 +10,8 @@
       ./hardware-configuration.nix
       ../../modules/os/sway.nix
       ../../modules/os # basic configuration nice for all systems
+      ../../modules/os/intel.nix
+      ../../modules/os/power.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -24,8 +26,10 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # sway configuration stuff
+  # custom rowan stuff
   sway.enable = true;
+  intel.enable = true;
+  power.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
