@@ -3,6 +3,7 @@
 {
   imports = [
     ./pass.nix
+    ./tmux.nix
   ];
 
   config = {
@@ -11,5 +12,6 @@
       ncdu
     ];
     pass.enable = true;
+    tmux.enable = true;
   };
 }
