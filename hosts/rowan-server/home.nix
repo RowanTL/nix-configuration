@@ -4,8 +4,7 @@
 # https://nixos-and-flakes.thiscute.world/nixos-with-flakes/start-using-home-manager
 {
   imports = [
-    ./../../modules/home/helix.nix
-    ./../../modules/home/git.nix
+    ./../../modules/home
   ];
 
   home.username = "rowan";
@@ -37,88 +36,6 @@
     # "Xcursor.size" = 16;
     # "Xft.dpi" = 172;
   # };
-
-  # Packages that should be installed to the user profile.
-  home.packages = with pkgs; [
-    # here is some command line tools I use frequently
-    # feel free to add your own or remove some of them
-
-    neofetch
-    brave
-
-    # archives
-    zip
-    xz
-    unzip
-    p7zip
-
-    # misc
-    file
-    which
-    tree
-    gnused
-    gnutar
-    gawk
-    zstd
-    gnupg
-
-    # nix related
-    #
-    # it provides the command `nom` works just like `nix`
-    # with more details log output
-    nix-output-monitor
-
-    # productivity
-    glow # markdown previewer in terminal
-
-    btop  # replacement of htop/nmon
-
-    # system tools
-    sysstat
-    lm_sensors # for `sensors` command
-    ethtool
-    pciutils # lspci
-    usbutils # lsusb
-    unixtools.net-tools
-  ];
-
-  programs.librewolf = {
-    enable = true;
-    # Can add extra config here if wanted
-    # https://nixos.wiki/wiki/Librewolf
-  };
-
-  # alacritty - a cross-platform, GPU-accelerated terminal emulator
-  programs.alacritty = {
-    enable = true;
-    # custom settings
-    # settings = {
-      # env.TERM = "xterm-256color";
-      # font = {
-        # size = 12;
-        # draw_bold_text_with_bright_colors = true;
-      # };
-      # scrolling.multiplier = 5;
-      # selection.save_to_clipboard = true;
-    # };
-  };
-
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-    # TODO add your custom bashrc here
-    bashrcExtra = ''
-      export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
-    '';
-
-    # set some aliases, feel free to add more or remove some
-    # shellAliases = {
-    # };
-  };
-
-  # Enable my custom configs
-  helix.enable = true;
-  git.enable = true;
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
