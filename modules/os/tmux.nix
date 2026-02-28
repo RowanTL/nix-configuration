@@ -16,5 +16,5 @@
         set -g default-terminal "tmux-256color"
       '';
     }; 
-  }
+  };
 }
