@@ -46,6 +46,7 @@
 
     neofetch
     brave
+    signal-desktop
 
     # archives
     zip
