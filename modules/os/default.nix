@@ -10,6 +10,7 @@
     environment.systemPackages = with pkgs; [
       pavucontrol
       ncdu
+      wget
     ];
     pass.enable = true;
     tmux.enable = true;
