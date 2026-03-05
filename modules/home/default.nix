@@ -63,6 +63,7 @@
     gawk
     zstd
     gnupg
+    bluetuith
 
     # nix related
     #
