@@ -44,7 +44,7 @@
     # here is some command line tools I use frequently
     # feel free to add your own or remove some of them
 
-    neofetch
+    fastfetch
     brave
     signal-desktop
 
@@ -101,6 +101,7 @@
     # TODO add your custom bashrc here
     bashrcExtra = ''
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
+      export UV_PYTHON_DOWNLOADS=never
     '';
 
     # set some aliases, feel free to add more or remove some
