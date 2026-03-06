@@ -13,6 +13,7 @@
       ../../modules/os/intel.nix
       ../../modules/os/power.nix
       ../../modules/os/bluetooth.nix
+      ../../modules/os/ly.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -32,6 +33,7 @@
   intel.enable = true;
   power.enable = true;
   bluetooth.enable = true;
+  ly.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
@@ -91,9 +93,6 @@
     enable = true;
   #   enableSSHSupport = true;
   };
-
-  # Display Manager
-  services.displayManager.ly.enable = true;
 
   # Syncthing
   services.syncthing = {
