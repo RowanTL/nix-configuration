@@ -9,9 +9,11 @@
   config = lib.mkIf config.sway.enable {
     security.polkit.enable = true;
     services.gnome.gnome-keyring.enable = true;
-    programs.light.enable = true;
     programs.sway.enable = true;
-    environment.systemPackages = [ pkgs.pulseaudio ];
+    environment.systemPackages = with pkgs; [
+      pulseaudio
+      brightnessctl # light is no longer maintained :(
+    ];
 
     # Fix swayidle, kanshi, and others not finding WAYLAND_DISPLAY
     # https://github.com/NixOS/nixpkgs/issues/407700
