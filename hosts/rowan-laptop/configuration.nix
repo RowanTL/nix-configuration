@@ -31,7 +31,7 @@
   sway.enable = true;
   intel.enable = true;
   power.enable = true;
-  bluetooth.enabl = true;
+  bluetooth.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";

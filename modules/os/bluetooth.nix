@@ -2,7 +2,7 @@
 
 {
   options = {
-    bluetoothe.enable
+    bluetooth.enable
       = lib.mkEnableOption "enable custom bluetooth";
   };
 
