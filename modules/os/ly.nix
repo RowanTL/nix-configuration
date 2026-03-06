@@ -11,6 +11,6 @@
     security.pam.services = {
       swaylock.enableGnomeKeyring = true;
       ly.enableGnomeKeyring = true;
-    }
+    };
   };
 }
