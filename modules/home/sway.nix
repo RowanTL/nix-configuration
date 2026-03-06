@@ -202,12 +202,12 @@
             format-alt = "{ifname}: {ipaddr}/{cidr}";
           };
           pulseaudio = {
-            format = "{volume}% {icon} {format_source}";
-            format-bluetooth = "{volume}% {icon}B {format_source}";
-            format-bluetooth-muted = "M {icon}B {format_source}";
-            format-muted = "M {format_source}";
-            format-source = "{volume}%";
-            format-source-muted = "M";
+            format = "Vol: {volume}%";
+            format-bluetooth = "Vol: {volume}%B";
+            format-bluetooth-muted = "Vol: M B";
+            format-muted = "Vol: M";
+            format-source = "Vol: {volume}%";
+            format-source-muted = "Vol: M";
             on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
           };
           workspaces = {
