@@ -11,6 +11,7 @@
     services.gnome.gnome-keyring.enable = true;
     programs.light.enable = true;
     programs.sway.enable = true;
+    environment.systemPackages = [ pkgs.pulseaudio ];
 
     # Fix swayidle, kanshi, and others not finding WAYLAND_DISPLAY
     # https://github.com/NixOS/nixpkgs/issues/407700
