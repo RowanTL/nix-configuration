@@ -127,6 +127,8 @@
     modesetting.enable = true;
     open = true;
   };
+  hardware.nvidia-container-toolkit.enable
+  virtualisation.docker.enable = true;
 
   services.xserver.videoDrivers = ["nvidia"];
 
