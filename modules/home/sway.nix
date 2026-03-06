@@ -171,7 +171,7 @@
             "sway/window"
           ];
           modules-right = [
-            "audio"
+            "pulseaudio"
             "network"
             "battery"
             "clock"
@@ -201,7 +201,7 @@
             format-disconnected = "Disconnected";
             format-alt = "{ifname}: {ipaddr}/{cidr}";
           };
-          audio = {
+          pulseaudio = {
             format = "{volume}% {icon} {format_source}";
             format-bluetooth = "{volume}% {icon}B {format_source}";
             format-bluetooth-muted = "M {icon}B {format_source}";
