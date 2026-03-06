@@ -9,6 +9,7 @@
   config = lib.mkIf config.home-ssh.enable {
     programs.ssh = {
       enable = true;
+      enableDefaultConfig = false;
       extraConfig = "
         Host github.com
           Hostname github.com
