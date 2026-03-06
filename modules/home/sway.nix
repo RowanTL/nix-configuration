@@ -171,6 +171,7 @@
             "sway/window"
           ];
           modules-right = [
+            "audio"
             "network"
             "battery"
             "clock"
@@ -199,6 +200,15 @@
             format-linked = "{ifname} (No IP)";
             format-disconnected = "Disconnected";
             format-alt = "{ifname}: {ipaddr}/{cidr}";
+          };
+          audio = {
+            format = "{volume}% {icon} {format_source}";
+            format-bluetooth = "{volume}% {icon}B {format_source}";
+            format-bluetooth-muted = "M {icon}B {format_source}";
+            format-muted = "M {format_source}";
+            format-source = "{volume}%";
+            format-source-muted = "M";
+            on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
           };
           workspaces = {
             sort-by-number = true;
