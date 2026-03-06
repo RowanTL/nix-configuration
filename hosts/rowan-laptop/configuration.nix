@@ -12,6 +12,7 @@
       ../../modules/os # basic configuration nice for all systems
       ../../modules/os/intel.nix
       ../../modules/os/power.nix
+      ../../modules/os/bluetooth.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -30,6 +31,7 @@
   sway.enable = true;
   intel.enable = true;
   power.enable = true;
+  bluetooth.enabl = true;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
