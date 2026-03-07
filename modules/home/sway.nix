@@ -171,6 +171,7 @@
             "sway/window"
           ];
           modules-right = [
+            "idle_inhibitor"
             "pulseaudio"
             "network"
             "battery"
@@ -209,6 +210,13 @@
             format-source = "Vol: {volume}%";
             format-source-muted = "Vol: M";
             on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
+          };
+          idle_inhibitor = {
+            format = "{icon}";
+            format-icons = {
+              activated = "A";
+              deactivated = "D";
+            };
           };
           workspaces = {
             sort-by-number = true;
