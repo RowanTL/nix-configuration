@@ -176,7 +176,11 @@
             "network"
             "battery"
             "clock"
+            "tray"
           ];
+          tray = {
+            spacing = "10";
+          };
           clock = {
             format = "{:%Y-%m-%d %H:%M}";
             tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
