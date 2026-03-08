@@ -28,6 +28,7 @@
         fonts = {
           size = 11.0;
         };
+        defaultWorkspace = "workspace number 1";
         keybindings = lib.attrsets.mergeAttrsList [
           (lib.attrsets.mergeAttrsList (map (num: let
             ws = toString num;
