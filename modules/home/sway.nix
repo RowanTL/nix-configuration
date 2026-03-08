@@ -96,6 +96,8 @@
             # brightness and volume keybindings
             "XF86MonBrightnessDown" = "exec brightnessctl s 1-";
             "XF86MonBrightnessUp" = "exec brightnessctl s +1";
+            "Shift + XF86MonBrightnessDown" = "exec brightnessctl s 5-";
+            "Shift + XF86MonBrightnessUp" = "exec brightnessctl s +5";
             "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +1%";
             "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -1%";
             "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
