@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 # Thanks to this tutorial
 # https://nixos-and-flakes.thiscute.world/nixos-with-flakes/start-using-home-manager
