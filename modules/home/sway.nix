@@ -130,7 +130,7 @@
           };
         };
         bars = [
-          # {command = "${pkgs.waybar}/bin/waybar"; }
+          {command = "${pkgs.waybar}/bin/waybar"; }
         ];
         startup = [
           # {

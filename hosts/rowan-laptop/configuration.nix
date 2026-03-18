@@ -14,8 +14,8 @@
       ../../modules/os/intel.nix
       ../../modules/os/power.nix
       ../../modules/os/bluetooth.nix
-      # ../../modules/os/ly.nix
-      ../../modules/os/lemurs.nix
+      ../../modules/os/ly.nix
+      # ../../modules/os/lemurs.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -35,8 +35,8 @@
   intel.enable = true;
   power.enable = true;
   bluetooth.enable = true;
-  # ly.enable = true;
-  lemurs.enable = true;
+  ly.enable = true;
+  # lemurs.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
