@@ -83,6 +83,9 @@
     pciutils # lspci
     usbutils # lsusb
     unixtools.net-tools
+
+    # global language servers
+    nil
   ];
 
   programs.librewolf = {
