@@ -1,15 +1,14 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, ... }:
 
 {
   options = {
     ly.enable
-      = lib.mkEnableOption "enable custom bluetooth";
+      = lib.mkEnableOption "enable custom ly login manager";
   };
 
-  config = lib.mkIf config.bluetooth.enable {
+  config = lib.mkIf config.ly.enable {
     services.displayManager.ly.enable = true;
     security.pam.services = {
-      swaylock.enableGnomeKeyring = true;
       ly.enableGnomeKeyring = true;
     };
   };

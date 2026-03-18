@@ -8,6 +8,7 @@
   
   config = lib.mkIf config.sway.enable {
     security.polkit.enable = true;
+    security.pam.services.swaylock.enableGnomeKeyring = true;
     services.gnome.gnome-keyring.enable = true;
     programs.sway.enable = true;
     environment.systemPackages = with pkgs; [
