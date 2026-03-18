@@ -2,7 +2,8 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+# May need to place pkgs or config as arguments later
+{ ... }:
 
 {
   imports =
@@ -13,7 +14,8 @@
       ../../modules/os/intel.nix
       ../../modules/os/power.nix
       ../../modules/os/bluetooth.nix
-      ../../modules/os/ly.nix
+      # ../../modules/os/ly.nix
+      ../../modules/os/lemurs.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -33,7 +35,8 @@
   intel.enable = true;
   power.enable = true;
   bluetooth.enable = true;
-  ly.enable = true;
+  # ly.enable = true;
+  lemurs.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
@@ -64,7 +67,7 @@
     isNormalUser = true;
     description = "rowan";
     extraGroups = [ "networkmanager" "wheel" "video" ];
-    packages = with pkgs; [];
+    # packages = with pkgs; [];
   };
 
   # Allow unfree packages
@@ -72,10 +75,10 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
+  # environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-  ];
+  # ];
 
   # intel integrated settings
   services.xserver.videoDrivers = [ "modesetting" ];
