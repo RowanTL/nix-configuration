@@ -36,11 +36,6 @@
   bluetooth.enable = true;
   ly.enable = true;
 
-  # suspend when closing laptop lid
-  services.logind.settings.Login = {
-    HandleLidSwitch = "suspend";
-  };
-
   # Set your time zone.
   time.timeZone = "America/Chicago";
 

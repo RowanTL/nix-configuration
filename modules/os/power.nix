@@ -1,7 +1,7 @@
 # A file for  configuration to increase battery life
 # Configuration pulled from https://nixos.wiki/wiki/Laptop
 
-{ lib, config, pkgs, ... }:
+{ lib, config, ... }:
 
 {
   options = {
@@ -29,6 +29,11 @@
        # STOP_CHARGE_THRESH_BAT0 = 80; # 80 and above it stops charging
 
       };
+    };
+
+    # suspend when closing laptop lid
+    services.logind.settings.Login = {
+      HandleLidSwitch = "suspend";
     };
   };
 }
