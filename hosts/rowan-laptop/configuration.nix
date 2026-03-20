@@ -66,7 +66,7 @@
   users.users.rowan = {
     isNormalUser = true;
     description = "rowan";
-    extraGroups = [ "networkmanager" "wheel" "video" "seat" ];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     # packages = with pkgs; [];
   };
 
