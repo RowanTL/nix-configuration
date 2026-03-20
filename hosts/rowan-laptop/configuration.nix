@@ -15,7 +15,6 @@
       ../../modules/os/power.nix
       ../../modules/os/bluetooth.nix
       ../../modules/os/ly.nix
-      # ../../modules/os/lemurs.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -36,7 +35,11 @@
   power.enable = true;
   bluetooth.enable = true;
   ly.enable = true;
-  # lemurs.enable = true;
+
+  # suspend when closing laptop lid
+  services.logind.settings.Login = {
+    HandleLidSwitch = "suspend";
+  };
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
