@@ -38,7 +38,7 @@ in
         };
       };
       themes = {
-        shades-of-purple = "${shadesOfPurpleRepo}/themes/shades-of-purple-theme.json";
+        shades-of-purple-theme = builtins.fromJSON ( builtins.readFile "${shadesOfPurpleRepo}/themes/shades-of-purple-theme.json" );
       };
       userKeymaps = [
         {
