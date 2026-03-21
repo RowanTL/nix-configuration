@@ -1,5 +1,13 @@
 { lib, config, pkgs, ... }:
 
+let
+  shadesOfPurpleRepo = pkgs.fetchFromGitHub {
+    owner = "irmhonde";
+    repo = "shades-of-purple-theme";
+    rev = "92840e17621cbdc4ca05e7c108c104a369354815";
+    hash = "sha256-ro03rp0tHeR7H2PRZayc64Tw4llUOLxqfTOTUHwbKbM=";
+  };
+in
 {
   options = {
     home-zed.enable
@@ -28,6 +36,9 @@
             "program" = "${pkgs.bash}/bin/bash";
           };
         };
+      };
+      themes = {
+        shades-of-purple = "${shadesOfPurpleRepo}/themes/shades-of-purple-theme.json";
       };
       userKeymaps = [
         {
