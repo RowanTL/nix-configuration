@@ -25,7 +25,7 @@
         };
         terminal = {
           "shell" = {
-            "program" = "${pkgs.bash}";
+            "program" = "${pkgs.bash}/bin/bash";
           };
         };
       };
