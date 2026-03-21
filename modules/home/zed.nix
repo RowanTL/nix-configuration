@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   options = {
@@ -21,6 +21,11 @@
         languages = {
           "Python" = {
             language_servers = [ "ruff" "ty" ];
+          };
+        };
+        terminal = {
+          "shell" = {
+            "program" = "${pkgs.bash}";
           };
         };
       };
