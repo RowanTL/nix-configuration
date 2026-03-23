@@ -11,8 +11,6 @@
       ./hardware-configuration.nix
       ../../modules/os/sway.nix
       ../../modules/os # basic configuration nice for all systems
-      ../../modules/os/intel.nix
-      ../../modules/os/power.nix
       ../../modules/os/bluetooth.nix
       ../../modules/os/ly.nix
     ];
@@ -31,8 +29,6 @@
 
   # custom rowan stuff
   sway.enable = true;
-  intel.enable = true;
-  power.enable = true;
   bluetooth.enable = true;
   ly.enable = true;
 
@@ -57,7 +53,6 @@
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
-    variant = "colemak";
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -97,24 +92,24 @@
   };
 
   # Syncthing
-  # services.syncthing = {
-  #   enable = true;
-  #   openDefaultPorts = true;
-  #   user = "rowan";
-  #   dataDir = "/home/rowan/syncthing";
-  #   configDir = "/home/rowan/.config/syncthing";
-  #   settings = {
-  #     devices = {
-  #       "desktop" = {id = "OJYCLD3-L7O6TLX-E6GGVQ2-XMPNIWR-EJMW56I-2OMCG7H-AJDIXKE-DISX4AJ"; };
-  #     };
-  #     folders = {
-  #       "bvjky-kxgig" = {
-  #         path = "/home/rowan/syncthing/Sync";
-  #         devices = [ "desktop" ];
-  #       };
-  #     };
-  #   };
-  # };
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+    user = "rowan";
+    dataDir = "/home/rowan/syncthing";
+    configDir = "/home/rowan/.config/syncthing";
+    settings = {
+      devices = {
+        "laptop" = {id = "DS5Z3LS-YRTVBEB-CFZBOOA-TS5VUEZ-EIL4P2X-3LVRB3S-E5KWCHK-CXQPEA5"; };
+      };
+      folders = {
+        "bvjky-kxgig" = {
+          path = "/home/rowan/syncthing/Sync";
+          devices = [ "desktop" ];
+        };
+      };
+    };
+  };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
