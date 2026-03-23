@@ -100,12 +100,12 @@
     configDir = "/home/rowan/.config/syncthing";
     settings = {
       devices = {
-        "laptop" = {id = "DS5Z3LS-YRTVBEB-CFZBOOA-TS5VUEZ-EIL4P2X-3LVRB3S-E5KWCHK-CXQPEA5"; };
+        "rowan-laptop" = {id = "DS5Z3LS-YRTVBEB-CFZBOOA-TS5VUEZ-EIL4P2X-3LVRB3S-E5KWCHK-CXQPEA5"; };
       };
       folders = {
         "bvjky-kxgig" = {
           path = "/home/rowan/syncthing/Sync";
-          devices = [ "desktop" ];
+          devices = [ "rowan-laptop" ];
         };
       };
     };
