@@ -38,6 +38,6 @@
     };
   in
   {
-    nixosConfigurations = nixpkgs.lib.genAttrs [ "rowan-laptop" "rowan-server" "rowan-laptop-test" ] (name: mkSystem name);
+    nixosConfigurations = nixpkgs.lib.genAttrs [ "rowan-laptop" "rowan-desktop" "rowan-server" "rowan-laptop-test" ] (name: mkSystem name);
   };
 }
