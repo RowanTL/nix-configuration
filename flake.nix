@@ -20,56 +20,24 @@
         allowUnfree = true;
       };
     };
+
+    mkSystem = name: nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit system; };
+
+      modules = [
+        ./hosts/${name}/configuration.nix
+
+        home-manager.nixosModules.home-manager
+        {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+
+          home-manager.users.rowan = import ./hosts/${name}/home.nix;
+        }
+      ];
+    };
   in
   {
-    nixosConfigurations = {
-      rowan-laptop = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit system; };
-
-        modules = [
-          ./hosts/rowan-laptop/configuration.nix
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-
-            home-manager.users.rowan = import ./hosts/rowan-laptop/home.nix;
-          }
-        ];
-      };
-      rowan-server = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit system; };
-
-        modules = [
-          ./hosts/rowan-server/configuration.nix
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-
-            home-manager.users.rowan = import ./hosts/rowan-server/home.nix;
-
-            # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
-          }
-        ];
-      };
-      rowan-laptop-test = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit system; };
-
-        modules = [
-          ./hosts/rowan-laptop-test/configuration.nix
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-
-            home-manager.users.rowan = import ./hosts/rowan-laptop-test/home.nix;
-          }
-        ];
-      };
-    };
+    nixosConfigurations = nixpkgs.lib.genAttrs [ "rowan-laptop" "rowan-server" "rowan-laptop-test" ] (name: mkSystem name);
   };
 }
