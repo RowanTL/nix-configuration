@@ -96,6 +96,9 @@
   };
   xdg.mimeApps.enable = true;
   xdg.mimeApps.defaultApplications = {
+    "x-scheme-handler/discord" = "legcord.desktop";
+    "x-scheme-handler/sgnl" = "signal.desktop";
+    "x-scheme-handler/signalcaptcha" = "signal.desktop";
     "x-scheme-handler/http" = "librewolf.desktop";
     "x-scheme-handler/https" = "librewolf.desktop";
     "text/html" = "librewolf.desktop";
