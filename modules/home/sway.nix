@@ -241,6 +241,7 @@
     ];
     home.sessionVariables = {
       XDG_CURRENT_DESKTOP = "sway";
+      XDG_SCREENSHOTS_DIR = "~/Pictures";
     };
 
     services.swayidle = {
