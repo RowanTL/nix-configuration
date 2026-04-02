@@ -19,7 +19,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   # custom kernel for gaming
-  boot.kernelPackages = pkgs.linux_zen;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   networking.hostName = "rowan-desktop";
 
