@@ -73,7 +73,7 @@
               criteria = "DP-1";
               scale = 1.0;
               status = "enable";
-              mode = "1920x1080@144Hz";
+              mode = "1920x1080@143.855Hz";
               position = "0,0";
             }
             {
