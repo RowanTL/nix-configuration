@@ -133,6 +133,12 @@
           {command = "${pkgs.waybar}/bin/waybar"; }
         ];
         startup = [
+          # ensures kanshi works at boot
+          {
+            command = "sleep 5 && systemctl --user restart kanshi";
+            always = true;
+          }
+          # ensures kanshi works after a reload
           {
             command = "systemctl --user restart kanshi";
             always = true;
