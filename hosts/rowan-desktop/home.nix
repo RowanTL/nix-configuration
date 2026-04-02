@@ -90,7 +90,7 @@
               status = "enable";
               mode = "1920x1080@60Hz";
               position = "1920,0";
-              transform = "270";
+              transform = "90";
             }
           ];
         };
