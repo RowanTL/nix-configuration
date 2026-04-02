@@ -3,7 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 # May need to place pkgs or config as arguments later
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports =
@@ -17,6 +17,9 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  # custom kernel for gaming
+  boot.kernelPackages = pkgs.linuxKernel.kernels.linux_zen;
 
   networking.hostName = "rowan-desktop";
 
