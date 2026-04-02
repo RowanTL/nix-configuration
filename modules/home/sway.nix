@@ -134,7 +134,7 @@
         ];
         startup = [
           {
-            command = "sleep 5 && systemctl --user restart kanshi";
+            command = "systemctl --user restart kanshi";
             always = true;
           }
           # {

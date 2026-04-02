@@ -75,6 +75,7 @@
               status = "enable";
               mode = "1920x1080@143.855Hz";
               position = "0,0";
+              adaptiveSync = true;
             }
             {
               criteria = "DP-2";
