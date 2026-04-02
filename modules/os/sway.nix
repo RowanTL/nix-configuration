@@ -19,5 +19,9 @@
     # Fix swayidle, kanshi, and others not finding WAYLAND_DISPLAY
     # https://github.com/NixOS/nixpkgs/issues/407700
     systemd.services.display-manager.environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
+
+    # So sway can use xdg-open
+    xdg.portal.enable = true;
+    xdg.portal.wlr.enable = true;
   };
 }

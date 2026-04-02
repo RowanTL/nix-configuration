@@ -88,10 +88,20 @@
     nil
   ];
 
+  # enable and use librewolf as default web browser
   programs.librewolf = {
     enable = true;
     # Can add extra config here if wanted
     # https://nixos.wiki/wiki/Librewolf
+  };
+  xdg.mimeApps.enable = true;
+  xdg.mimeApps.defaultApplications = {
+    "x-scheme-handler/discord" = "legcord.desktop";
+    "x-scheme-handler/sgnl" = "signal.desktop";
+    "x-scheme-handler/signalcaptcha" = "signal.desktop";
+    "x-scheme-handler/http" = "librewolf.desktop";
+    "x-scheme-handler/https" = "librewolf.desktop";
+    "text/html" = "librewolf.desktop";
   };
 
   # alacritty - a cross-platform, GPU-accelerated terminal emulator

@@ -66,7 +66,7 @@
             "${mod}+t" = "fullscreen toggle";
 
             "${mod}+Shift+r" = "exec swaymsg reload";
-            "--release Print" = "exec --no-startup-id ${pkgs.sway-contrib.grimshot}/bin/grimshot copy area";
+            "--release Print" = "exec --no-startup-id flameshot gui";
             "${mod}+l" = "exec ${pkgs.swaylock}/bin/swaylock";
             "${mod}+Shift+l" = "exit";
             "${mod}+p" = "mode \"resize\"";
@@ -241,6 +241,7 @@
     ];
     home.sessionVariables = {
       XDG_CURRENT_DESKTOP = "sway";
+      XDG_SCREENSHOTS_DIR = "~/Pictures";
     };
 
     services.swayidle = {
@@ -270,5 +271,16 @@
       libsForQt5.qt5ct
       libsForQt5.qtstyleplugin-kvantum
     ];
+    # screenshotting software
+    services.flameshot = {
+      enable = true;
+      settings = {
+        General = {
+          useGrimAdapter = true;
+          disabledGrimWarning = true;
+          disabledTrayIcon = true;
+        };
+      };
+    };
   };
 }
