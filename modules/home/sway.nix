@@ -133,10 +133,10 @@
           {command = "${pkgs.waybar}/bin/waybar"; }
         ];
         startup = [
-          # {
-          #   command = "systemctl --user restart kanshi";
-          #   always = true;
-          # }
+          {
+            command = "sleep 5 && systemctl --user restart kanshi";
+            always = true;
+          }
           # {
           #   command = "systemctl --user restart waybar";
           #   always = true;
