@@ -62,23 +62,41 @@
   home-zed.enable = true;
 
   # need to scale my stuff
-  # services.kanshi = {
-  #   enable = true;
-  #   settings = [
-  #     {
-  #       profile = {
-  #         name = "main";
-  #         outputs = [
-  #           {
-  #             criteria = "eDP-1";
-  #             scale = 1.0;
-  #             status = "enable";
-  #           }
-  #         ];
-  #       };
-  #     }
-  #   ];
-  # };
+  services.kanshi = {
+    enable = true;
+    settings = [
+      {
+        profile = {
+          name = "main";
+          outputs = [
+            {
+              criteria = "DP-1";
+              scale = 1.0;
+              status = "enable";
+              mode = "1920x1080@144Hz";
+              position = "0,0";
+            }
+            {
+              criteria = "DP-2";
+              scale = 1.0;
+              status = "enable";
+              mode = "1366x768";
+              position = "-768,0";
+              transform = 270;
+            }
+            {
+              criteria = "HDMI-A-1";
+              scale = 1.0;
+              status = "enable";
+              mode = "1920x1080@60Hz";
+              position = "1920,0";
+              transform = 270;
+            }
+          ];
+        };
+      }
+    ];
+  };
 
   # This value determines the home Manager release that your
   # configuration is compatible with. This helps avoid breakage
