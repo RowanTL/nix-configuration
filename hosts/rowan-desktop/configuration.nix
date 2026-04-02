@@ -35,6 +35,13 @@
   bluetooth.enable = true;
   ly.enable = true;
 
+  # game stuff, should probably put into its own file at some point
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+  };
+  programs.gamemode.enable = true;
+
   # Set your time zone.
   time.timeZone = "America/Chicago";
 
