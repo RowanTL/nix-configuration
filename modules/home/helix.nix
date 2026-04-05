@@ -51,7 +51,7 @@
             l = "insert_mode";
             L = "insert_at_line_start" ;
 
-            C-w = {
+            "C-w" = {
               h = "jump_view_left";
               n = "jump_view_down";
               e = "jump_view_up";
