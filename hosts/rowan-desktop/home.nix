@@ -10,6 +10,7 @@
     ./../../modules/home/ssh.nix
     ./../../modules/home/sway.nix
     ./../../modules/home/zed.nix
+    ./../../modules/home/steam.nix
   ];
 
   home.username = "rowan";
