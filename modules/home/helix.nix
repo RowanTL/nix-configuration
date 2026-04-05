@@ -50,6 +50,13 @@
             K = "search_prev";
             l = "insert_mode";
             L = "insert_at_line_start" ;
+
+            C-w = {
+              h = "jump_view_left";
+              n = "jump_view_down";
+              e = "jump_view_up";
+              i = "jump_view_right";
+            };
           };
           select = {
             i = "extend_char_right";
