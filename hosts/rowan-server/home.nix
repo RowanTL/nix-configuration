@@ -5,7 +5,6 @@
 {
   imports = [
     ./../../modules/home
-    ./../../modules/home/steam.nix
   ];
 
   home.username = "rowan";
@@ -13,8 +12,6 @@
 
   # Also set here just in case
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  home-steam.enable = true;
   
   # Import files from the current configuration directory into the Nix store,
   # and create symbolic links pointing to those store files in the Home directory.

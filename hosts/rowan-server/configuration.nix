@@ -9,6 +9,7 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/os
+      ../../modules/os/steam.nix
     ];
 
   # Nix config
@@ -116,6 +117,9 @@
     enableSSHSupport = true;
   };
 
+  # enable common steam settings
+  steam.enable = true;
+
   # gpu stuff here
   # Unneeded if installed steam
   hardware.nvidia = {
@@ -132,8 +136,6 @@
     substituters = [ "https://cache.nixos-cuda.org" ];
     trusted-public-keys = [ "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M=" ];
   };
-
-  # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
   services.openssh = {

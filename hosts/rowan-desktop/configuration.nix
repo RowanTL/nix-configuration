@@ -13,6 +13,7 @@
       ../../modules/os # basic configuration nice for all systems
       ../../modules/os/bluetooth.nix
       ../../modules/os/ly.nix
+      ../../modules/os/steam.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -34,6 +35,7 @@
   sway.enable = true;
   bluetooth.enable = true;
   ly.enable = true;
+  steam.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Chicago";

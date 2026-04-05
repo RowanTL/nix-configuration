@@ -2,11 +2,11 @@
 
 {
   options = {
-    home-steam.enable
+    steam.enable
       = lib.mkEnableOption "enable custom tmux config";
   };
 
-  config = lib.mkIf config.home-steam.enable {
+  config = lib.mkIf config.steam.enable {
     programs.steam = {
       enable = true;
       gamescopeSession = true;
