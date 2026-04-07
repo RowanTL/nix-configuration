@@ -47,6 +47,7 @@
     fastfetch
     brave
     signal-desktop
+    protonmail-desktop
 
     # archives
     zip
