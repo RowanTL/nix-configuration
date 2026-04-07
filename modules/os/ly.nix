@@ -9,7 +9,9 @@
   config = lib.mkIf config.ly.enable {
     services.displayManager.ly = {
       enable = true;
-      animation = "gameoflife";
+      settings = {
+        animation = "gameoflife";
+      };
     };
     security.pam.services = {
       ly.enableGnomeKeyring = true;
