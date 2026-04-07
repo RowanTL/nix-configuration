@@ -19,7 +19,7 @@ jobs:
         with:
           token: ${{ secrets.GH_ACTION_TOKEN }}
       - name: Merge
-        run: "sleep 3 && gh pr merge --auto --merge ${{ steps.update.outputs.pull-request-number }}"
+        run: "gh pr merge --auto --merge ${{ steps.update.outputs.pull-request-number }}"
         env:
           GH_TOKEN: ${{secrets.GH_ACTION_TOKEN}}
         if: ${{ steps.update.outputs.pull-request-number != '' }}
