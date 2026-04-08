@@ -93,6 +93,9 @@
     enable = true;
     # Can add extra config here if wanted
     # https://nixos.wiki/wiki/Librewolf
+    settings = {
+      "browser.toolbars.bookmarks.visibility" = "never";
+    };
   };
   xdg.mimeApps.enable = true;
   xdg.mimeApps.defaultApplications = {
