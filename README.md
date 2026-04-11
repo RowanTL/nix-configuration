@@ -1,3 +1,9 @@
+## Archive Notice
+
+I have moved this repo to gitlab so the CI/CD pipeline GraphQL error wont occur.
+
+[https://gitlab.com/RowanTL/nix-configuration](https://gitlab.com/RowanTL/nix-configuration)
+
 # Overview
 
 This repo contains my NixOS configuration files.
