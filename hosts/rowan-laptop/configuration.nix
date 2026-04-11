@@ -104,7 +104,7 @@
     configDir = "/home/rowan/.config/syncthing";
     settings = {
       devices = {
-        "desktop" = {id = "OJYCLD3-L7O6TLX-E6GGVQ2-XMPNIWR-EJMW56I-2OMCG7H-AJDIXKE-DISX4AJ"; };
+        "desktop" = {id = "UA3EZN4-6MVM676-4GOTJBU-KHDZRUT-TCMO4NO-Q7ZHNM5-ESXFTNX-I3VZCA7"; };
       };
       folders = {
         "bvjky-kxgig" = {
