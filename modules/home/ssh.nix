@@ -15,6 +15,10 @@
           Hostname github.com
           IdentityFile ~/.ssh/github
 
+        Host gitlab.com
+          Hostname gitlab.com
+          IdentityFile ~/.ssh/gitlab
+
         Host 99.50.111.149
           Hostname 99.50.111.149
           IdentityFile ~/.ssh/roebox
