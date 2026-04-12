@@ -7,6 +7,7 @@
     ./helix.nix
     ./git.nix
     ./ssh.nix
+    ./shell.nix
   ];
 
   home.username = "rowan";
@@ -131,6 +132,7 @@
   home-helix.enable = true;
   home-git.enable = true;
   home-ssh.enable = true;
+  home-shell.enable = true;
 
   home.sessionVariables = {
     EDITOR = "hx";
