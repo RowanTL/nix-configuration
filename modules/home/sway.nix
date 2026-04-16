@@ -96,11 +96,11 @@
             # brightness and volume keybindings
             "XF86MonBrightnessDown" = "exec ${lib.getExe pkgs.brightnessctl} s 1-";
             "XF86MonBrightnessUp" = "exec ${lib.getExe pkgs.brightnessctl} s +1";
-            "XF86AudioRaiseVolume" = "exec ${lib.getExe pkgs.pactl} set-sink-volume @DEFAULT_SINK@ +1%";
-            "XF86AudioLowerVolume" = "exec ${lib.getExe pkgs.pactl} set-sink-volume @DEFAULT_SINK@ -1%";
-            "Shift+XF86AudioRaiseVolume" = "exec ${lib.getExe pkgs.pactl} set-sink-volume @DEFAULT_SINK@ +5%";
-            "Shift+XF86AudioLowerVolume" = "exec ${lib.getExe pkgs.pactl} set-sink-volume @DEFAULT_SINK@ -5%";
-            "XF86AudioMute" = "exec ${lib.getExe pkgs.pactl} set-sink-mute @DEFAULT_SINK@ toggle";
+            "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +1%";
+            "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -1%";
+            "Shift+XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
+            "Shift+XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
+            "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
 
             # I like having shortcuts for my browsers
             "${mod}+o" = "exec ${lib.getExe pkgs.librewolf}";
