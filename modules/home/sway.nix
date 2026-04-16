@@ -52,8 +52,8 @@
             "${mod}+0" = "workspace number 10";
             "${mod}+Shift+0" = "move container to workspace number 10";
              
-            "${mod}+Return" = "exec --no-startup-id ${pkgs.alacritty}/bin/alacritty";
-            "${mod}+d" = "exec --no-startup-id rofi -show drun -show-icons";
+            "${mod}+Return" = "exec --no-startup-id ${lib.getExe pkgs.alacritty}";
+            "${mod}+d" = "exec --no-startup-id ${lib.getExe pkgs.rofi} -show drun -show-icons";
 
             "${mod}+Shift+q" = "kill";
 
@@ -66,8 +66,8 @@
             "${mod}+t" = "fullscreen toggle";
 
             "${mod}+Shift+r" = "exec swaymsg reload";
-            "--release Print" = "exec --no-startup-id flameshot gui";
-            "${mod}+l" = "exec ${pkgs.swaylock}/bin/swaylock";
+            "--release Print" = "exec --no-startup-id ${lib.getExe pkgs.flameshot} gui";
+            "${mod}+l" = "exec ${lib.getExe pkgs.swaylock}";
             "${mod}+Shift+l" = "exit";
             "${mod}+p" = "mode \"resize\"";
             # swap focus between tiling area and floating area
@@ -94,19 +94,19 @@
             "${mod}+minus" = "scratchpad show";
 
             # brightness and volume keybindings
-            "XF86MonBrightnessDown" = "exec brightnessctl s 1-";
-            "XF86MonBrightnessUp" = "exec brightnessctl s +1";
-            "XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +1%";
-            "XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -1%";
-            "Shift+XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
-            "Shift+XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
-            "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
+            "XF86MonBrightnessDown" = "exec ${lib.getExe pkgs.brightnessctl} s 1-";
+            "XF86MonBrightnessUp" = "exec ${lib.getExe pkgs.brightnessctl} s +1";
+            "XF86AudioRaiseVolume" = "exec ${lib.getExe pkgs.pactl} set-sink-volume @DEFAULT_SINK@ +1%";
+            "XF86AudioLowerVolume" = "exec ${lib.getExe pkgs.pactl} set-sink-volume @DEFAULT_SINK@ -1%";
+            "Shift+XF86AudioRaiseVolume" = "exec ${lib.getExe pkgs.pactl} set-sink-volume @DEFAULT_SINK@ +5%";
+            "Shift+XF86AudioLowerVolume" = "exec ${lib.getExe pkgs.pactl} set-sink-volume @DEFAULT_SINK@ -5%";
+            "XF86AudioMute" = "exec ${lib.getExe pkgs.pactl} set-sink-mute @DEFAULT_SINK@ toggle";
 
             # I like having shortcuts for my browsers
-            "${mod}+o" = "exec librewolf";
-            "${mod}+Shift+o" = "exec librewolf --private-window about:home";
-            "${mod}+m" = "exec brave";
-            "${mod}+Shift+m" = "exec brave --incognito";
+            "${mod}+o" = "exec ${lib.getExe pkgs.librewolf}";
+            "${mod}+Shift+o" = "exec ${lib.getExe pkgs.librewolf} --private-window about:home";
+            "${mod}+m" = "exec ${lib.getExe pkgs.brave}";
+            "${mod}+Shift+m" = "exec ${lib.getExe pkgs.brave} --incognito";
           }
         ];
         focus.followMouse = false;
@@ -136,7 +136,7 @@
           };
         };
         bars = [
-          {command = "${pkgs.waybar}/bin/waybar"; }
+          {command = "${lib.getExe pkgs.waybar}"; }
         ];
         startup = [
           # ensures kanshi works at boot
@@ -227,7 +227,7 @@
             format-muted = "Vol: M";
             format-source = "Vol: {volume}%";
             format-source-muted = "Vol: M";
-            on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
+            on-click = "${lib.getExe pkgs.pavucontrol}";
           };
           idle_inhibitor = {
             format = "{icon}";
@@ -258,7 +258,7 @@
     services.swayidle = {
       enable = true;
       events = {
-        "before-sleep" = "${pkgs.swaylock}/bin/swaylock --daemonize";
+        "before-sleep" = "${lib.getExe pkgs.swaylock} --daemonize";
         "lock" = "lock";
       };
       timeouts = [
