@@ -101,6 +101,12 @@
             "Shift+XF86AudioRaiseVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ +5%";
             "Shift+XF86AudioLowerVolume" = "exec pactl set-sink-volume @DEFAULT_SINK@ -5%";
             "XF86AudioMute" = "exec pactl set-sink-mute @DEFAULT_SINK@ toggle";
+
+            # I like having shortcuts for my browsers
+            "${mod}+o" = "exec librewolf";
+            "${mod}+Shift+o" = "exec librewolf --private-window about:home";
+            "${mod}+m" = "exec brave";
+            "${mod}+Shift+m" = "exec brave --incognito";
           }
         ];
         focus.followMouse = false;
