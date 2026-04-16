@@ -16,4 +16,3 @@
 #
 # You can remove these comments if you want or leave
 # them for future reference.
-$env.PATH = ($env.PATH | append $nu.home-dir/bin | append $nu.home-dir/.local/bin)
