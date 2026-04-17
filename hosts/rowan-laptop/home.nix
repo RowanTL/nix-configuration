@@ -41,6 +41,7 @@
 
   home.packages = with pkgs; [
     legcord
+    libreoffice-fresh
   ];
 
   programs.bash = {
