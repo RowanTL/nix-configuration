@@ -25,3 +25,5 @@ $env.config = {
     }
   }
 }
+
+$env.PATH = ($env.PATH | append ($nu.home-dir | path join "bin") | append ($nu.home-dir | path join ".local/bin"))
