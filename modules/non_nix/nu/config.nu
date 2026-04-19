@@ -17,6 +17,12 @@
 # options using:
 #     config nu --doc | nu-highlight | less -R
 
+# Run ls in an interactive shell
+# and print in color
+if $nu.is-interactive {
+  print -n (ls | table)
+}
+
 $env.config = {
   show_banner: false,
   completions: {

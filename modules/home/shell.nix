@@ -11,7 +11,7 @@
       enable = true;
       settings = {
         terminal = {
-          shell = "${pkgs.nushell}/bin/nu";
+          shell = "${lib.getExe pkgs.nushell}";
         };
       };
     };
@@ -20,7 +20,6 @@
       enable = true;
       # gonna leave config in their respective .nu files
       configFile.source = ../non_nix/nu/config.nu;
-      envFile.source = ../non_nix/nu/env.nu;
     };
   };
 }

@@ -71,12 +71,16 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  # environment.systemPackages = with pkgs; [
+  # temporary distrobox to program on ti-84
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
+  environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-  # ];
+    distrobox
+  ];
 
   # intel integrated settings
   services.xserver.videoDrivers = [ "modesetting" ];
