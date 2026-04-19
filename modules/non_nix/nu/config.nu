@@ -17,6 +17,12 @@
 # options using:
 #     config nu --doc | nu-highlight | less -R
 
+# Run ls in an interactive shell
+if $nu.is-interactive {
+  clear
+  ls
+}
+
 $env.config = {
   show_banner: false,
   completions: {
