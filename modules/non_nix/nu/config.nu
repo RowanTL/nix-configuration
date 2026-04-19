@@ -19,8 +19,7 @@
 
 # Run ls in an interactive shell
 if $nu.is-interactive {
-  clear
-  ls
+  print (ls)
 }
 
 $env.config = {
