@@ -16,10 +16,16 @@
       };
     };
 
-    programs.nushell = {
-      enable = true;
-      # gonna leave config in their respective .nu files
-      configFile.source = ../non_nix/nu/config.nu;
+    programs = {
+      nushell = {
+        enable = true;
+        # gonna leave config in their respective .nu files
+        configFile.source = ../non_nix/nu/config.nu;
+      };
+      carapace = {
+        enable = true;
+        enableNushellIntegration = true;
+      };
     };
   };
 }
