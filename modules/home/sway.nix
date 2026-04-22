@@ -274,9 +274,7 @@
       ];
     };
     home.packages = with pkgs; [
-      grim
       mako # notifications
-      slurp
       swaylock
       wl-clipboard
       libsForQt5.qt5ct
@@ -287,8 +285,6 @@
       enable = true;
       settings = {
         General = {
-          useGrimAdapter = true;
-          disabledGrimWarning = true;
           disabledTrayIcon = true;
         };
       };
