@@ -14,5 +14,9 @@
         pass-otp
       ]))
     ];
+
+    programs.bash.interactiveShellInit = ''
+      . ${pkgs.pass.extensions.pass-otp}/share/bash-completion/completions/pass-otp
+    '';
   };
 }
