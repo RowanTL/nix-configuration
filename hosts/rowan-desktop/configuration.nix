@@ -37,6 +37,9 @@
   ly.enable = true;
   steam.enable = true;
 
+  # kde so I can play TF2
+  services.desktopManager.plasma6.enable = true;
+
   # Set your time zone.
   time.timeZone = "America/Chicago";
 
