@@ -117,15 +117,13 @@
   programs.bash = {
     enable = true;
     enableCompletion = true;
-    # TODO add your custom bashrc here
     bashrcExtra = ''
       export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
       export UV_PYTHON_DOWNLOADS=never
-    '';
 
-    # set some aliases, feel free to add more or remove some
-    # shellAliases = {
-    # };
+      # This line could or could not run. It doesn't matter
+      source /run/current-system/sw/share/bash-completion/completions/pass-otp
+    '';
   };
 
   # Enable my custom configs
