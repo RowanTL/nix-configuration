@@ -37,4 +37,3 @@ $env.PATH = ($env.PATH | append ($nu.home-dir | path join "bin") | append ($nu.h
 ## Setup for carapace
 $env.CARAPACE_BRIDGES = 'zsh,fish,bash,inshellisense'
 $env.CARAPACE_LENIENT = 1 # Fixes pass -c completions
-$env.CARAPACE_EXCLUDES = 'pass' # see if this fixed pass completions
