@@ -17,7 +17,7 @@ in
   config = lib.mkIf config.home-zed.enable {
     programs.zed-editor = {
       enable = true;
-      extensions = [ "nix" "toml" "rust" "python" ];
+      extensions = [ "nix" "toml" "rust" "python" "nu" ];
       userSettings = {
         helix_mode = true;
         base_keymap = "VSCode";
