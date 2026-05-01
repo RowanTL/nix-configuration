@@ -29,6 +29,9 @@ in
         enable = true;
         # gonna leave config in their respective .nu files
         configFile.source = ../non_nix/nu/config.nu;
+        # Keep pass_extensions_completions.nu separate from
+        # my personal nu commands as other people might actually want
+        # to use pass_extensions_completions.nu
         extraConfig = ''
           source ${extraPassCompletions}/pass_extensions_completions.nu
         '';
