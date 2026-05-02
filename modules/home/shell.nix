@@ -7,6 +7,12 @@ let
     rev = "1579c700bca760e7ce82ba9cc9a6942a01987c51";
     hash = "sha256-swpJCjdjn0wLvFyscvwM+t+UX2td9MtnMK60mmA5lrE=";
   };
+  personalNuShellConfig = pkgs.fetchFromGithub {
+    owner = "RowanTL";
+    repo = "nu_scripts";
+    rev = "c0c97508bce6b9c8083eaecf4246300019419029";
+    hash = "";
+  };
 in
 {
   options = {
@@ -34,6 +40,7 @@ in
         # to use pass_extensions_completions.nu
         extraConfig = ''
           source ${extraPassCompletions}/pass_extensions_completions.nu
+          source ${personalNuShellConfig}/source_me.nu
         '';
       };
       carapace = {
