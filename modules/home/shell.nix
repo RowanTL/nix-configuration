@@ -7,11 +7,11 @@ let
     rev = "1579c700bca760e7ce82ba9cc9a6942a01987c51";
     hash = "sha256-swpJCjdjn0wLvFyscvwM+t+UX2td9MtnMK60mmA5lrE=";
   };
-  personalNuShellConfig = pkgs.fetchFromGithub {
+  personalNuShellConfig = pkgs.fetchFromGitHub {
     owner = "RowanTL";
     repo = "nu_scripts";
     rev = "c0c97508bce6b9c8083eaecf4246300019419029";
-    hash = "";
+    hash = "sha256-slUNlKXuSMY/7qu1+4ZJ3INqmL9mDFSBtVN+5TyZg7o=";
   };
 in
 {
