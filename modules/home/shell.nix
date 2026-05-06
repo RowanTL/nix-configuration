@@ -11,7 +11,7 @@ let
     owner = "RowanTL";
     repo = "nu_scripts";
     rev = "c65bb03079a6ca95e19551ba70b4dab879c4cb1b";
-    hash = "sha256-slUNlKXuSMY/7qu1+4ZJ3INqmL9mDFSBtVN+5TyZg7o=";
+    hash = "sha256-NMpyieaRJj2B7o3JuWl1FG4WBWv3qlHnak18ECEmo04=";
   };
 in
 {
