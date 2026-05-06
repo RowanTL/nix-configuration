@@ -30,6 +30,10 @@ in
       };
     };
 
+    # so can use experimental nushell clip board
+    home.sessionVariables = {
+      NU_EXPERIMENTAL_OPTIONS="native-clip";
+    };
     programs = {
       nushell = {
         enable = true;
