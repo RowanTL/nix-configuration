@@ -10,7 +10,7 @@ let
   personalNuShellConfig = pkgs.fetchFromGitHub {
     owner = "RowanTL";
     repo = "nu_scripts";
-    rev = "c0c97508bce6b9c8083eaecf4246300019419029";
+    rev = "c65bb03079a6ca95e19551ba70b4dab879c4cb1b";
     hash = "sha256-slUNlKXuSMY/7qu1+4ZJ3INqmL9mDFSBtVN+5TyZg7o=";
   };
 in
