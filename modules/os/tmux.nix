@@ -19,6 +19,8 @@
         bind n select-pane -D
         bind e select-pane -U
         bind i select-pane -R
+
+        bind k next-window
       '';
     }; 
   };
