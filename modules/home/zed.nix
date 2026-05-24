@@ -40,7 +40,7 @@ in
         };
         terminal = {
           "shell" = {
-            "program" = "${pkgs.bash}/bin/bash";
+            "program" = lib.getExe pkgs.nu;
           };
         };
       };
