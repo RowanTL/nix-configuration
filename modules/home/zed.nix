@@ -40,7 +40,7 @@ in
         };
         terminal = {
           "shell" = {
-            "program" = lib.getExe pkgs.nu;
+            "program" = lib.getExe pkgs.nushell;
           };
         };
       };
