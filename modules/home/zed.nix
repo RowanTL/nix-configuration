@@ -23,7 +23,7 @@ in
         "rust"
         "python"
         "nu"
-        "Asciidoc"
+        "AsciiDoc"
       ];
       userSettings = {
         helix_mode = true;
