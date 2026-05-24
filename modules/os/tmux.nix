@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   options = {
@@ -21,6 +21,8 @@
         bind i select-pane -R
 
         bind k next-window
+
+        set-option -g default-shell ${lib.getExe pkgs.nushell}
       '';
     }; 
   };
