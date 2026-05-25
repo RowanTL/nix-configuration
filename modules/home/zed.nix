@@ -24,6 +24,7 @@ in
         "python"
         "nu"
         "asciidoc"
+        "astro"
       ];
       userSettings = {
         helix_mode = true;
