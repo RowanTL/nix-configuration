@@ -76,8 +76,6 @@
     # productivity
     glow # markdown previewer in terminal
 
-    btop  # replacement of htop/nmon
-
     # system tools
     sysstat
     lm_sensors # for `sensors` command

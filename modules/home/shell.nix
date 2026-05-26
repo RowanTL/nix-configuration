@@ -51,6 +51,12 @@ in
         enable = true;
         enableNushellIntegration = true;
       };
+      btop = {
+        enable = true;
+        settings = {
+          color_theme = "flexoki-dark";
+        };
+      };
     };
   };
 }
