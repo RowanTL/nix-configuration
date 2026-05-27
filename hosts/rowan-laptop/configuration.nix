@@ -3,7 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 # May need to place pkgs or config as arguments later
-{ ... }:
+{ pkgs, ... }:
 
 {
   imports =
