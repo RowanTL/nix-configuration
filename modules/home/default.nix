@@ -43,7 +43,6 @@
     # feel free to add your own or remove some of them
 
     fastfetch
-    brave
     signal-desktop
     protonmail-desktop
 
