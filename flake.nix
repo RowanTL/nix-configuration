@@ -38,6 +38,23 @@
     };
   in
   {
-    nixosConfigurations = nixpkgs.lib.genAttrs [ "rowan-laptop" "rowan-desktop" "rowan-server" "rowan-laptop-test" ] (name: mkSystem name);
+    nixosConfigurations = nixpkgs.lib.genAttrs [
+      "rowan-laptop"
+      "rowan-desktop"
+      "rowan-server"
+      "rowan-laptop-test"
+    ] (name: mkSystem name);
+
+    homeConfigurations = {
+      "rtorblane@dii-razer-ub" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        modules = [
+          ./hosts/dii-razer-ub/home.nix
+        ];
+
+        # extraSpecialArgs = { inherit inputs; }; 
+      };
+    };
   };
 }
