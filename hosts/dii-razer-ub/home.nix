@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 
 {
+  nix.package = pkgs.nix;
+
   imports = [
     ./../../modules/home
     ./../../modules/home/helix.nix
