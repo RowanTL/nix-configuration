@@ -10,6 +10,7 @@
     ./../../modules/home/ssh.nix
     ./../../modules/home/sway.nix
     ./../../modules/home/zed.nix
+    ./../../modules/home/brave.nix
   ];
 
   home.username = "rowan";
@@ -53,6 +54,7 @@
   # others are enabled in modules/home/default.nix
   home-sway.enable = true;
   home-zed.enable = true;
+  home-brave.enable = true;
 
   # need to scale my stuff
   services.kanshi = {
