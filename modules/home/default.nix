@@ -104,16 +104,6 @@
     "text/html" = "librewolf.desktop";
   };
 
-  # alacritty - a cross-platform, GPU-accelerated terminal emulator
-  programs.alacritty = {
-    enable = true;
-  };
-
-  programs.bash = {
-    enable = true;
-    enableCompletion = true;
-  };
-
   # Enable my custom configs
   home-helix.enable = true;
   home-git.enable = true;
