@@ -10,9 +10,6 @@
     ./shell.nix
   ];
 
-  home.username = "rowan";
-  home.homeDirectory = "/home/rowan";
-
   # Also set here just in case
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   
