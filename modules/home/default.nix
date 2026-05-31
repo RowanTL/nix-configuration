@@ -45,6 +45,7 @@
     fastfetch
     signal-desktop
     protonmail-desktop
+    proton-pass
 
     # archives
     zip
@@ -62,6 +63,7 @@
     zstd
     gnupg
     bluetuith
+    vlc
 
     # nix related
     #
