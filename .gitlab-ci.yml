@@ -7,6 +7,11 @@ update-lockfile:
     - git config user.email "ci@gitlab.com"
     - git add flake.lock
     - git commit -m "Automated flake.lock update [skip ci]"
+    - |
+        git diff --cached --quiet && {
+          echo "No lockfile updates"
+          exit 0
+        }
     - git push "https://project_${CI_PROJECT_ID}_bot:${PROJECT_ACCESS_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git" HEAD:${CI_COMMIT_REF_NAME}
   only:
     - schedules
