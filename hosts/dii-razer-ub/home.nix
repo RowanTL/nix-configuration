@@ -8,15 +8,16 @@ let
     system = pkgs.stdenv.hostPlatform.system;
   };
 
+  nixGL = (import (builtins.fetchTarball {
+    url = "https://github.com/nix-community/nixGL/archive/main.tar.gz";
+  }) {}).nixGLNvidia;
+
   blenderOld = pkgs.writeShellScriptBin "blender-old" ''
-    # Force Xwayland: Old Blender + native Wayland + Nvidia usually causes the EGL_SUCCESS crash
+    # Kill Wayland to avoid the EGL crash
     unset WAYLAND_DISPLAY
     
-    export __GLX_VENDOR_LIBRARY_NAME=nvidia
-    export __NV_PRIME_RENGER_OFFLOAD=1
-    
-    # Run the older blender
-    exec nixGL ${pkgsOld.blender}/bin/blender "$@"
+    # nixGLNvidia automatically handles all the LD_LIBRARY_PATH and GLX injection
+    exec ${nixGL}/bin/nixGLNvidia ${pkgsOld.blender}/bin/blender "$@"
   '';
 in
 {
