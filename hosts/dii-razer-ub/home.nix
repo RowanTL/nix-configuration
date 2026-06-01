@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, ... }:
 
 let
   pkgsOld = import (builtins.fetchTarball {
@@ -8,9 +8,35 @@ let
     system = pkgs.stdenv.hostPlatform.system;
   };
 
-  blenderOld = pkgs.writeShellScriptBin "blender-old" ''
-    exec ${lib.getExe pkgsOld.blender} "$@"
+  blenderOld-wrapper = pkgs.writeShellScriptBin "blender-old" ''
+    # Force Xwayland: Old Blender + native Wayland + Nvidia usually causes the EGL_SUCCESS crash
+    unset WAYLAND_DISPLAY
+    
+    # Force current OpenGL: Override the old nixpkgs libraries with your current ones
+    export LD_LIBRARY_PATH="${pkgs.libGL}/lib:${pkgs.libglvnd}/lib:$LD_LIBRARY_PATH"
+    
+    # Run the older blender
+    exec ${pkgsOld.blender}/bin/blender "$@"
   '';
+
+  # 2. Bundle the GUI shortcut and the wrapper together
+  blenderOld = pkgs.symlinkJoin {
+    name = "blender-old";
+    
+    # Include both the old package (for assets) and our new wrapper
+    paths = [ pkgsOld.blender blenderOld-wrapper ];
+
+    postBuild = ''
+      # Remove the conflicting binaries and desktop files
+      rm -f $out/bin/blender
+      rm -f $out/share/applications/blender.desktop
+      
+      # Create the new desktop file, pointing it to our wrapper script
+      sed -e 's/Exec=blender/Exec=blender-old/g' \
+          -e 's/Name=Blender/Name=Blender (Old)/g' \
+          ${pkgsOld.blender}/share/applications/blender.desktop > $out/share/applications/blender-old.desktop
+    '';
+  };
 in
 {
   nix.package = pkgs.nix;
