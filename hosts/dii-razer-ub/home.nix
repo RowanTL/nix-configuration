@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   pkgsOld = import (builtins.fetchTarball {
@@ -8,15 +8,9 @@ let
     system = pkgs.stdenv.hostPlatform.system;
   };
 
-  blenderOld = pkgs.symlinkJoin {
-    name = "blender-old";
-    paths = [ pkgsOld.blender ];
-
-    postBuild = ''
-      rm -f $out/bin/blender
-      ln -s ${pkgsOld.blender}/bin/blender $out/bin/blender-old
-    '';
-  };
+  blenderOld = pkgs.writeShellScriptBin "blender-old" ''
+    exec ${lib.getExe pkgsOld.blender} "$@"
+  '';
 in
 {
   nix.package = pkgs.nix;
