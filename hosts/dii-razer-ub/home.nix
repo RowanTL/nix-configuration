@@ -25,7 +25,10 @@
   home.username = "rtorblane";
   home.homeDirectory = "/home/rtorblane";
 
-  home-sway.enable = true;
+  home-sway = {
+    enable = true;
+    enableIdle = false;
+  };
   home-zed.enable = true;
 
   # This value determines the Home Manager release that your configuration is
@@ -40,7 +43,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-
+    pkgs.slack
   ];
 
   # home.file = {

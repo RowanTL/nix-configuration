@@ -4,6 +4,10 @@
   options = {
     home-sway.enable =
       lib.mkEnableOption "enable custom sway config";
+    home-sway.enableIdle = lib.mkOption {
+      type = lib.types.bool;
+      default = true;
+    };
   };
 
   config = lib.mkIf config.home-sway.enable {
@@ -152,15 +156,17 @@
           #   command = "systemctl --user restart waybar";
           #   always = true;
           # }
+        ]
+        ++ lib.optionals config.home-sway.enableIdle [
           {
             command = "sleep 5 && systemctl --user restart swayidle";
             always = true;
           }
+        ];
           # {
           #   command = "systemctl --user restart swayr";
           #   always = true;
           # }
-        ];
       };
     };
     programs.rofi = {
@@ -256,7 +262,7 @@
       XDG_DOWNLOAD_DIR = "~/Downloads";
     };
 
-    services.swayidle = {
+    services.swayidle = lib.mkIf config.home-sway.enableIdle {
       enable = true;
       events = {
         "before-sleep" = "${lib.getExe pkgs.swaylock} --daemonize";
