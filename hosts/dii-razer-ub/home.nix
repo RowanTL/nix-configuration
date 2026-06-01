@@ -3,7 +3,20 @@
 let
   pkgsOld = import (builtins.fetchTarball {
     url = "https://github.com/NixOS/nixpkgs/archive/1d4c88323ac36805d09657d13a5273aea1b34f0c.tar.gz";
-  }) {};
+    sha256 = "1061lm95hbmpqcbbkr493ypkwy3rs4wgxv21wfj4wg005lwn3i3s";
+  }) {
+    system = pkgs.stdenv.hostPlatform.system;
+  };
+
+  blenderOld = pkgs.symlinkJoin {
+    name = "blender-old";
+    paths = [ pkgsOld.blender ];
+
+    postBuild = ''
+      rm -f $out/bin/blender
+      ln -s ${pkgsOld.blender}/bin/blender $out/bin/blender-old
+    '';
+  };
 in
 {
   nix.package = pkgs.nix;
@@ -51,7 +64,7 @@ in
     pkgs.slack
 
     # 2 different blender versions to work with gaussian splatting
-    pkgsOld.blender
+    blenderOld
     pkgs.blender
   ];
 
