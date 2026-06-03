@@ -1,25 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  pkgsOld = import (builtins.fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/1d4c88323ac36805d09657d13a5273aea1b34f0c.tar.gz";
-    sha256 = "1061lm95hbmpqcbbkr493ypkwy3rs4wgxv21wfj4wg005lwn3i3s";
-  }) {
-    system = pkgs.stdenv.hostPlatform.system;
-  };
-
-  nixGL = (import (builtins.fetchTarball {
-    url = "https://github.com/nix-community/nixGL/archive/main.tar.gz";
-  }) {}).nixGLNvidia;
-
-  blenderOld = pkgs.writeShellScriptBin "blender-old" ''
-    # Kill Wayland to avoid the EGL crash
-    unset WAYLAND_DISPLAY
-    
-    # nixGLNvidia automatically handles all the LD_LIBRARY_PATH and GLX injection
-    exec ${nixGL}/bin/nixGLNvidia ${pkgsOld.blender}/bin/blender "$@"
-  '';
-in
 {
   nix.package = pkgs.nix;
 
@@ -32,7 +12,7 @@ in
     };
   };
   # gpu offloading
-  targets.genericLinux.nixGL.prime.installScript = "nvidia";
+  # targets.genericLinux.nixGL.prime.installScript = "nvidia";
 
   imports = [
     ./../../modules/home
@@ -64,11 +44,6 @@ in
   # environment.
   home.packages = [
     pkgs.slack
-    pkgs.nixgl
-
-    # 2 different blender versions to work with gaussian splatting
-    blenderOld
-    pkgs.blender
   ];
 
   # home.file = {
