@@ -44,6 +44,7 @@
   # environment.
   home.packages = [
     pkgs.blender
+    pkgs.ollama-cuda
   ];
 
   # home.file = {
