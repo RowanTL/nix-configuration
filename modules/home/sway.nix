@@ -295,6 +295,7 @@
         General = {
           disabledTrayIcon = true;
           useGrimAdapter = true;
+          disabledGrimWarning = true;
         };
       };
     };
