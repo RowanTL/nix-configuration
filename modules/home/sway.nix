@@ -286,6 +286,7 @@
       wl-clipboard
       libsForQt5.qt5ct
       libsForQt5.qtstyleplugin-kvantum
+      grim
     ];
     # screenshotting software
     services.flameshot = {
@@ -293,6 +294,7 @@
       settings = {
         General = {
           disabledTrayIcon = true;
+          useGrimAdapter = true;
         };
       };
     };
