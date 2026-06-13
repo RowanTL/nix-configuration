@@ -56,6 +56,7 @@
   home-sway.enable = true;
   home-zed.enable = true;
   home-brave.enable = true;
+  home-prismlauncher.enable = true;
 
   # need to scale my stuff
   services.kanshi = {
