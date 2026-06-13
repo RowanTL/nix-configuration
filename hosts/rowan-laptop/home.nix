@@ -11,6 +11,7 @@
     ./../../modules/home/sway.nix
     ./../../modules/home/zed.nix
     ./../../modules/home/brave.nix
+    ./../../modules/home/prismlauncher.nix
   ];
 
   home.username = "rowan";
