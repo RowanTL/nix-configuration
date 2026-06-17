@@ -44,7 +44,7 @@
   # environment.
   home.packages = [
     pkgs.blender
-    # pkgs.ollama-cuda
+    pkgs.ollama-cuda
   ];
 
   systemd.user.services.ollama = {
