@@ -52,7 +52,7 @@
     Install.WantedBy = [ "default.target" ];
     Service = {
       ExecStart = "${pkgs.ollama-cuda}/bin/ollama serve";
-      Environment = "LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu";
+      Environment = "LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/nvidia";
 
       StandardOutput = "journal";
       StandardError = "journal";
