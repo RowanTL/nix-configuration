@@ -44,12 +44,13 @@
   # environment.
   home.packages = [
     pkgs.blender
+    pkgs.ollama-cuda
   ];
 
-  services.ollama = {
-    enable = true;
-    package = pkgs.ollama-cuda;
-  };
+  # services.ollama = {
+  #   enable = true;
+  #   package = pkgs.ollama-cuda;
+  # };
 
   # home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
