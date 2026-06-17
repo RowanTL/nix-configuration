@@ -47,10 +47,16 @@
     # pkgs.ollama-cuda
   ];
 
-  services.ollama = {
-    enable = true;
-    acceleration = "cuda";
-    # package = pkgs.ollama-cuda;
+  systemd.user.services.ollama = {
+    Unit.Description = "Ollama GPU Service";
+    Install.WantedBy = [ "default.target" ];
+    Service = {
+      ExecStart = "${pkgs.ollama-cuda}/bin/ollama serve";
+      Environment = "LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu";
+
+      StandardOutput = "journal";
+      StandardError = "journal";
+    };
   };
 
   # home.file = {
