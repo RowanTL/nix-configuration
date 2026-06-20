@@ -24,6 +24,7 @@ in
         "python"
         "nu"
         "asciidoc"
+        "gdscript"
         "astro"
       ];
       userSettings = {
