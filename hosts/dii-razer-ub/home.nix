@@ -44,7 +44,20 @@
   # environment.
   home.packages = [
     pkgs.blender
+    # pkgs.ollama-cuda
   ];
+
+  # systemd.user.services.ollama = {
+  #   Unit.Description = "Ollama GPU Service";
+  #   Install.WantedBy = [ "default.target" ];
+  #   Service = {
+  #     ExecStart = "${pkgs.ollama-cuda}/bin/ollama serve";
+  #     Environment = "LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu/nvidia";
+
+  #     StandardOutput = "journal";
+  #     StandardError = "journal";
+  #   };
+  # };
 
   # home.file = {
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
