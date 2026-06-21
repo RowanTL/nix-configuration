@@ -6,7 +6,6 @@ update-lockfile:
     - git config user.name "GitLab CI"
     - git config user.email "ci@gitlab.com"
     - git add flake.lock
-    - git commit -m "Automated flake.lock update [skip ci]"
     - |
         # Check if there are staged changes before committing
         if git diff --cached --quiet; then
