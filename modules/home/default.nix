@@ -88,22 +88,35 @@
   ];
 
   # enable and use librewolf as default web browser
-  programs.librewolf = {
+  # Librewolf is marked as insecure. Replace with something else for
+  # the time being.
+  # programs.librewolf = {
+  #   enable = true;
+  #   # Can add extra config here if wanted
+  #   # https://nixos.wiki/wiki/Librewolf
+  #   settings = {
+  #     "browser.toolbars.bookmarks.visibility" = "never";
+  #   };
+  # };
+  programs.floorp = {
     enable = true;
-    # Can add extra config here if wanted
-    # https://nixos.wiki/wiki/Librewolf
-    settings = {
-      "browser.toolbars.bookmarks.visibility" = "never";
-    };
+    globalExtensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      {
+        package = ublock-origin;
+        settings = {
+          private_browsing = true;
+        };
+      }
+    ];
   };
   xdg.mimeApps.enable = true;
   xdg.mimeApps.defaultApplications = {
     "x-scheme-handler/discord" = "legcord.desktop";
     "x-scheme-handler/sgnl" = "signal.desktop";
     "x-scheme-handler/signalcaptcha" = "signal.desktop";
-    "x-scheme-handler/http" = "librewolf.desktop";
-    "x-scheme-handler/https" = "librewolf.desktop";
-    "text/html" = "librewolf.desktop";
+    # "x-scheme-handler/http" = "librewolf.desktop";
+    # "x-scheme-handler/https" = "librewolf.desktop";
+    # "text/html" = "librewolf.desktop";
   };
 
   # Enable my custom configs
