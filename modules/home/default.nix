@@ -100,14 +100,14 @@
   # };
   programs.floorp = {
     enable = true;
-    globalExtensions = with pkgs.nur.repos.rycee.firefox-addons; [
-      {
-        package = ublock-origin;
-        settings = {
-          private_browsing = true;
-        };
-      }
-    ];
+    # globalExtensions = with pkgs.nur.repos.rycee.firefox-addons; [
+    #   {
+    #     package = ublock-origin;
+    #     settings = {
+    #       private_browsing = true;
+    #     };
+    #   }
+    # ];
   };
   xdg.mimeApps.enable = true;
   xdg.mimeApps.defaultApplications = {
