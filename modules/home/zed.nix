@@ -17,6 +17,12 @@ in
   config = lib.mkIf config.home-zed.enable {
     programs.zed-editor = {
       enable = true;
+      extraPackages = with pkgs; [
+        ruff
+        ty
+        # python3
+        nixd
+      ];
       extensions = [
         "nix"
         "toml"
@@ -36,8 +42,22 @@ in
         };
         show_edit_predictions = false;
         languages = {
-          "Python" = {
-            language_servers = [ "ruff" "ty" ];
+          Python = {
+            language_servers = [ "ruff" "ty" "!basedpyright" ];
+            format_on_save = "on";
+            formatter = [
+              {
+                code_actions = {
+                  "source.fixAll.ruff" = true;
+                  "source.organizeImports.ruff" = true;
+                };
+              }
+              {
+                language_server = {
+                  name = "ruff";
+                };
+              }
+            ];
           };
         };
         terminal = {
