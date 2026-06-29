@@ -157,6 +157,12 @@ in
         {
           context = "(VimControl && !menu)";
           bindings = {
+            K = "vim::MoveToPreviousMatch";
+          };
+        }
+        {
+          context = "(VimControl && !menu)";
+          bindings = {
             "g k" = "vim::SelectNextMatch";
           };
         }
