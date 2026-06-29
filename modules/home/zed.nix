@@ -44,20 +44,9 @@ in
         languages = {
           Python = {
             language_servers = [ "ruff" "ty" "!basedpyright" ];
+            language_server = "ruff";
             format_on_save = "on";
-            formatter = [
-              {
-                code_actions = {
-                  "source.fixAll.ruff" = true;
-                  "source.organizeImports.ruff" = false; # change to false for the time being
-                };
-              }
-              {
-                language_server = {
-                  name = "ruff";
-                };
-              }
-            ];
+            formatter = "language_server";
           };
         };
         terminal = {
@@ -78,18 +67,17 @@ in
                 name = "gemini-2.5-flash-lite";
                 display_name = "Gemini 2.5 Flash-Lite";
                 max_tokens = 1048576;
-                max_output_tokens = 65536;             }
+              }
               {
                 name = "gemini-2.5-pro";
                 display_name = "Gemini 2.5 Pro";
                 max_tokens = 1048576;
-                max_output_tokens = 65536;
               }
               {
                 name = "gemini-3-flash";
                 display_name = "Gemini 3 Flash-Lite";
                 max_tokens = 1048576;
-                max_output_tokens = 65536;             }
+              }
               {
                 name = "gemini-3.1-flash-lite";
                 display_name = "Gemini 3.1 Flash-Lite";
@@ -100,12 +88,12 @@ in
                 name = "gemini-3.1-pro";
                 display_name = "Gemini 3.1 Pro";
                 max_tokens = 1048576;
-                max_output_tokens = 65536;             }
+              }
               {
                 name = "gemini-3.5-flash";
                 display_name = "Gemini 3.5 Flash";
                 max_tokens = 1048576;
-                max_output_tokens = 65536;              }
+              }
               {
                 name = "gemma-4-31b-it";
                 display_name = "Gemma 4 31B";
