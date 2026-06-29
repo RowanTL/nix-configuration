@@ -44,7 +44,6 @@ in
         languages = {
           Python = {
             language_servers = [ "ruff" "ty" "!basedpyright" ];
-            language_server = "ruff";
             format_on_save = "on";
             formatter = "language_server";
           };
