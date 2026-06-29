@@ -60,7 +60,6 @@ in
                 name = "gemini-2.5-flash";
                 display_name = "Gemini 2.5 Flash";
                 max_tokens = 1048576;
-                max_output_tokens = 65536;
               }
               {
                 name = "gemini-2.5-flash-lite";
