@@ -49,7 +49,7 @@ in
               {
                 code_actions = {
                   "source.fixAll.ruff" = true;
-                  "source.organizeImports.ruff" = true;
+                  "source.organizeImports.ruff" = false; # change to false for the time being
                 };
               }
               {
