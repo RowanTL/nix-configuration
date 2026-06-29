@@ -80,7 +80,6 @@ in
                 name = "gemini-3.1-flash-lite";
                 display_name = "Gemini 3.1 Flash-Lite";
                 max_tokens = 1048576;
-                max_output_tokens = 65536;
               }
               {
                 name = "gemini-3.1-pro";
@@ -96,7 +95,6 @@ in
                 name = "gemma-4-31b-it";
                 display_name = "Gemma 4 31B";
                 max_tokens = 256000;
-                max_output_tokens = 8192;
               }
             ];
           };
