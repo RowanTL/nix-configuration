@@ -117,6 +117,9 @@
     # "x-scheme-handler/http" = "librewolf.desktop";
     # "x-scheme-handler/https" = "librewolf.desktop";
     # "text/html" = "librewolf.desktop";
+    "x-scheme-handler/http" = "floorp.desktop";
+    "x-scheme-handler/https" = "floorp.desktop";
+    "text/html" = "floorp.desktop";
   };
 
   # Enable my custom configs
