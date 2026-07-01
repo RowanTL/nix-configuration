@@ -42,7 +42,7 @@
   # };
 
   home.packages = with pkgs; [
-    legcord
+    goofcord
     libreoffice-fresh
   ];
 
