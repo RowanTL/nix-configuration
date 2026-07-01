@@ -134,9 +134,6 @@
             "Escape" = "mode \"default\"";
           };
         };
-        extra_config = ''
-          include /etc/sway/config.d/*
-        '';
         input = {
           "type:keyboard" = {
             "xkb_layout" = "us,us";
@@ -173,6 +170,9 @@
           #   always = true;
           # }
       };
+      extra_config = ''
+        include /etc/sway/config.d/*
+      '';
     };
     programs.rofi = {
       enable = true;
