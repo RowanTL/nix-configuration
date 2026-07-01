@@ -24,9 +24,14 @@
     xdg.portal = {
       enable = true;
       wlr.enable = true;
-      extraPortals = [
-        pkgs.xdg-desktop-portal-gtk
-      ];
+      # extraPortals = [
+      #   pkgs.xdg-desktop-portal-gtk
+      # ];
+    };
+
+    services.pipewire = {
+      enable = true;
+      wireplumber.enable = true;
     };
   };
 }
