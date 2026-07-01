@@ -170,7 +170,7 @@
           #   always = true;
           # }
       };
-      extra_config = ''
+      extraConfig = ''
         include /etc/sway/config.d/*
       '';
     };
