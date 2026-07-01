@@ -21,7 +21,12 @@
     systemd.services.display-manager.environment.XDG_CURRENT_DESKTOP = "X-NIXOS-SYSTEMD-AWARE";
 
     # So sway can use xdg-open
-    xdg.portal.enable = true;
-    xdg.portal.wlr.enable = true;
+    xdg.portal = {
+      enable = true;
+      wlr.enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+      ];
+    };
   };
 }
