@@ -10,7 +10,7 @@
     programs.helix = {
       enable = true;
       settings = {
-        theme = "gruvbox_light_hard";
+        theme = "ayu_dark";
         editor = {
           bufferline = "multiple";
           cursorline = true;
