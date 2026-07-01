@@ -292,6 +292,7 @@
       libsForQt5.qt5ct
       libsForQt5.qtstyleplugin-kvantum
       grim
+      xdg-desktop-portal-wlr
     ];
     # screenshotting software
     services.flameshot = {
