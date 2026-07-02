@@ -12,6 +12,7 @@
     ./../../modules/home/zed.nix
     ./../../modules/home/brave.nix
     ./../../modules/home/prismlauncher.nix
+    ./../../modules/home/obs.nix
   ];
 
   home.username = "rowan";
@@ -42,7 +43,7 @@
   # };
 
   home.packages = with pkgs; [
-    legcord
+    goofcord
     libreoffice-fresh
   ];
 
@@ -57,6 +58,7 @@
   home-zed.enable = true;
   home-brave.enable = true;
   home-prismlauncher.enable = true;
+  home-obs.enable = true;
 
   # need to scale my stuff
   services.kanshi = {

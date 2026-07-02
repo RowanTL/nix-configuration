@@ -170,6 +170,9 @@
           #   always = true;
           # }
       };
+      extraConfig = ''
+        include /etc/sway/config.d/*
+      '';
     };
     programs.rofi = {
       enable = true;
