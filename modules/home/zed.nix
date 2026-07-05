@@ -32,7 +32,7 @@ in
         "asciidoc"
         "gdscript"
         "astro"
-        "zed-lean4"
+        "lean4"
       ];
       userSettings = {
         helix_mode = true;
