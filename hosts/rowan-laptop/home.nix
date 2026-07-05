@@ -13,6 +13,7 @@
     ./../../modules/home/brave.nix
     ./../../modules/home/prismlauncher.nix
     ./../../modules/home/obs.nix
+    ./../../modules/home/vscode.nix
   ];
 
   home.username = "rowan";
@@ -59,6 +60,7 @@
   home-brave.enable = true;
   home-prismlauncher.enable = true;
   home-obs.enable = true;
+  home-vscode.enable = true;
 
   # need to scale my stuff
   services.kanshi = {
