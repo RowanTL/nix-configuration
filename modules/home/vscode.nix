@@ -18,6 +18,12 @@
           version = "0.0.238";
           sha256 = "IhEmBDy+j+Ha5WHx+L9zLfd3e7jGb3cZSLAUZv3+RsE=";
         }
+        {
+          name = "even-better-toml";  # lean4 depends on this
+          publisher = "tamasfe";
+          version = "0.21.2";
+          sha256 = "IbjWavQoXu4x4hpEkvkhqzbf/NhZpn8RFdKTAnRlCAg=";
+        }
       ];
     };
   };
