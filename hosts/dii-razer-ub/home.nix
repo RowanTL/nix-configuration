@@ -42,9 +42,9 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    pkgs.blender
-    # pkgs.ollama-cuda
+  home.packages = with pkgs; [
+    blender
+    jetbrains.rider
   ];
 
   # systemd.user.services.ollama = {
