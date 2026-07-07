@@ -85,6 +85,9 @@
 
     # global language servers
     nil
+
+    # AI related
+    claude-code
   ];
 
   # enable and use librewolf as default web browser
