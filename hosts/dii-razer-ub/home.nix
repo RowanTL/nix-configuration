@@ -45,6 +45,8 @@
   home.packages = with pkgs; [
     blender
     jetbrains.rider
+    dotnet-sdk_8
+    msbuild
   ];
 
   # systemd.user.services.ollama = {
