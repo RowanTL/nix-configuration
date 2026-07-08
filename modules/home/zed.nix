@@ -22,6 +22,7 @@ in
         ty
         # python3
         nixd
+        claude-code-acp
       ];
       extensions = [
         "nix"
@@ -52,6 +53,11 @@ in
         terminal = {
           "shell" = {
             "program" = lib.getExe pkgs.nushell;
+          };
+        };
+        agent_servers = {
+          "Claude Code" = {
+            command = lib.getExe pkgs.claude-code-acp;
           };
         };
         language_models = {
