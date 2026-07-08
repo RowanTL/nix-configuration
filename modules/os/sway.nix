@@ -23,7 +23,15 @@
     # So sway can use xdg-open
     xdg.portal = {
       enable = true;
-      wlr.enable = true;
+      wlr = {
+        enable = true;
+        # The default output choosers (wmenu/wofi/rofi) aren't on the portal
+        # service's PATH, so screen sharing silently fails without this.
+        settings.screencast = {
+          chooser_type = "simple";
+          chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+        };
+      };
       extraPortals = [
         pkgs.xdg-desktop-portal-wlr
       ];
