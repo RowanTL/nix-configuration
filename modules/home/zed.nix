@@ -22,7 +22,8 @@ in
         ty
         # python3
         nixd
-        claude-code-acp
+        claude-agent-acp
+        claude-code
       ];
       extensions = [
         "nix"
@@ -57,7 +58,7 @@ in
         };
         agent_servers = {
           "Claude Code" = {
-            command = lib.getExe pkgs.claude-code-acp;
+            command = lib.getExe pkgs.claude-agent-acp;
           };
         };
         language_models = {
