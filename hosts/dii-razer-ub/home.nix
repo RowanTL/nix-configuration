@@ -21,6 +21,7 @@
     ./../../modules/home/ssh.nix
     ./../../modules/home/sway.nix
     ./../../modules/home/zed.nix
+    ./../../modules/home/obs.nix
   ];
   home.username = "rtorblane";
   home.homeDirectory = "/home/rtorblane";
@@ -30,6 +31,7 @@
     enableIdle = false;
   };
   home-zed.enable = true;
+  home-obs.enable = true;
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
