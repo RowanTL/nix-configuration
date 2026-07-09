@@ -57,8 +57,10 @@ in
           };
         };
         agent_servers = {
-          "Claude Code" = {
+          "claude-code" = {
+            type = "custom";
             command = lib.getExe pkgs.claude-agent-acp;
+            env = {};
           };
         };
         language_models = {
