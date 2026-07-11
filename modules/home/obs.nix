@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ lib, config, pkgs, ... }:
 
 {
   options = {
@@ -9,6 +9,9 @@
   config = lib.mkIf config.home-obs.enable {
     programs.obs-studio = {
       enable = true;
+      plugins = [
+        pkgs.obs-studio-plugins.wlrobs
+      ];
     };
   };
 }
