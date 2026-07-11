@@ -1,4 +1,7 @@
-{ lib, config, pkgs, ... }:
+{
+  pkgs,
+  ...
+}:
 
 # Thanks to this tutorial
 # https://nixos-and-flakes.thiscute.world/nixos-with-flakes/start-using-home-manager
@@ -18,7 +21,7 @@
 
   home.username = "rowan";
   home.homeDirectory = "/home/rowan";
-  
+
   # Import files from the current configuration directory into the Nix store,
   # and create symbolic links pointing to those store files in the Home directory.
 
@@ -39,13 +42,15 @@
 
   # set cursor size and dpi for 4k monitor
   # xresources.properties = {
-    # "Xcursor.size" = 16;
-    # "Xft.dpi" = 172;
+  # "Xcursor.size" = 16;
+  # "Xft.dpi" = 172;
   # };
 
   home.packages = with pkgs; [
     goofcord
     libreoffice-fresh
+    blender
+    kdePackages.kdenlive
   ];
 
   programs.bash = {
