@@ -6,16 +6,16 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../../modules/os/sway.nix
-      ../../modules/os # basic configuration nice for all systems
-      ../../modules/os/intel.nix
-      ../../modules/os/power.nix
-      ../../modules/os/bluetooth.nix
-      ../../modules/os/ly.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/os/sway.nix
+    ../../modules/os # basic configuration nice for all systems
+    ../../modules/os/intel.nix
+    ../../modules/os/power.nix
+    ../../modules/os/bluetooth.nix
+    ../../modules/os/ly.nix
+    ../../modules/os/steam.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -35,6 +35,7 @@
   power.enable = true;
   bluetooth.enable = true;
   ly.enable = true;
+  steam.enable = true;
 
   # Set your time zone.
   # time.timeZone = "America/Chicago";
@@ -65,7 +66,12 @@
   users.users.rowan = {
     isNormalUser = true;
     description = "rowan";
-    extraGroups = [ "networkmanager" "wheel" "video" "input" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+      "input"
+    ];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -80,7 +86,7 @@
     enable = true;
     # https://wiki.nixos.org/wiki/Intel_Graphics
     # extraPackages = with pkgs; [
-      # intel-media-sdk # marked as insecure so don't use
+    # intel-media-sdk # marked as insecure so don't use
     # ];
   };
   # Some programs need SUID wrappers, can be configured further or are
@@ -88,7 +94,7 @@
   # programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
-  #   enableSSHSupport = true;
+    #   enableSSHSupport = true;
   };
 
   # Syncthing
@@ -100,7 +106,9 @@
     configDir = "/home/rowan/.config/syncthing";
     settings = {
       devices = {
-        "desktop" = {id = "UA3EZN4-6MVM676-4GOTJBU-KHDZRUT-TCMO4NO-Q7ZHNM5-ESXFTNX-I3VZCA7"; };
+        "desktop" = {
+          id = "UA3EZN4-6MVM676-4GOTJBU-KHDZRUT-TCMO4NO-Q7ZHNM5-ESXFTNX-I3VZCA7";
+        };
       };
       folders = {
         "bvjky-kxgig" = {
