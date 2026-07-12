@@ -51,6 +51,7 @@
     libreoffice-fresh
     blender
     kdePackages.kdenlive
+    godot
   ];
 
   programs.bash = {
