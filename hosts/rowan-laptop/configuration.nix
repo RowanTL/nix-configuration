@@ -37,7 +37,7 @@
   bluetooth.enable = true;
   ly.enable = true;
   steam.enable = true;
-  hyprland.enable = true;
+  # hyprland.enable = true;
 
   # Set your time zone.
   # time.timeZone = "America/Chicago";
