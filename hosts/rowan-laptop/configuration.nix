@@ -98,26 +98,26 @@
   };
 
   # Syncthing
-  services.syncthing = {
-    enable = true;
-    openDefaultPorts = true;
-    user = "rowan";
-    dataDir = "/home/rowan/syncthing";
-    configDir = "/home/rowan/.config/syncthing";
-    settings = {
-      devices = {
-        "desktop" = {
-          id = "UA3EZN4-6MVM676-4GOTJBU-KHDZRUT-TCMO4NO-Q7ZHNM5-ESXFTNX-I3VZCA7";
-        };
-      };
-      folders = {
-        "bvjky-kxgig" = {
-          path = "/home/rowan/syncthing/Sync";
-          devices = [ "desktop" ];
-        };
-      };
-    };
-  };
+  # services.syncthing = {
+  #   enable = true;
+  #   openDefaultPorts = true;
+  #   user = "rowan";
+  #   dataDir = "/home/rowan/syncthing";
+  #   configDir = "/home/rowan/.config/syncthing";
+  #   settings = {
+  #     devices = {
+  #       "desktop" = {
+  #         id = "UA3EZN4-6MVM676-4GOTJBU-KHDZRUT-TCMO4NO-Q7ZHNM5-ESXFTNX-I3VZCA7";
+  #       };
+  #     };
+  #     folders = {
+  #       "bvjky-kxgig" = {
+  #         path = "/home/rowan/syncthing/Sync";
+  #         devices = [ "desktop" ];
+  #       };
+  #     };
+  #   };
+  # };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
