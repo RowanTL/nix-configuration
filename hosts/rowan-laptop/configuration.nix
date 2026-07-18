@@ -15,7 +15,7 @@
     ../../modules/os/bluetooth.nix
     ../../modules/os/ly.nix
     ../../modules/os/steam.nix
-    ../../modules/os/hyprland.nix
+    # ../../modules/os/hyprland.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

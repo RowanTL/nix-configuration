@@ -10,7 +10,7 @@
     hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { self, nixpkgs, home-manager, hyprland }:
+  outputs = { self, nixpkgs, home-manager, ... } @ inputs:
   let
     system = "x86_64-linux";
 
@@ -24,7 +24,7 @@
     };
 
     mkSystem = name: nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit system; };
+      specialArgs = { inherit system; inherit inputs; };
 
       modules = [
         ./hosts/${name}/configuration.nix
