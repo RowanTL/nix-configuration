@@ -15,7 +15,7 @@
     ../../modules/os/bluetooth.nix
     ../../modules/os/ly.nix
     ../../modules/os/steam.nix
-    # ../../modules/os/hyprland.nix
+    ../../modules/os/hyprland.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -37,7 +37,7 @@
   bluetooth.enable = true;
   ly.enable = true;
   steam.enable = true;
-  # hyprland.enable = true;
+  hyprland.enable = true;
 
   # Set your time zone.
   # time.timeZone = "America/Chicago";
