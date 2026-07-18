@@ -14,7 +14,9 @@
       enable = true;
       package = null;
       portalPackage = null;
-      settings = {};
+      settings = {
+        "$mod" = "SUPER";
+      };
       plugins = [];
     };
   };
