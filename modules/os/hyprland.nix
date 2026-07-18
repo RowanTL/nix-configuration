@@ -15,9 +15,9 @@
       package = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       portalPackage = hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
-  };
 
-  environment.systemPackages = [
-    # pkgs.kitty
-  ];
+    environment.systemPackages = [
+      # pkgs.kitty
+    ];
+  };
 }
