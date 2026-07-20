@@ -47,20 +47,20 @@
       pkgs.unityhub
     ];
 
-    home.file = {
-      ".local/share/applications/jetbrains-rider.desktop".source =
-        let
-          desktopFile = pkgs.makeDesktopItem {
-            name = "jetbrains-rider";
-            desktopName = "Rider";
-            exec = "\"${rider}/bin/rider\"";
-            icon = "rider";
-            type = "Application";
-            # Don't show desktop icon in search or run launcher
-            extraConfig.NoDisplay = "true";
-          };
-        in
-        "${desktopFile}/share/applications/jetbrains-rider.desktop";
-    };
+    # home.file = {
+    #   ".local/share/applications/jetbrains-rider.desktop".source =
+    #     let
+    #       desktopFile = pkgs.makeDesktopItem {
+    #         name = "jetbrains-rider";
+    #         desktopName = "Rider";
+    #         exec = "\"${rider}/bin/rider\"";
+    #         icon = "rider";
+    #         type = "Application";
+    #         # Don't show desktop icon in search or run launcher
+    #         extraConfig.NoDisplay = "true";
+    #       };
+    #     in
+    #     "${desktopFile}/share/applications/jetbrains-rider.desktop";
+    # };
   };
 }
