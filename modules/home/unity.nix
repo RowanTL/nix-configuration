@@ -10,7 +10,7 @@
   # Pulled from: https://huantian.dev/blog/unity3d-rider-nixos/
   let
     extra-path = with pkgs; [
-      dotnetCorePackages.sdk_6_0
+      dotnetCorePackages.sdk_8_0
       dotnetPackages.Nuget
       mono
       msbuild
@@ -47,7 +47,7 @@
       pkgs.unityhub
     ];
 
-    home-manager.users.huantian.home.file = {
+    home.file = {
       ".local/share/applications/jetbrains-rider.desktop".source =
         let
           desktopFile = pkgs.makeDesktopItem {
