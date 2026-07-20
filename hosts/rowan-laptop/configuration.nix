@@ -18,6 +18,15 @@
     ../../modules/os/hyprland.nix
   ];
 
+  # custom rowan stuff
+  sway.enable = true;
+  intel.enable = true;
+  power.enable = true;
+  bluetooth.enable = true;
+  ly.enable = true;
+  steam.enable = true;
+  # hyprland.enable = true;
+  
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
@@ -29,15 +38,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # custom rowan stuff
-  sway.enable = true;
-  intel.enable = true;
-  power.enable = true;
-  bluetooth.enable = true;
-  ly.enable = true;
-  steam.enable = true;
-  hyprland.enable = true;
 
   # Set your time zone.
   # time.timeZone = "America/Chicago";

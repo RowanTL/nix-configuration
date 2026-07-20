@@ -19,6 +19,15 @@
     ./../../modules/home/vscode.nix
   ];
 
+  # Enable my custom configs
+  # others are enabled in modules/home/default.nix
+  home-sway.enable = true;
+  home-zed.enable = true;
+  home-brave.enable = true;
+  home-prismlauncher.enable = true;
+  home-obs.enable = true;
+  home-vscode.enable = true;
+
   home.username = "rowan";
   home.homeDirectory = "/home/rowan";
 
@@ -58,15 +67,6 @@
     enable = true;
     enableCompletion = true;
   };
-
-  # Enable my custom configs
-  # others are enabled in modules/home/default.nix
-  home-sway.enable = true;
-  home-zed.enable = true;
-  home-brave.enable = true;
-  home-prismlauncher.enable = true;
-  home-obs.enable = true;
-  home-vscode.enable = true;
 
   # need to scale my stuff
   services.kanshi = {
