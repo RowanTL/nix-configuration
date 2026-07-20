@@ -25,7 +25,7 @@
   bluetooth.enable = true;
   ly.enable = true;
   steam.enable = true;
-  # hyprland.enable = true;
+  hyprland.enable = true;
   
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
