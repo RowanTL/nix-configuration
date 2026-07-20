@@ -3,14 +3,14 @@
 {
   options = {
     home-vscode.enable
-      = lib.mkEnableOption "enable custom vscode";  
+      = lib.mkEnableOption "enable custom vscode";
   };
-  
+
   config = lib.mkIf config.home-vscode.enable {
     programs.vscode = {
       enable = true;
       profiles.default.extensions = with pkgs.vscode-extensions; [
-        # Another extension here
+        visualstudiotoolsforunity.vstuc  # Unity development package
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "lean4";
