@@ -43,7 +43,7 @@
   in
   lib.mkIf config.home-unity.enable {
     home.packages = [
-      rider
+      # rider
       pkgs.unityhub
     ];
 

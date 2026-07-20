@@ -26,5 +26,22 @@
         }
       ];
     };
+
+    # Registered so external tools (e.g. Unity's script editor detection) can find vscode.
+    # home.file = {
+    #   ".local/share/applications/code.desktop".source =
+    #     let
+    #       desktopFile = pkgs.makeDesktopItem {
+    #         name = "code";
+    #         desktopName = "Visual Studio Code";
+    #         exec = "\"${pkgs.vscode}/bin/code\" %F";
+    #         icon = "vscode";
+    #         type = "Application";
+    #         # Don't show desktop icon in search or run launcher
+    #         extraConfig.NoDisplay = "true";
+    #       };
+    #     in
+    #     "${desktopFile}/share/applications/code.desktop";
+    # };
   };
 }
