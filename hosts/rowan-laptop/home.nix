@@ -57,7 +57,7 @@
 
   home.packages = with pkgs; [
     goofcord
-    libreoffice-fresh
+    # libreoffice-fresh
     blender
     kdePackages.kdenlive
     godot
