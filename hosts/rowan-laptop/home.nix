@@ -17,7 +17,6 @@
     ./../../modules/home/prismlauncher.nix
     ./../../modules/home/obs.nix
     ./../../modules/home/vscode.nix
-    ./../../modules/home/unity.nix
   ];
 
   # Enable my custom configs
@@ -28,7 +27,6 @@
   home-prismlauncher.enable = true;
   home-obs.enable = true;
   home-vscode.enable = true;
-  home-unity.enable = true;
 
   home.username = "rowan";
   home.homeDirectory = "/home/rowan";
