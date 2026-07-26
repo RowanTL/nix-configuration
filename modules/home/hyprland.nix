@@ -16,7 +16,9 @@
       package = null;
       portalPackage = null;
       settings = {
-        "$mod" = "SUPER";
+        mod = {
+          _var = "SUPER";
+        };
       };
       plugins = [
         inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hy3
