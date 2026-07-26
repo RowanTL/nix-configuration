@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ inputs, lib, config, pkgs, ... }:
 
 {
   options = {
@@ -12,12 +12,15 @@
     # https://wiki.hypr.land/Nix/Hyprland-on-Home-Manager/#using-the-home-manager-module-with-nixos
     wayland.windowManager.hyprland = {
       enable = true;
+      xwayland.enable = true;
       package = null;
       portalPackage = null;
       settings = {
         "$mod" = "SUPER";
       };
-      plugins = [];
+      plugins = [
+        inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hy3
+      ];
     };
   };
 }

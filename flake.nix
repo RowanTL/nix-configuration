@@ -8,6 +8,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
@@ -55,7 +59,7 @@
           ./hosts/dii-razer-ub/home.nix
         ];
 
-        # extraSpecialArgs = { inherit inputs; }; 
+        # extraSpecialArgs = { inherit inputs; };
       };
     };
   };
