@@ -13,9 +13,9 @@
     ../../modules/os/intel.nix
     ../../modules/os/power.nix
     ../../modules/os/bluetooth.nix
-    ../../modules/os/ly.nix
     ../../modules/os/steam.nix
     ../../modules/os/hyprland.nix
+    ../../modules/os/regreet.nix
   ];
 
   # custom rowan stuff
@@ -23,9 +23,9 @@
   intel.enable = true;
   power.enable = true;
   bluetooth.enable = true;
-  ly.enable = true;
   steam.enable = true;
   hyprland.enable = true;
+  regreet.enable = true;
   
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
