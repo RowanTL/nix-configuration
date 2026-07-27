@@ -12,6 +12,7 @@
       profiles.default.extensions = with pkgs.vscode-extensions; [
         visualstudiotoolsforunity.vstuc  # Unity development package
         james-yu.latex-workshop
+        anthropic.claude-code
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "lean4";
