@@ -7,7 +7,7 @@
   };
 
   config = lib.mkIf config.regreet.enable {
-    programs.regreet = {
+    services.displayManager.regreet = {
       enable = true;
     };
     security.pam.services = {
