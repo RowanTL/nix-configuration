@@ -9,6 +9,7 @@
   config = lib.mkIf config.home-git.enable {
     programs.git = {
       enable = true;
+      lfs.enable = true;
       settings = {
         user.name = "Rowan Torbitzky-Lane";
         user.email = "rowan.a.tl@protonmail.com";
