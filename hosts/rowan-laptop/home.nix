@@ -1,5 +1,4 @@
 {
-  inputs,
   pkgs,
   ...
 }:
@@ -12,7 +11,6 @@
     ./../../modules/home/helix.nix
     ./../../modules/home/git.nix
     ./../../modules/home/ssh.nix
-    ./../../modules/home/sway.nix
     ./../../modules/home/zed.nix
     ./../../modules/home/brave.nix
     ./../../modules/home/prismlauncher.nix
@@ -23,7 +21,6 @@
 
   # Enable my custom configs
   # others are enabled in modules/home/default.nix
-  home-sway.enable = true;
   home-zed.enable = true;
   home-brave.enable = true;
   home-prismlauncher.enable = true;

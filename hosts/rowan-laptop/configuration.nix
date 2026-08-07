@@ -8,7 +8,6 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/os/sway.nix
     ../../modules/os # basic configuration nice for all systems
     ../../modules/os/intel.nix
     ../../modules/os/power.nix
@@ -19,14 +18,13 @@
   ];
 
   # custom rowan stuff
-  sway.enable = true;
   intel.enable = true;
   power.enable = true;
   bluetooth.enable = true;
   steam.enable = true;
   hyprland.enable = true;
   regreet.enable = true;
-  
+
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 

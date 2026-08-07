@@ -130,9 +130,12 @@
               ];
             }
             {
+              # application launcher, driven over noctalia's IPC so it toggles
+              # the already-running shell rather than spawning a new process
               _args = [
                 "${mod} + D"
-                (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("${lib.getExe pkgs.rofi} -show drun -show-icons")'')
+                (lib.generators.mkLuaInline
+                  ''hl.dsp.exec_cmd("${lib.getExe config.programs.noctalia.package} msg panel-toggle launcher")'')
               ];
             }
             {
@@ -220,6 +223,34 @@
                 { locked = true; }
               ];
             }
+            {
+              # exec librewolf shortcut
+              _args = [
+                "${mod} + o"
+                (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("${lib.getExe pkgs.librewolf}")'')
+              ];
+            }
+            {
+              # exec librewolf incognito shortcut
+              _args = [
+                "${mod} + SHIFT + o"
+                (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("${lib.getExe pkgs.librewolf} --private-window about:home")'')
+              ];
+            }
+            {
+              # exec brave shortcut
+              _args = [
+                "${mod} + m"
+                (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("${lib.getExe pkgs.brave}")'')
+              ];
+            }
+            {
+              # exec brave incognito shortcut
+              _args = [
+                "${mod} + m"
+                (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("${lib.getExe pkgs.brave} --incognito")'')
+              ];
+            }
           ];
       };
 
@@ -245,6 +276,21 @@
         inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3
       ];
     };
+    # Need to auto start noctalia
+    systemd.user.services.noctalia = {
+      Unit = {
+        Description = "Noctalia shell";
+        PartOf = [ "graphical-session.target" ];
+        After = [ "graphical-session.target" ];
+      };
+      Service = {
+        ExecStart = lib.getExe config.programs.noctalia.package;
+        Restart = "on-failure";
+        RestartSec = 3;
+      };
+      Install.WantedBy = [ "hyprland-session.target" ];
+    };
+
     programs.noctalia = {
       enable = true;
 
