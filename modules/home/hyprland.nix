@@ -15,6 +15,7 @@
       xwayland.enable = true;
       package = null;
       portalPackage = null;
+      configType = "lua";
       settings = {
         mod = {
           _var = "SUPER";
