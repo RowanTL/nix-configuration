@@ -1,26 +1,21 @@
 {
   description = "System Configuration";
 
-  inputs =
-  let
-    hyprlandVersion = "v0.56.2";
-  in
-  {
+  inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=${hyprlandVersion}";
+    hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
     hy3 = {
-      url = "github:outfoxxed/hy3?ref=hl${hyprlandVersion}";
+      url = "github:outfoxxed/hy3";
       inputs.hyprland.follows = "hyprland";
     };
-
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
