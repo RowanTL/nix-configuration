@@ -17,6 +17,7 @@
     ./../../modules/home/prismlauncher.nix
     ./../../modules/home/obs.nix
     ./../../modules/home/vscode.nix
+    ./../../modules/home/hyprland.nix
   ];
 
   # Enable my custom configs
@@ -27,6 +28,7 @@
   home-prismlauncher.enable = true;
   home-obs.enable = true;
   home-vscode.enable = true;
+  home-hyprland.enable = true;
 
   home.username = "rowan";
   home.homeDirectory = "/home/rowan";

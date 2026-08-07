@@ -19,6 +19,15 @@
         mod = {
           _var = "SUPER";
         };
+        bind = [
+          {
+            _args = [
+              (lib.generators.mkLuaInline "mod .. \" + Q\"")
+              (lib.generators.mkLuaInline "hl.dsp.window.close()")
+              { locked = true; }
+            ];
+          }
+        ];
       };
       plugins = [
         inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hy3
