@@ -1,6 +1,8 @@
 { inputs, lib, config, pkgs, ... }:
 
 {
+  imports = [ inputs.noctalia.homeModules.default ];
+
   options = {
     home-hyprland.enable
       = lib.mkEnableOption "enable custom hyprland";
@@ -242,6 +244,9 @@
       plugins = [
         inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3
       ];
+    };
+    programs.noctalia = {
+      enable = true;
     };
   };
 }
