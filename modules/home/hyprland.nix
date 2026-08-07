@@ -31,7 +31,7 @@
         ];
       };
       plugins = [
-        inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hy3
+        inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3
       ];
     };
   };

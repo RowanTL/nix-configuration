@@ -1,17 +1,26 @@
 {
   description = "System Configuration";
 
-  inputs = {
+  inputs =
+  let
+    hyprlandVersion = "v0.56.2";
+  in
+  {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1&ref=${hyprlandVersion}";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
+    hy3 = {
+      url = "github:outfoxxed/hy3?ref=hl${hyprlandVersion}";
+      inputs.hyprland.follows = "hyprland";
+    };
+
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
@@ -37,6 +46,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
+          home-manager.extraSpecialArgs = { inherit system; inherit inputs; };
 
           home-manager.users.rowan = import ./hosts/${name}/home.nix;
         }
