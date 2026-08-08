@@ -164,11 +164,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1786022009,
-        "narHash": "sha256-ugTeq1o6wUVlIgIgTqLhGy4/85R7jFerbb2qMij4ZQA=",
+        "lastModified": 1786137477,
+        "narHash": "sha256-H2BW655hSVJUVB1TpkQb+Is77heIg9Vjh/64sEqRzds=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "7d4a3c5768d5a04c7b62e63265c82a3659529fd7",
+        "rev": "65be579e9c4486d1b2a96914ece96ac1f669c892",
         "type": "github"
       },
       "original": {
@@ -472,11 +472,11 @@
     },
     "nixpkgs_3": {
       "locked": {
-        "lastModified": 1785967620,
-        "narHash": "sha256-929m7iW8q2uv3mZHNwY8Um6XKj99rbIcZsWS9cT1vaI=",
-        "rev": "b7c2ada94fe99c15b0dbcf4d11fd7850b957a436",
+        "lastModified": 1785571196,
+        "narHash": "sha256-xwSqxTsama0YTtS78+4YyCm6jJg09v78QWfP1cAyoVA=",
+        "rev": "148bab9c1c3c53136ecb44a6ea356a0ed5b39b06",
         "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1048607.b7c2ada94fe9/nixexprs.tar.xz"
+        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.11pre1045728.148bab9c1c3c/nixexprs.tar.xz"
       },
       "original": {
         "type": "tarball",
