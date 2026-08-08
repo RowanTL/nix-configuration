@@ -67,6 +67,16 @@
           { _args = [ "XCURSOR_SIZE" (toString config.home.pointerCursor.size) ]; }
         ];
 
+        on = [
+          {
+            _args = [
+              "hyprland.start"
+              (lib.generators.mkLuaInline
+                ''function() hl.exec_cmd("${lib.getExe config.programs.noctalia.package}") end'')
+            ];
+          }
+        ];
+
         bind =
           # Switch workspaces with mod + [0-9], move the active node to a
           # workspace with mod + SHIFT + [0-9]. Workspace 10 maps to key 0.
@@ -297,20 +307,6 @@
         inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3
       ];
     };
-    # Need to auto start noctalia
-    systemd.user.services.noctalia = {
-      Unit = {
-        Description = "Noctalia shell";
-        PartOf = [ "graphical-session.target" ];
-        After = [ "graphical-session.target" ];
-      };
-      Service = {
-        ExecStart = lib.getExe config.programs.noctalia.package;
-        Restart = "on-failure";
-        RestartSec = 3;
-      };
-      Install.WantedBy = [ "hyprland-session.target" ];
-    };
 
     programs.noctalia = {
       enable = true;
@@ -324,7 +320,7 @@
 
         wallpaper = {
           enabled = true;
-          default.path = "../non_nix/planet_with_ring.jpg";
+          default.path = "${../non_nix/planet_with_ring.jpg}";
         };
       };
     };

@@ -17,9 +17,9 @@ in
 {
   options = {
     home-shell.enable
-      = lib.mkEnableOption "enable personal shell config (alacritty + nushell)";  
+      = lib.mkEnableOption "enable personal shell config (alacritty/kitty + nushell)";
   };
-  
+
   config = lib.mkIf config.home-shell.enable {
     # Leave this enabled for now
     programs.alacritty = {
