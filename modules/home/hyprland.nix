@@ -320,10 +320,10 @@
           builtin = "Catppuccin";
         };
 
-        # wallpaper = {
-          # enabled = true;
-          # default.path = "/path/to/wallpapers/wallpaper.png";
-        # };
+        wallpaper = {
+          enabled = true;
+          default.path = "../non_nix/planet_with_ring.jpg";
+        };
       };
     };
   };
