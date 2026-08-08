@@ -15,9 +15,6 @@
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
       portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
-
-    # noctalia's lock screen authenticates against the "login" pam service,
-    # which NixOS already configures, so no extra pam entry is needed here.
     services.gnome.gnome-keyring.enable = true;
 
     environment.systemPackages = with pkgs; [
