@@ -21,12 +21,20 @@ in
   };
   
   config = lib.mkIf config.home-shell.enable {
+    # Leave this enabled for now
     programs.alacritty = {
       enable = true;
       settings = {
         terminal = {
           shell = "${lib.getExe pkgs.nushell}";
         };
+      };
+    };
+
+    programs.kitty = {
+      enable = true;
+      settings = {
+        shell = lib.getExe pkgs.nushell;
       };
     };
 

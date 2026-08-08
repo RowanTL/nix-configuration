@@ -11,7 +11,16 @@
   config = lib.mkIf config.home-hyprland.enable {
     programs.kitty.enable = true;
     programs.hyprlock.enable = true;
-    # Follow the instructions for home-manager located at:
+
+    # hyprcursor has own cursor format. Fallsback to XCursor if needed
+    home.pointerCursor = {
+      package = pkgs.rose-pine-hyprcursor;
+      name = "rose-pine-hyprcursor";
+      size = 24;
+      gtk.enable = true;
+      x11.enable = true;
+      hyprcursor.enable = true;
+    };
     # https://wiki.hypr.land/Nix/Hyprland-on-Home-Manager/#using-the-home-manager-module-with-nixos
     wayland.windowManager.hyprland =
     let
@@ -47,6 +56,16 @@
             kb_options = "grp:alt_shift_toggle";
           };
         };
+
+        # home.pointerCursor only writes these into the shell profile, which a
+        # display-manager-launched session never sources. Setting them in the
+        # compositor makes them authoritative for every client it spawns.
+        env = [
+          { _args = [ "HYPRCURSOR_THEME" config.home.pointerCursor.name ]; }
+          { _args = [ "HYPRCURSOR_SIZE" (toString config.home.pointerCursor.size) ]; }
+          { _args = [ "XCURSOR_THEME" config.home.pointerCursor.name ]; }
+          { _args = [ "XCURSOR_SIZE" (toString config.home.pointerCursor.size) ]; }
+        ];
 
         bind =
           # Switch workspaces with mod + [0-9], move the active node to a
