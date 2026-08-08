@@ -14,6 +14,7 @@
 
     # hyprcursor has own cursor format. Fallsback to XCursor if needed
     home.pointerCursor = {
+      enable = true;
       package = pkgs.rose-pine-hyprcursor;
       name = "rose-pine-hyprcursor";
       size = 24;
