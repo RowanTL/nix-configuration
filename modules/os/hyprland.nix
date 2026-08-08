@@ -16,9 +16,8 @@
       portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
     };
 
-    # programs.hyprland already pulls in polkit, the xdg portal, and a pam
-    # entry for swaylock, but not one for hyprlock.
-    security.pam.services.hyprlock.enableGnomeKeyring = true;
+    # noctalia's lock screen authenticates against the "login" pam service,
+    # which NixOS already configures, so no extra pam entry is needed here.
     services.gnome.gnome-keyring.enable = true;
 
     environment.systemPackages = with pkgs; [

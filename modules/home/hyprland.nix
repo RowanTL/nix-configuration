@@ -10,7 +10,6 @@
 
   config = lib.mkIf config.home-hyprland.enable {
     programs.kitty.enable = true;
-    programs.hyprlock.enable = true;
 
     # hyprcursor has own cursor format. Fallsback to XCursor if needed
     home.pointerCursor = {
@@ -215,10 +214,12 @@
               ];
             }
             {
-              # lock screen
+              # lock screen. noctalia is an ext_session_lock_v1 client that
+              # locks in response to logind, so we ask logind rather than
+              # spawning a locker process.
               _args = [
                 "${mod} + L"
-                (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("${lib.getExe pkgs.hyprlock}")'')
+                (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("${pkgs.systemd}/bin/loginctl lock-session")'')
               ];
             }
             {
