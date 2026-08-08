@@ -247,7 +247,7 @@
             {
               # exec brave incognito shortcut
               _args = [
-                "${mod} + m"
+                "${mod} + SHIFT + m"
                 (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("${lib.getExe pkgs.brave} --incognito")'')
               ];
             }
