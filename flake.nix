@@ -19,6 +19,10 @@
     noctalia = {
       url = "github:noctalia-dev/noctalia";
     };
+    hyprcapture = {
+      url = "github:gfhdhytghd/HyprCapture";
+      inputs.hyprland.follows = "hyprland";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:

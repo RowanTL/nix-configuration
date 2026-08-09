@@ -219,7 +219,7 @@
             {
               _args = [
                 "Print"
-                (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("${lib.getExe pkgs.flameshot} gui")'')
+                (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("hl.plugin.hyprcapture.open")'')
                 { release = true; }
               ];
             }
@@ -305,6 +305,7 @@
 
       plugins = [
         inputs.hy3.packages.${pkgs.stdenv.hostPlatform.system}.hy3
+        inputs.hyprcapture.packages.${pkgs.stdenv.hostPlatform.system}.hyprcapture
       ];
     };
 
@@ -346,5 +347,11 @@
         };
       };
     };
+
+    home.packages = with pkgs; [
+      ffmpeg
+      wl-clipboard
+      grim
+    ];
   };
 }
