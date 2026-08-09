@@ -308,6 +308,10 @@
       ];
     };
 
+    # Needed so noctalia can update wallpaper
+    # TODO: Figure this out for multiple computers/monitors.
+    home.file.".config/noctalia/planet_with_ring.jpg".source = ../non_nix/wallpapers/planet_with_ring.jpg;
+
     programs.noctalia = {
       enable = true;
 
@@ -320,7 +324,7 @@
 
         wallpaper = {
           enabled = true;
-          default.path = "${../non_nix/planet_with_ring.jpg}";
+          default.path = "${config.home.homeDirectory}/.config/noctalia/planet_with_ring.jpg";
         };
       };
     };
