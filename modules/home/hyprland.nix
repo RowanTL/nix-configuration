@@ -326,6 +326,24 @@
           enabled = true;
           default.path = "${config.home.homeDirectory}/.config/noctalia/planet_with_ring.jpg";
         };
+
+        idle.behavior = {
+          lock = {
+            enabled = true;
+            timeout = 600;
+            action = "lock";
+          };
+          screen-off = {
+            enabled = true;
+            timeout = 660;
+            action = "screen_off";
+          };
+          suspend = {
+            enabled = true;
+            timeout = 665;
+            action = "suspend";
+          };
+        };
       };
     };
   };
