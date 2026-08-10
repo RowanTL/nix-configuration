@@ -219,14 +219,11 @@
             {
               _args = [
                 "Print"
-                (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("hl.plugin.hyprcapture.open")'')
+                (lib.generators.mkLuaInline ''function() hl.plugin.hyprcapture.open() end'')
                 { release = true; }
               ];
             }
             {
-              # lock screen. noctalia is an ext_session_lock_v1 client that
-              # locks in response to logind, so we ask logind rather than
-              # spawning a locker process.
               _args = [
                 "${mod} + L"
                 (lib.generators.mkLuaInline ''hl.dsp.exec_cmd("${pkgs.systemd}/bin/loginctl lock-session")'')
