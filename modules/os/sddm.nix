@@ -38,7 +38,8 @@ in
   config = lib.mkIf config.sddm.enable {
     services.displayManager.sddm = {
       enable = true;
-      wayland.enable = true;
+      # Using X11 version so comment out for now
+      # wayland.enable = true;
       theme = "infinity-sddm-6";
       # Needed to load the themes :/
       extraPackages = [
@@ -48,8 +49,17 @@ in
         pkgs.kdePackages.plasma5support # org.kde.plasma.plasma5support
         pkgs.kdePackages.plasma-workspace # org.kde.breeze.components
       ];
+      settings = {
+        Theme = {
+          CursorTheme = "breeze_cursors";
+          CursorSize = 24;
+        };
+        General.GreeterEnvironment = "XCURSOR_PATH=${pkgs.kdePackages.breeze}/share/icons";
+      };
     };
     environment.systemPackages = [ infinitySddmTheme ];
+    # X11 so shit acutally works
+    services.xserver.enable = true;
     services.xserver.xkb = {
       layout = "us,us";
       variant = "colemak,";
