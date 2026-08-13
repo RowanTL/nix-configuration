@@ -325,6 +325,10 @@
           default.path = "${config.home.homeDirectory}/.config/noctalia/planet_with_ring.jpg";
         };
 
+        bar.main = {
+          end = [ "media" "tray" "notifications" "clipboard" "network" "bluetooth" "volume" "brightness" "battery" "control-center" "session" ];
+        };
+
         idle.behavior = {
           lock = {
             enabled = true;
