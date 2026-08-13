@@ -17,7 +17,24 @@ let
     installPhase = ''
       runHook preInstall
       mkdir -p $out/share/sddm/themes
-      cp -r "Infinity-SDDM/Infinity-SDDM-6" "$out/share/sddm/themes/infinity-sddm-6"
+
+      theme="$out/share/sddm/themes/infinity-sddm-6"
+      cp -r "Infinity-SDDM/Infinity-SDDM-6" "$theme"
+
+      # Upstream hardcodes an FHS path for the suspend/reboot/shutdown/
+      # switch-user icons, which never exists here, so they render blank.
+      # Kirigami.Icon accepts an absolute path, so just repoint them.
+      substituteInPlace "$theme/Main.qml" \
+        --replace-fail "/usr/share/sddm/themes/Infinity-SDDM-6/assets/" "$theme/assets/"
+
+      # keyboard.layouts is a read-only sequence, so sorting it in place throws
+      # "TypeError: Cannot insert into a readonly container". That exception
+      # aborts onAboutToShow before the model is assigned, so the layout menu
+      # opens empty. Sort a copy instead.
+      substituteInPlace "$theme/KeyboardButton.qml" \
+        --replace-fail "let layouts = keyboard.layouts;" \
+                       "let layouts = Array.from(keyboard.layouts);"
+
       runHook postInstall
     '';
 
