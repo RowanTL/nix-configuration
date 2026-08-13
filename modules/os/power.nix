@@ -10,6 +10,8 @@
   };
   
   config = lib.mkIf config.power.enable {
+    services.upower.enable = true;
+
     services.tlp = {
       enable = true;
       settings = {
