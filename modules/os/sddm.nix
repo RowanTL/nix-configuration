@@ -40,6 +40,14 @@ in
       enable = true;
       wayland.enable = true;
       theme = "infinity-sddm-6";
+      # Needed to load the themes :/
+      extraPackages = [
+        pkgs.qt6.qt5compat # Qt5Compat.GraphicalEffects
+        pkgs.kdePackages.kirigami # org.kde.kirigami
+        pkgs.kdePackages.libplasma # org.kde.plasma.components/.extras
+        pkgs.kdePackages.plasma5support # org.kde.plasma.plasma5support
+        pkgs.kdePackages.plasma-workspace # org.kde.breeze.components
+      ];
     };
     environment.systemPackages = [ infinitySddmTheme ];
     services.xserver.xkb = {
