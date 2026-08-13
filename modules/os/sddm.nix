@@ -9,6 +9,7 @@
   config = lib.mkIf config.sddm.enable {
     services.displayManager.sddm = {
       enable = true;
+      wayland.enable = true;
     };
     services.xserver.xkb = {
       layout = "us,us";
