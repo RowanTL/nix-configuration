@@ -1,0 +1,20 @@
+name: Mirror Gitlab nix-configuration
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Run every 6 hours
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Mirror repository
+        run: |
+          git clone --mirror https://gitlab.com/RowanTL/nix-configuration.git mirror.git
+          cd mirror.git
+          git push --mirror https://${{ secrets.GITHUB_TOKEN }}@github.com/RowanTL/nix-configuration.git
