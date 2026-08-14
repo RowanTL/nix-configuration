@@ -199,7 +199,7 @@
               # layout stacking (vertical tabs)
               _args = [
                 "${mod} + s"
-                (lib.generators.mkLuaInline ''hl.plugin.hy3.make_group("stack", { toggle = true })'')
+                (lib.generators.mkLuaInline ''hl.plugin.hy3.change_group("stack")'')
               ];
             }
             {
