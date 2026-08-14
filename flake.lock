@@ -76,16 +76,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1784785174,
-        "narHash": "sha256-iK0vERuy5aXisDXm/bzcJP0dgaIot5MLPoVG62DjqO4=",
-        "owner": "outfoxxed",
-        "repo": "hy3",
-        "rev": "42b7ed8fd9aefd3f36e5f617afd5071245c67853",
+        "lastModified": 1786734743,
+        "narHash": "sha256-qYoAzQC953LeiwMMDv8++d8fAoWsN1HvrmsBLbrVWMM=",
+        "owner": "RowanTL",
+        "repo": "my3",
+        "rev": "38c3a352d82d4ce3ab205e2d96954a393da99d45",
         "type": "github"
       },
       "original": {
-        "owner": "outfoxxed",
-        "repo": "hy3",
+        "owner": "RowanTL",
+        "repo": "my3",
         "type": "github"
       }
     },
