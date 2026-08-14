@@ -196,6 +196,13 @@
               ];
             }
             {
+              # layout stacking (vertical tabs)
+              _args = [
+                "${mod} + s"
+                (lib.generators.mkLuaInline ''hl.plugin.hy3.make_group("stack", { toggle = true })'')
+              ];
+            }
+            {
               # layout tabbed
               _args = [
                 "${mod} + W"
