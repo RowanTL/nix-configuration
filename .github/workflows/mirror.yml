@@ -17,4 +17,4 @@ jobs:
         run: |
           git clone --mirror https://gitlab.com/RowanTL/nix-configuration.git mirror.git
           cd mirror.git
-          git push --mirror https://${{ secrets.GITHUB_TOKEN }}@github.com/RowanTL/nix-configuration.git
+          git push --mirror https://${{ secrets.NIX_MIRROR_TOKEN }}@github.com/RowanTL/nix-configuration.git
