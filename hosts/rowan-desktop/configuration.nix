@@ -6,15 +6,14 @@
 { pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../../modules/os/sway.nix
-      ../../modules/os # basic configuration nice for all systems
-      ../../modules/os/bluetooth.nix
-      ../../modules/os/ly.nix
-      ../../modules/os/steam.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+    ../../modules/os/sway.nix
+    ../../modules/os # basic configuration nice for all systems
+    ../../modules/os/bluetooth.nix
+    ../../modules/os/ly.nix
+    ../../modules/os/steam.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -62,7 +61,11 @@
   users.users.rowan = {
     isNormalUser = true;
     description = "rowan";
-    extraGroups = [ "networkmanager" "wheel" "video" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "video"
+    ];
     # packages = with pkgs; [];
   };
 
@@ -75,8 +78,8 @@
     dockerCompat = true;
   };
   environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
+    #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    #  wget
     distrobox
   ];
 
@@ -87,7 +90,7 @@
     enable32Bit = true;
     # https://wiki.nixos.org/wiki/Intel_Graphics
     # extraPackages = with pkgs; [
-      # intel-media-sdk # marked as insecure so don't use
+    # intel-media-sdk # marked as insecure so don't use
     # ];
   };
   # Some programs need SUID wrappers, can be configured further or are
@@ -95,28 +98,28 @@
   # programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
-  #   enableSSHSupport = true;
+    #   enableSSHSupport = true;
   };
 
   # Syncthing
-  services.syncthing = {
-    enable = true;
-    openDefaultPorts = true;
-    user = "rowan";
-    dataDir = "/home/rowan/syncthing";
-    configDir = "/home/rowan/.config/syncthing";
-    settings = {
-      devices = {
-        "rowan-laptop" = {id = "DS5Z3LS-YRTVBEB-CFZBOOA-TS5VUEZ-EIL4P2X-3LVRB3S-E5KWCHK-CXQPEA5"; };
-      };
-      folders = {
-        "bvjky-kxgig" = {
-          path = "/home/rowan/syncthing/Sync";
-          devices = [ "rowan-laptop" ];
-        };
-      };
-    };
-  };
+  # services.syncthing = {
+  #   enable = true;
+  #   openDefaultPorts = true;
+  #   user = "rowan";
+  #   dataDir = "/home/rowan/syncthing";
+  #   configDir = "/home/rowan/.config/syncthing";
+  #   settings = {
+  #     devices = {
+  #       "rowan-laptop" = {id = "DS5Z3LS-YRTVBEB-CFZBOOA-TS5VUEZ-EIL4P2X-3LVRB3S-E5KWCHK-CXQPEA5"; };
+  #     };
+  #     folders = {
+  #       "bvjky-kxgig" = {
+  #         path = "/home/rowan/syncthing/Sync";
+  #         devices = [ "rowan-laptop" ];
+  #       };
+  #     };
+  #   };
+  # };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
