@@ -20,7 +20,8 @@
       url = "github:noctalia-dev/noctalia";
     };
     hyprcapture = {
-      url = "github:gfhdhytghd/HyprCapture";
+      # url = "github:gfhdhytghd/HyprCapture";
+      url = "github:RowanTL/HyprCapture";
       inputs.hyprland.follows = "hyprland";
     };
   };

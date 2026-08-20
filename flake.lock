@@ -106,15 +106,15 @@
         ]
       },
       "locked": {
-        "lastModified": 1786942592,
-        "narHash": "sha256-Ua7Kfq1bKVJXMAM2NJtPYtabhUe7uj7+CKg+fHg/0pc=",
-        "owner": "gfhdhytghd",
+        "lastModified": 1787179282,
+        "narHash": "sha256-XGBrxKtasglb6l1xmJn44iGbgijm3g4G+ObG7SMZRTo=",
+        "owner": "RowanTL",
         "repo": "HyprCapture",
-        "rev": "b0747393c25cb936b5803aa217dfc6697ece4613",
+        "rev": "89f93d82f82cd0303e7220e2503685ba9e68751c",
         "type": "github"
       },
       "original": {
-        "owner": "gfhdhytghd",
+        "owner": "RowanTL",
         "repo": "HyprCapture",
         "type": "github"
       }
