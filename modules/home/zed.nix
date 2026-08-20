@@ -7,6 +7,9 @@ let
     rev = "92840e17621cbdc4ca05e7c108c104a369354815";
     hash = "sha256-ro03rp0tHeR7H2PRZayc64Tw4llUOLxqfTOTUHwbKbM=";
   };
+  shadesOfPurpleTheme = builtins.fromJSON (builtins.readFile "${shadesOfPurpleRepo}/themes/shades-of-purple-theme.json");
+  shadesOfPurpleThemeName =
+    (lib.findFirst (t: !(lib.hasInfix "Super Dark" t.name)) (builtins.head shadesOfPurpleTheme.themes) shadesOfPurpleTheme.themes).name;
 in
 {
   options = {
@@ -39,6 +42,7 @@ in
       userSettings = {
         helix_mode = true;
         base_keymap = "VSCode";
+        theme = shadesOfPurpleThemeName;
         telemetry = {
           diagnostics = false;
           metrics = false;
@@ -111,7 +115,7 @@ in
         };
       };
       themes = {
-        shades-of-purple-theme = builtins.fromJSON ( builtins.readFile "${shadesOfPurpleRepo}/themes/shades-of-purple-theme.json" );
+        shades-of-purple-theme = shadesOfPurpleTheme;
       };
       userKeymaps = [
         {
