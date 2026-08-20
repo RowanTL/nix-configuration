@@ -1,20 +1,37 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 
 # Thanks to this tutorial
 # https://nixos-and-flakes.thiscute.world/nixos-with-flakes/start-using-home-manager
 {
   imports = [
     ./../../modules/home
-    ./../../modules/home/helix.nix
     ./../../modules/home/git.nix
     ./../../modules/home/ssh.nix
-    ./../../modules/home/sway.nix
+    ./../../modules/home/hyprland.nix
     ./../../modules/home/zed.nix
+    ./../../modules/home/prismlauncher.nix
+    ./../../modules/home/obs.nix
+    ./../../modules/home/brave.nix
+    ./../../modules/home/vscode.nix
   ];
+
+  # Enable my custom configs
+  # others are enabled in modules/home/default.nix
+  home-hyprland.enable = true;
+  home-zed.enable = true;
+  home-prismlauncher.enable = true;
+  home-obs.enable = true;
+  home-brave.enable = true;
+  home-vscode.enable = true;
 
   home.username = "rowan";
   home.homeDirectory = "/home/rowan";
-  
+
   # Import files from the current configuration directory into the Nix store,
   # and create symbolic links pointing to those store files in the Home directory.
 
@@ -35,23 +52,18 @@
 
   # set cursor size and dpi for 4k monitor
   # xresources.properties = {
-    # "Xcursor.size" = 16;
-    # "Xft.dpi" = 172;
+  # "Xcursor.size" = 16;
+  # "Xft.dpi" = 172;
   # };
 
   home.packages = with pkgs; [
-    legcord
+    goofcord
   ];
 
   programs.bash = {
     enable = true;
     enableCompletion = true;
   };
-
-  # Enable my custom configs
-  # others are enabled in modules/home/default.nix
-  home-sway.enable = true;
-  home-zed.enable = true;
 
   # need to scale my stuff
   services.kanshi = {

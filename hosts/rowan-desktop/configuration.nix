@@ -8,10 +8,10 @@
 {
   imports = [
     ./hardware-configuration.nix
-    ../../modules/os/sway.nix
+    ../../modules/os/hyprland.nix
     ../../modules/os # basic configuration nice for all systems
     ../../modules/os/bluetooth.nix
-    ../../modules/os/ly.nix
+    ../../modules/os/sddm.nix
     ../../modules/os/steam.nix
   ];
 
@@ -31,9 +31,9 @@
   networking.networkmanager.enable = true;
 
   # custom rowan stuff
-  sway.enable = true;
+  hyprland.enable = true;
   bluetooth.enable = true;
-  ly.enable = true;
+  sddm.enable = true;
   steam.enable = true;
 
   # kde so I can play TF2

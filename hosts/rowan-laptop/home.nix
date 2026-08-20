@@ -8,7 +8,6 @@
 {
   imports = [
     ./../../modules/home
-    ./../../modules/home/helix.nix
     ./../../modules/home/git.nix
     ./../../modules/home/ssh.nix
     ./../../modules/home/zed.nix
