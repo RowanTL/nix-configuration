@@ -6,10 +6,12 @@
 {
   options = {
     intel.enable
-      = lib.mkEnableOption "enable laptop intel configuration";  
+      = lib.mkEnableOption "enable laptop intel configuration";
   };
-  
+
   config = lib.mkIf config.intel.enable {
     services.thermald.enable = true;
+    # Enable as thermald is misclassifying my laptop lol
+    services.thermald.ignoreCpuidCheck = true;
   };
 }
