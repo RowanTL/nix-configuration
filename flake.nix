@@ -10,6 +10,10 @@
     noctalia = {
       url = "github:noctalia-dev/noctalia";
     };
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs:
