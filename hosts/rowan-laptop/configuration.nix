@@ -13,7 +13,7 @@
     ../../modules/os/power.nix
     ../../modules/os/bluetooth.nix
     ../../modules/os/steam.nix
-    ../../modules/os/hyprland.nix
+    ../../modules/os/sway.nix
     ../../modules/os/sddm.nix
   ];
 
@@ -22,7 +22,7 @@
   power.enable = true;
   bluetooth.enable = true;
   steam.enable = true;
-  hyprland.enable = true;
+  sway.enable = true;
   sddm.enable = true;
 
   boot.loader.systemd-boot.enable = true;

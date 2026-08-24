@@ -1,6 +1,11 @@
-{ lib, config, pkgs, ... }:
+{ inputs, lib, config, pkgs, ... }:
 
 {
+  # home-manager ships its own noctalia module now; the flake's module declares
+  # the same options, so one of the two has to go.
+  disabledModules = [ "programs/noctalia.nix" ];
+  imports = [ inputs.noctalia.homeModules.default ];
+
   options = {
     home-sway.enable =
       lib.mkEnableOption "enable custom sway config";
@@ -23,12 +28,13 @@
         up = "e";
         right = "i";
         resize_amt = "10";
+        noctalia = lib.getExe config.programs.noctalia.package;
       in {
       enable = true;
       wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps
       config = {
         modifier = mod;
-        terminal = "alacritty"; 
+        terminal = "alacritty";
         fonts = {
           size = 11.0;
         };
@@ -55,9 +61,10 @@
             # special case for workspace 10
             "${mod}+0" = "workspace number 10";
             "${mod}+Shift+0" = "move container to workspace number 10";
-             
+
             "${mod}+Return" = "exec --no-startup-id ${lib.getExe pkgs.alacritty}";
-            "${mod}+d" = "exec --no-startup-id ${lib.getExe pkgs.rofi} -show drun -show-icons";
+            # Noctalia program launcher
+            "${mod}+d" = "exec --no-startup-id ${noctalia} msg panel-toggle launcher";
 
             "${mod}+Shift+q" = "kill";
 
@@ -71,7 +78,8 @@
 
             "${mod}+Shift+r" = "exec swaymsg reload";
             "--release Print" = "exec --no-startup-id ${lib.getExe pkgs.flameshot} gui";
-            "${mod}+l" = "exec ${lib.getExe pkgs.swaylock}";
+            # Noctalia lock screen
+            "${mod}+l" = "exec ${pkgs.systemd}/bin/loginctl lock-session";
             "${mod}+Shift+l" = "exit";
             "${mod}+p" = "mode \"resize\"";
             # swap focus between tiling area and floating area
@@ -141,9 +149,8 @@
             "xkb_options" = "grp:alt_shift_toggle";
           };
         };
-        bars = [
-          {command = "${lib.getExe pkgs.waybar}"; }
-        ];
+        # noctalia draws the bar, so sway must not render one of its own
+        bars = [ ];
         startup = [
           # ensures kanshi works at boot
           {
@@ -154,104 +161,58 @@
             command = "systemctl --user restart kanshi";
             always = true;
           }
-          # {
-          #   command = "systemctl --user restart waybar";
-          #   always = true;
-          # }
-        ]
-        ++ lib.optionals config.home-sway.enableIdle [
+          # bar, launcher, lock screen and idle handling. Deliberately not
+          # `always`, so a reload doesn't leave a second shell running.
           {
-            command = "sleep 5 && systemctl --user restart swayidle";
-            always = true;
+            command = noctalia;
           }
         ];
-          # {
-          #   command = "systemctl --user restart swayr";
-          #   always = true;
-          # }
       };
       extraConfig = ''
         include /etc/sway/config.d/*
       '';
     };
-    programs.rofi = {
+
+    # Needed so noctalia can update wallpaper
+    # TODO: Figure this out for multiple computers/monitors.
+    home.file.".config/noctalia/planet_with_ring.jpg".source = ../non_nix/wallpapers/planet_with_ring.jpg;
+
+    programs.noctalia = {
       enable = true;
-      modes = [
-        "drun"
-      ];
-      extraConfig = {
-        show-icons = true;
-      };
-    };
-    programs.waybar = {
-      enable = true;
-      systemd.enable = true;
-      settings = {
-        mainbar = {
-          modules-left = [
-            "sway/workspaces"
-            "sway/mode"
-          ];
-          modules-center = [
-            "sway/window"
-          ];
-          modules-right = [
-            "idle_inhibitor"
-            "pulseaudio"
-            "network"
-            "battery"
-            "clock"
-            "tray"
-          ];
-          tray = {
-            spacing = "10";
+
+      settings = { # This may also be a string or path to a .toml file.
+        theme = {
+          mode = "dark";
+          source = "builtin";
+          builtin = "Catppuccin";
+        };
+
+        wallpaper = {
+          enabled = true;
+          default.path = "${config.home.homeDirectory}/.config/noctalia/planet_with_ring.jpg";
+        };
+
+        bar.main = {
+          end = [ "media" "tray" "notifications" "clipboard" "network" "bluetooth" "volume" "brightness" "battery" "control-center" "session" ];
+        };
+      }
+      # replaces swayidle: noctalia arms the idle timers itself
+      // lib.optionalAttrs config.home-sway.enableIdle {
+        idle.behavior = {
+          lock = {
+            enabled = true;
+            timeout = 600;
+            action = "lock";
           };
-          clock = {
-            format = "{:%Y-%m-%d %H:%M}";
-            tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          screen-off = {
+            enabled = true;
+            timeout = 660;
+            action = "screen_off";
           };
-          battery = {
-            states = {
-              good = 95;
-              warning = 30;
-              critical = 15;
-            };
-            format = "{capacity}%";
-            format-full = "{capacity}%";
-            format-charging = "{capacity}%!";
-            format-plugged = "{capacity}%p";
-            format-alt = "{time}";
-            format-icons = [];
-          };
-          network = {
-            format-wifi = "{essid} ({signalStrength}%)";
-            format-ethernet = "{ipaddr}/{cidr}";
-            tooltip-format = "{ifname} via {gwaddr}";
-            format-linked = "{ifname} (No IP)";
-            format-disconnected = "Disconnected";
-            format-alt = "{ifname}: {ipaddr}/{cidr}";
-          };
-          pulseaudio = {
-            format = "Vol: {volume}%";
-            format-bluetooth = "Vol: {volume}%B";
-            format-bluetooth-muted = "Vol: M B";
-            format-muted = "Vol: M";
-            format-source = "Vol: {volume}%";
-            format-source-muted = "Vol: M";
-            on-click = "${lib.getExe pkgs.pavucontrol}";
-          };
-          idle_inhibitor = {
-            format = "{icon}";
-            format-icons = {
-              activated = "A";
-              deactivated = "D";
-            };
-          };
-          workspaces = {
-            sort-by-number = true;
-          };
-          mode = {
-            format = "<span style=\"italic\">{}</span>";
+          suspend = {
+            enabled = true;
+            timeout = 665;
+            action = "suspend";
           };
         };
       };
@@ -267,27 +228,7 @@
       XDG_DOWNLOAD_DIR = "~/Downloads";
     };
 
-    services.swayidle = lib.mkIf config.home-sway.enableIdle {
-      enable = true;
-      events = {
-        "before-sleep" = "${lib.getExe pkgs.swaylock} --daemonize";
-        "lock" = "lock";
-      };
-      timeouts = [
-        {
-          timeout = 600;
-          command = "${pkgs.sway}/bin/swaymsg \"output * power off\"";
-          resumeCommand = "${pkgs.sway}/bin/swaymsg \"output * power on\"";
-        }
-        {
-          timeout = 660;
-          command = "${pkgs.systemd}/bin/systemctl suspend";
-        }
-      ];
-    };
     home.packages = with pkgs; [
-      mako # notifications
-      swaylock
       wl-clipboard
       libsForQt5.qt5ct
       libsForQt5.qtstyleplugin-kvantum
