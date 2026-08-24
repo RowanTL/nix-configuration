@@ -38,6 +38,7 @@ in
         "gdscript"
         "astro"
         "lean4"
+        "log"
       ];
       userSettings = {
         helix_mode = true;
