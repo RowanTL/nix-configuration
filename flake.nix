@@ -7,22 +7,8 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-    hy3 = {
-      url = "github:RowanTL/my3";
-      inputs.hyprland.follows = "hyprland";
-    };
     noctalia = {
       url = "github:noctalia-dev/noctalia";
-    };
-    hyprcapture = {
-      # url = "github:gfhdhytghd/HyprCapture";
-      url = "github:RowanTL/HyprCapture";
-      inputs.hyprland.follows = "hyprland";
     };
   };
 
