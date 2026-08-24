@@ -16,6 +16,16 @@
   };
 
   config = lib.mkIf config.home-sway.enable {
+    home.pointerCursor = {
+      enable = true;
+      package = pkgs.rose-pine-cursor;
+      name = "BreezeX-RosePine-Linux";
+      size = 24;
+      gtk.enable = true;
+      x11.enable = true;
+      sway.enable = true;
+    };
+
     # Sway Configuration
     # https://d19qhx4ioawdt7.cloudfront.net/docs/nix-home-manager-sway.html
     # Entirety of OP's sway configuration in nix.
