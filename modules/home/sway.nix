@@ -194,7 +194,7 @@
 
         bar.main = {
           position = "top";
-          thickness = 30;
+          thickness = 30; # bar height, default = 34
           margin_ends = 0; # left/right ends gap
           margin_edge = 0; # distance between screen edge and bar
           radius = 0; # Remove bar edges
