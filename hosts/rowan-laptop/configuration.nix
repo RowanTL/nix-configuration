@@ -3,7 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 # May need to place pkgs or config as arguments later
-{ pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -71,8 +71,6 @@
   environment.systemPackages = with pkgs; [
     uhk-agent
     docker-compose # Remove if ever not using docker
-    inputs.winapps.packages."${stdenv.hostPlatform.system}".winapps
-    inputs.winapps.packages."${stdenv.hostPlatform.system}".winapps-launcher
   ];
   services.udev.packages = [ pkgs.uhk-udev-rules ];
 
