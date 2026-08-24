@@ -22,13 +22,13 @@
   fileSystems."/mnt/storage" =
     { device = "/dev/disk/by-uuid/7f0a653d-9588-480e-821e-3f6299624521";
       fsType = "ext4";
-      options = [ "nofail" ];
+      options = [ "nofail" "exec" ];
     };
 
   fileSystems."/mnt/ssd" =
     { device = "/dev/disk/by-uuid/7c0bfaf9-d976-48e4-9aae-f2c3c479c225";
       fsType = "ext4";
-      options = [ "nofail" ];
+      options = [ "nofail" "exec" ];
     };
 
   # custom kernel for gaming
