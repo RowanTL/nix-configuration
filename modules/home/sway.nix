@@ -200,6 +200,10 @@
           radius = 0; # Remove bar edges
           end = [ "media" "tray" "notifications" "clipboard" "network" "bluetooth" "volume" "brightness" "battery" "control-center" "session" ];
         };
+
+        widget.clock = {
+          format = "{:%H:%M:%S}";
+        };
       }
       # replaces swayidle: noctalia arms the idle timers itself
       // lib.optionalAttrs config.home-sway.enableIdle {
