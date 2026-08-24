@@ -193,6 +193,10 @@
         };
 
         bar.main = {
+          position = "top";
+          margin_ends = 0; # left/right ends gap
+          margin_edge = 0; # distance between screen edge and bar
+          radius = 0; # Remove bar edges
           end = [ "media" "tray" "notifications" "clipboard" "network" "bluetooth" "volume" "brightness" "battery" "control-center" "session" ];
         };
       }
