@@ -70,7 +70,6 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     uhk-agent
-    docker-compose # Remove if ever not using docker
   ];
   services.udev.packages = [ pkgs.uhk-udev-rules ];
 
@@ -112,9 +111,6 @@
   #     };
   #   };
   # };
-
-  # Docker config
-  virtualisation.docker.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
