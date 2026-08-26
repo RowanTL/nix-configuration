@@ -3,14 +3,17 @@
 {
   options = {
     sway.enable
-      = lib.mkEnableOption "enable basic programs for sway";  
+      = lib.mkEnableOption "enable basic programs for sway";
   };
-  
+
   config = lib.mkIf config.sway.enable {
     security.polkit.enable = true;
     security.pam.services.swaylock.enableGnomeKeyring = true;
     services.gnome.gnome-keyring.enable = true;
-    programs.sway.enable = true;
+    programs.sway = {
+      enable = true;
+      package = pkgs.swayfx;
+    };
     environment.systemPackages = with pkgs; [
       pulseaudio
       brightnessctl # light is no longer maintained :(
