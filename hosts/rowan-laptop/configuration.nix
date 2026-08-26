@@ -70,7 +70,6 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     uhk-agent
-    virt-manager
   ];
   services.udev.packages = [ pkgs.uhk-udev-rules ];
 
@@ -112,6 +111,12 @@
   #     };
   #   };
   # };
+
+  # Virtualization
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["rowan"];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
