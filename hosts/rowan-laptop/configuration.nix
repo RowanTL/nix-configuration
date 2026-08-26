@@ -70,6 +70,7 @@
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     uhk-agent
+    virt-manager
   ];
   services.udev.packages = [ pkgs.uhk-udev-rules ];
 
