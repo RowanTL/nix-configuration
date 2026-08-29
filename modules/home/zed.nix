@@ -14,9 +14,9 @@ in
 {
   options = {
     home-zed.enable
-      = lib.mkEnableOption "enable custom zed";  
+      = lib.mkEnableOption "enable custom zed";
   };
-  
+
   config = lib.mkIf config.home-zed.enable {
     programs.zed-editor = {
       enable = true;
@@ -27,6 +27,7 @@ in
         nixd
         claude-agent-acp
         claude-code
+        matlab-language-server
       ];
       extensions = [
         "nix"
