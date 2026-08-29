@@ -12,7 +12,6 @@
     services.gnome.gnome-keyring.enable = true;
     programs.sway = {
       enable = true;
-      # package = pkgs.swayfx;
     };
     environment.systemPackages = with pkgs; [
       pulseaudio

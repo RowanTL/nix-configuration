@@ -41,7 +41,6 @@
         noctalia = lib.getExe config.programs.noctalia.package;
       in {
       enable = true;
-      # package = pkgs.swayfx;
       wrapperFeatures.gtk = true; # Fixes common issues with GTK 3 apps
       config = {
         modifier = mod;
