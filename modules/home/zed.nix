@@ -32,6 +32,7 @@ in
         nixd
         claude-agent-acp
         claude-code
+        matlab-language-server
         matlab_ls
       ];
       extensions = [
