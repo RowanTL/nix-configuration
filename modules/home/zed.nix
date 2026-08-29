@@ -10,6 +10,11 @@ let
   shadesOfPurpleTheme = builtins.fromJSON (builtins.readFile "${shadesOfPurpleRepo}/themes/shades-of-purple-theme.json");
   shadesOfPurpleThemeName =
     (lib.findFirst (t: !(lib.hasInfix "Super Dark" t.name)) (builtins.head shadesOfPurpleTheme.themes) shadesOfPurpleTheme.themes).name;
+  # The zed-extensions/matlab extension hardcodes the binary name "matlab_ls",
+  # but nixpkgs' matlab-language-server ships its binary as "matlab-language-server".
+  matlab_ls = pkgs.writeShellScriptBin "matlab_ls" ''
+    exec ${lib.getExe pkgs.matlab-language-server} "$@"
+  '';
 in
 {
   options = {
@@ -27,7 +32,7 @@ in
         nixd
         claude-agent-acp
         claude-code
-        matlab-language-server
+        matlab_ls
       ];
       extensions = [
         "nix"
