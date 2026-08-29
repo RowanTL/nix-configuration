@@ -39,6 +39,7 @@ in
         "astro"
         "lean4"
         "log"
+        "matlab"
       ];
       userSettings = {
         helix_mode = true;
