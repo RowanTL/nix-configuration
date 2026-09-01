@@ -14,7 +14,7 @@
     ../../modules/os/bluetooth.nix
     ../../modules/os/steam.nix
     ../../modules/os/sway.nix
-    ../../modules/os/sddm.nix
+    ../../modules/os/greeters/sddm.nix
   ];
 
   # custom rowan stuff
