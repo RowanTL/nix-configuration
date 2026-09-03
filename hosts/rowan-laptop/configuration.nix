@@ -14,7 +14,7 @@
     ../../modules/os/bluetooth.nix
     ../../modules/os/steam.nix
     ../../modules/os/sway.nix
-    ../../modules/os/greeters/sddm.nix
+    ../../modules/os/greeters/noctalia-greeter.nix
   ];
 
   # custom rowan stuff
@@ -23,7 +23,7 @@
   bluetooth.enable = true;
   steam.enable = true;
   sway.enable = true;
-  sddm.enable = true;
+  noctalia-greeter.enable = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
