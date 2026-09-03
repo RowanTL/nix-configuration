@@ -51,11 +51,11 @@
         defaultWorkspace = "workspace number 1";
         colors = {
           focused = {
-            border = "#a277ff";
-            background = "#a277ff";
+            border = "#987cd9";
+            background = "#987cd9";
             text = "#edecee";
-            indicator = "#a277ff";
-            childBorder = "#a277ff";
+            indicator = "#987cd9";
+            childBorder = "#987cd9";
           };
           focusedInactive = {
             border = "#29263c";
@@ -150,8 +150,6 @@
             # I like having shortcuts for my browsers
             "${mod}+o" = "exec ${lib.getExe pkgs.librewolf}";
             "${mod}+Shift+o" = "exec ${lib.getExe pkgs.librewolf} --private-window about:home";
-            # "${mod}+o" = "exec ${lib.getExe pkgs.floorp-bin}";
-            # "${mod}+Shift+o" = "exec ${lib.getExe pkgs.floorp-bin} --private-window about:home";
             "${mod}+m" = "exec ${lib.getExe pkgs.brave}";
             "${mod}+Shift+m" = "exec ${lib.getExe pkgs.brave} --incognito";
           }
