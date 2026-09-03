@@ -206,7 +206,7 @@
 
     # Needed so noctalia can update wallpaper
     # TODO: Figure this out for multiple computers/monitors.
-    home.file.".config/noctalia/planet_with_ring.jpg".source = ../non_nix/wallpapers/planet_with_ring.jpg;
+    home.file.".config/noctalia/background.jpg".source = ../non_nix/wallpapers/background.jpg;
 
     programs.noctalia = {
       enable = true;
@@ -220,7 +220,7 @@
 
         wallpaper = {
           enabled = true;
-          default.path = "${config.home.homeDirectory}/.config/noctalia/planet_with_ring.jpg";
+          default.path = "${config.home.homeDirectory}/.config/noctalia/background.jpg";
         };
 
         bar.main = {
