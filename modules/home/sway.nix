@@ -49,6 +49,29 @@
           size = 11.0;
         };
         defaultWorkspace = "workspace number 1";
+        colors = {
+          focused = {
+            border = "#a277ff";
+            background = "#a277ff";
+            text = "#edecee";
+            indicator = "#a277ff";
+            childBorder = "#a277ff";
+          };
+          focusedInactive = {
+            border = "#29263c";
+            background = "#29263c";
+            text = "#edecee";
+            indicator = "#29263c";
+            childBorder = "#29263c";
+          };
+          unfocused = {
+            border = "#15141b";
+            background = "#15141b";
+            text = "#6d6d6d";
+            indicator = "#15141b";
+            childBorder = "#15141b";
+          };
+        };
         keybindings = lib.attrsets.mergeAttrsList [
           (lib.attrsets.mergeAttrsList (map (num: let
             ws = toString num;
@@ -193,8 +216,8 @@
       settings = { # This may also be a string or path to a .toml file.
         theme = {
           mode = "dark";
-          source = "builtin";
-          builtin = "Catppuccin";
+          source = "community";
+          community_palette = "Aura";
         };
 
         wallpaper = {
