@@ -35,6 +35,8 @@
       modules = [
         ./hosts/${name}/configuration.nix
 
+        inputs.noctalia-greeter.nixosModules.default
+
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
