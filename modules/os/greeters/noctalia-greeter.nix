@@ -18,6 +18,12 @@
           size = 24;
           path = "${pkgs.bibata-cursors}/share/icons";
         };
+        keyboard = {
+          # Colemak default, qwerty optional
+          layout = "us,us";
+          variant = "colemak,";
+          options = "grp:alt_shift_toggle";
+        };
       };
     };
   };
