@@ -197,6 +197,12 @@
           {
             command = noctalia;
           }
+          # Set the noctalia background on every boot/reload so it updates
+          # declaratively
+          {
+            command = "sleep 3 && ${noctalia} msg wallpaper-set ${config.home.homeDirectory}/.config/noctalia/background.jpg";
+            always = true;
+          }
         ];
       };
       extraConfig = ''
