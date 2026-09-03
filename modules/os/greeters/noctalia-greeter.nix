@@ -2,7 +2,7 @@
 
 {
   options = {
-    ly.enable
+    noctalia-greeter.enable
       = lib.mkEnableOption "enable custom noctalia-greeter login manager";
   };
 
