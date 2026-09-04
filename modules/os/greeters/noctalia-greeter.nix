@@ -1,0 +1,30 @@
+{ lib, config, inputs, pkgs, ... }:
+
+{
+  options = {
+    noctalia-greeter.enable
+      = lib.mkEnableOption "enable custom noctalia-greeter login manager";
+  };
+
+  config = lib.mkIf config.noctalia-greeter.enable {
+    programs.noctalia-greeter = {
+      enable = true;
+      # Optional: extra flags after `--` on noctalia-greeter-session
+      greeter-args = "";
+      # Full declarative greeter.toml (overwritten each activation). See examples/greeter.toml.
+      settings = {
+        cursor = {
+          theme = "Bibata-Modern-Ice";
+          size = 24;
+          path = "${pkgs.bibata-cursors}/share/icons";
+        };
+        keyboard = {
+          # Colemak default, qwerty optional
+          layout = "us,us";
+          variant = "colemak,";
+          options = "grp:alt_shift_toggle";
+        };
+      };
+    };
+  };
+}

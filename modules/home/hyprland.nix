@@ -1,6 +1,9 @@
 { inputs, lib, config, pkgs, ... }:
 
 {
+  # home-manager ships its own noctalia module now; the flake's module declares
+  # the same options, so one of the two has to go.
+  disabledModules = [ "programs/noctalia.nix" ];
   imports = [ inputs.noctalia.homeModules.default ];
 
   options = {

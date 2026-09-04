@@ -10,13 +10,18 @@ let
   shadesOfPurpleTheme = builtins.fromJSON (builtins.readFile "${shadesOfPurpleRepo}/themes/shades-of-purple-theme.json");
   shadesOfPurpleThemeName =
     (lib.findFirst (t: !(lib.hasInfix "Super Dark" t.name)) (builtins.head shadesOfPurpleTheme.themes) shadesOfPurpleTheme.themes).name;
+  # The zed-extensions/matlab extension hardcodes the binary name "matlab_ls",
+  # but nixpkgs' matlab-language-server ships its binary as "matlab-language-server".
+  matlab_ls = pkgs.writeShellScriptBin "matlab_ls" ''
+    exec ${lib.getExe pkgs.matlab-language-server} "$@"
+  '';
 in
 {
   options = {
     home-zed.enable
-      = lib.mkEnableOption "enable custom zed";  
+      = lib.mkEnableOption "enable custom zed";
   };
-  
+
   config = lib.mkIf config.home-zed.enable {
     programs.zed-editor = {
       enable = true;
@@ -27,6 +32,8 @@ in
         nixd
         claude-agent-acp
         claude-code
+        matlab-language-server
+        matlab_ls
       ];
       extensions = [
         "nix"
@@ -39,6 +46,7 @@ in
         "astro"
         "lean4"
         "log"
+        "matlab"
       ];
       userSettings = {
         helix_mode = true;

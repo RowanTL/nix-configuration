@@ -10,7 +10,7 @@
     ./hardware-configuration.nix
     ../../modules/os # basic configuration nice for all systems
     ../../modules/os/bluetooth.nix
-    ../../modules/os/sddm.nix
+    ../../modules/os/greeters/sddm.nix
     ../../modules/os/steam.nix
   ];
 

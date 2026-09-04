@@ -13,8 +13,8 @@
     ../../modules/os/power.nix
     ../../modules/os/bluetooth.nix
     ../../modules/os/steam.nix
-    ../../modules/os/hyprland.nix
-    ../../modules/os/sddm.nix
+    ../../modules/os/sway.nix
+    ../../modules/os/greeters/noctalia-greeter.nix
   ];
 
   # custom rowan stuff
@@ -22,8 +22,8 @@
   power.enable = true;
   bluetooth.enable = true;
   steam.enable = true;
-  hyprland.enable = true;
-  sddm.enable = true;
+  sway.enable = true;
+  noctalia-greeter.enable = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -111,9 +111,6 @@
   #     };
   #   };
   # };
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
