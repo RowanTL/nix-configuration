@@ -12,7 +12,7 @@
     ./../../modules/home
     ./../../modules/home/git.nix
     ./../../modules/home/ssh.nix
-    ./../../modules/home/hyprland.nix
+    ./../../modules/home/sway.nix
     ./../../modules/home/zed.nix
     ./../../modules/home/prismlauncher.nix
     ./../../modules/home/obs.nix
@@ -22,7 +22,7 @@
 
   # Enable my custom configs
   # others are enabled in modules/home/default.nix
-  home-hyprland.enable = true;
+  home-sway.enable = true;
   home-zed.enable = true;
   home-prismlauncher.enable = true;
   home-obs.enable = true;
