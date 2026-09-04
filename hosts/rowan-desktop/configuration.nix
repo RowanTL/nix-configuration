@@ -86,11 +86,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # temporary distrobox to program on ti-84
-  virtualisation.podman = {
-    enable = true;
-    dockerCompat = true;
-  };
   environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     #  wget
@@ -102,10 +97,6 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    # https://wiki.nixos.org/wiki/Intel_Graphics
-    # extraPackages = with pkgs; [
-    # intel-media-sdk # marked as insecure so don't use
-    # ];
   };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -116,24 +107,26 @@
   };
 
   # Syncthing
-  # services.syncthing = {
-  #   enable = true;
-  #   openDefaultPorts = true;
-  #   user = "rowan";
-  #   dataDir = "/home/rowan/syncthing";
-  #   configDir = "/home/rowan/.config/syncthing";
-  #   settings = {
-  #     devices = {
-  #       "rowan-laptop" = {id = "DS5Z3LS-YRTVBEB-CFZBOOA-TS5VUEZ-EIL4P2X-3LVRB3S-E5KWCHK-CXQPEA5"; };
-  #     };
-  #     folders = {
-  #       "bvjky-kxgig" = {
-  #         path = "/home/rowan/syncthing/Sync";
-  #         devices = [ "rowan-laptop" ];
-  #       };
-  #     };
-  #   };
-  # };
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+    user = "rowan";
+    dataDir = "/home/rowan/syncthing";
+    configDir = "/home/rowan/.config/syncthing";
+    settings = {
+      devices = {
+        "rowan-laptop" = {id = "DS5Z3LS-YRTVBEB-CFZBOOA-TS5VUEZ-EIL4P2X-3LVRB3S-E5KWCHK-CXQPEA5"; };
+      };
+      folders = {
+        "bvjky-kxgig" = {
+          path = "/home/rowan/syncthing/Sync";
+          devices = [ "rowan-laptop" ];
+        };
+      };
+    };
+  };
+
+
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
