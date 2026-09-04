@@ -12,6 +12,7 @@
     ../../modules/os/bluetooth.nix
     ../../modules/os/greeters/sddm.nix
     ../../modules/os/steam.nix
+    ../../modules/os/sway.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -47,6 +48,7 @@
   bluetooth.enable = true;
   sddm.enable = true;
   steam.enable = true;
+  sway.enable = true;
 
   # kde so I can play TF2
   services.desktopManager.plasma6.enable = true;
