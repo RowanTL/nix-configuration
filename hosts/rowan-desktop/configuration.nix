@@ -12,7 +12,7 @@
     ../../modules/os/bluetooth.nix
     ../../modules/os/greeters/sddm.nix
     ../../modules/os/steam.nix
-    ../../modules/os/sway.nix
+    ../../modules/os/de/sway.nix
   ];
 
   boot.loader.systemd-boot.enable = true;

@@ -8,7 +8,7 @@
   imports =
     [
       ./hardware-configuration.nix
-      ../../modules/os/sway.nix
+      ../../modules/os/de/sway.nix
       ../../modules/os # basic configuration nice for all systems
     ];
 
