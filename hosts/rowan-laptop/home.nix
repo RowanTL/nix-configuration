@@ -10,11 +10,11 @@
     ./../../modules/home
     ./../../modules/home/git.nix
     ./../../modules/home/ssh.nix
-    ./../../modules/home/zed.nix
+    ./../../modules/home/ide/zed.nix
     ./../../modules/home/brave.nix
     ./../../modules/home/prismlauncher.nix
     ./../../modules/home/obs.nix
-    ./../../modules/home/vscode.nix
+    ./../../modules/home/ide/vscode.nix
     ./../../modules/home/de/sway.nix
   ];
 

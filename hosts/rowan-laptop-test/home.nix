@@ -5,11 +5,11 @@
 {
   imports = [
     ./../../modules/home
-    ./../../modules/home/helix.nix
+    ./../../modules/home/ide/helix.nix
     ./../../modules/home/git.nix
     ./../../modules/home/ssh.nix
     ./../../modules/home/de/sway.nix
-    ./../../modules/home/zed.nix
+    ./../../modules/home/ide/zed.nix
   ];
 
   home.username = "rowan";
