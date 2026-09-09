@@ -15,7 +15,7 @@
     ./../../modules/home/prismlauncher.nix
     ./../../modules/home/obs.nix
     ./../../modules/home/vscode.nix
-    ./../../modules/home/sway.nix
+    ./../../modules/home/de/sway.nix
   ];
 
   # Enable my custom configs

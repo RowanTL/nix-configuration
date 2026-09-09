@@ -212,7 +212,7 @@
 
     # Needed so noctalia can update wallpaper
     # TODO: Figure this out for multiple computers/monitors.
-    home.file.".config/noctalia/background.jpg".source = ../non_nix/wallpapers/background.jpg;
+    home.file.".config/noctalia/background.jpg".source = ../../non_nix/wallpapers/background.jpg;
 
     programs.noctalia = {
       enable = true;

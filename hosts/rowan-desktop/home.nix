@@ -10,7 +10,7 @@
     ./../../modules/home
     ./../../modules/home/git.nix
     ./../../modules/home/ssh.nix
-    ./../../modules/home/sway.nix
+    ./../../modules/home/de/sway.nix
     ./../../modules/home/zed.nix
     ./../../modules/home/prismlauncher.nix
     ./../../modules/home/obs.nix

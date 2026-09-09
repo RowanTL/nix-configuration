@@ -8,7 +8,7 @@
     ./../../modules/home/helix.nix
     ./../../modules/home/git.nix
     ./../../modules/home/ssh.nix
-    ./../../modules/home/sway.nix
+    ./../../modules/home/de/sway.nix
     ./../../modules/home/zed.nix
   ];
 
