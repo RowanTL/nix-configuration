@@ -235,11 +235,13 @@
           margin_ends = 0; # left/right ends gap
           margin_edge = 0; # distance between screen edge and bar
           radius = 0; # Remove bar edges
-          end = [ "media" "tray" "notifications" "clipboard" "network" "bluetooth" "volume" "brightness" "battery" "control-center" "session" ];
+          end = [ "media" "tray" "notifications" "network" "bluetooth" "volume" "brightness" "battery" "session" ];
+          start = [ "workspaces" ];
         };
 
         widget.clock = {
           format = "{:%H:%M:%S}";
+          actions.left = "panel-toggle control-center home";
         };
       }
       # replaces swayidle: noctalia arms the idle timers itself
