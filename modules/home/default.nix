@@ -10,6 +10,9 @@
     ./shell.nix
   ];
 
+  # Truly need this here to use flakes :(
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Packages that should be installed to the user profile.
   home.packages = with pkgs; [
     # here is some command line tools I use frequently
