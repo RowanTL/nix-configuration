@@ -8,7 +8,9 @@
   
   config = lib.mkIf config.home-brave.enable {
     home.packages = with pkgs; [
-      brave
+      (brave.override {
+        commandLineArgs = "--no-default-browser-check";
+      })
     ];
   };
 }
