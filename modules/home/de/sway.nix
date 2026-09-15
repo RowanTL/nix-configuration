@@ -243,6 +243,10 @@
           format = "{:%H:%M:%S}";
           actions.left = "panel-toggle control-center home";
         };
+
+        widget.media = {
+          hide_when_no_media = true;
+        };
       }
       // lib.optionalAttrs config.home-sway.enableIdle {
         idle.behavior = {
