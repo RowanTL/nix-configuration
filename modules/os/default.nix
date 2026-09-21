@@ -11,7 +11,6 @@
     nix.settings = {
       substituters = [
         "https://nix-community.cachix.org"
-        "https://winapps.cachix.org/"
       ];
 
       extra-substituters = [ "https://noctalia.cachix.org" ];
