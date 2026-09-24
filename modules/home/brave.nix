@@ -3,12 +3,12 @@
 {
   options = {
     home-brave.enable
-      = lib.mkEnableOption "enable brave";  
+      = lib.mkEnableOption "enable brave";
   };
-  
+
   config = lib.mkIf config.home-brave.enable {
     home.packages = with pkgs; [
-      (brave.override {
+      (brave-origin.override {
         commandLineArgs = "--no-default-browser-check";
       })
     ];
