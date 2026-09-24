@@ -150,8 +150,8 @@
             # I like having shortcuts for my browsers
             "${mod}+o" = "exec ${lib.getExe pkgs.librewolf}";
             "${mod}+Shift+o" = "exec ${lib.getExe pkgs.librewolf} --private-window about:home";
-            "${mod}+m" = "exec ${lib.getExe pkgs.brave}";
-            "${mod}+Shift+m" = "exec ${lib.getExe pkgs.brave} --incognito";
+            "${mod}+m" = "exec ${lib.getExe config.home-brave.package}";
+            "${mod}+Shift+m" = "exec ${lib.getExe config.home-brave.package} --incognito";
           }
         ];
         focus.followMouse = false;
