@@ -9,7 +9,7 @@
   config = lib.mkIf config.noctalia-greeter.enable {
     services.displayManager.noctalia-greeter = {
       enable = true;
-      passwordlessSyncUsers = [ "rowan" ]; # Hardcode for now :/
+      passwordless-sync-users = [ "rowan" ]; # Hardcode for now :/
       # Optional: extra flags after `--` on noctalia-greeter-session
       greeter-args = "";
       # Full declarative greeter.toml (overwritten each activation). See examples/greeter.toml.
