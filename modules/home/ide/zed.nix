@@ -47,6 +47,7 @@ in
         "lean4"
         "log"
         "matlab"
+        "haskell"
       ];
       userSettings = {
         helix_mode = true;
