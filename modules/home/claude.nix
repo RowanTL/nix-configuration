@@ -7,6 +7,13 @@ let
     hash = "sha256-CasX80vUEj7eVIi77G39G/sMdB3biihDWI179x03Jxg=";
     stripRoot = false;
   };
+  # rea-agents has a `#!/usr/bin/env node` shebang, and node isn't on the PATH
+  # claude launches MCP servers with
+  reaMcp = pkgs.writeShellApplication {
+    name = "rea-mcp";
+    runtimeInputs = [ pkgs.nodejs ];
+    text = ''exec npx -y rea-agents@${reaVersion} mcp'';
+  };
 in
 {
   options = {
@@ -23,10 +30,7 @@ in
       mcpServers = {
         nixos.command = lib.getExe pkgs.mcp-nixos;
 
-        rea = {
-          command = lib.getExe' pkgs.nodejs "npx";
-          args = [ "-y" "rea-agents@${reaVersion}" "mcp" ];
-        };
+        rea.command = lib.getExe reaMcp;
       };
 
       skills.reverse-engineer-anything = "${reaSrc}/package/skills/reverse-engineer-anything";
