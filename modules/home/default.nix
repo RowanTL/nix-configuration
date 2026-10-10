@@ -6,6 +6,7 @@
   imports = [
     ./ide/helix.nix
     ./git.nix
+    ./claude.nix
     ./ssh.nix
     ./shell.nix
   ];
@@ -61,9 +62,6 @@
 
     # global language servers
     nil
-
-    # AI related
-    claude-code
   ];
 
   # enable and use librewolf as default web browser
@@ -102,6 +100,7 @@
   # Enable my custom configs
   home-helix.enable = true;
   home-git.enable = true;
+  home-claude.enable = true;
   home-ssh.enable = true;
   home-shell.enable = true;
 
