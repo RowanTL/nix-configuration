@@ -37,6 +37,12 @@
 
         inputs.noctalia-greeter.nixosModules.default
 
+        {
+          nixpkgs.overlays = [
+            (import ./modules/overlays)
+          ];
+        }
+
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;

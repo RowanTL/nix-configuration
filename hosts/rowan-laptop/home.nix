@@ -11,7 +11,6 @@
     ./../../modules/home/git.nix
     ./../../modules/home/ssh.nix
     ./../../modules/home/ide/zed.nix
-    ./../../modules/home/brave.nix
     ./../../modules/home/prismlauncher.nix
     ./../../modules/home/obs.nix
     ./../../modules/home/ide/vscode.nix
@@ -21,7 +20,6 @@
   # Enable my custom configs
   # others are enabled in modules/home/default.nix
   home-zed.enable = true;
-  home-brave.enable = true;
   home-prismlauncher.enable = true;
   home-obs.enable = true;
   home-vscode.enable = true;
@@ -56,6 +54,7 @@
 
   home.packages = with pkgs; [
     goofcord
+    rand-al'thor
     # libreoffice-fresh
     blender
     kdePackages.kdenlive
