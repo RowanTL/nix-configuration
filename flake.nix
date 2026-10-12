@@ -15,7 +15,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     mastercomfig = {
-      url = "github:RowanTL/mastercomfig";
+      url = "github:RowanTL/mastercomfig-nix";
       flake = false;
     };
   };
