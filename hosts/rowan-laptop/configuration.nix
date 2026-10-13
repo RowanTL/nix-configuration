@@ -15,6 +15,7 @@
     ../../modules/os/steam.nix
     ../../modules/os/de/sway.nix
     ../../modules/os/greeters/noctalia-greeter.nix
+    ../../modules/os/virtualization.nix
   ];
 
   # custom rowan stuff
@@ -24,6 +25,7 @@
   steam.enable = true;
   sway.enable = true;
   noctalia-greeter.enable = true;
+  virtualization.enable = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
