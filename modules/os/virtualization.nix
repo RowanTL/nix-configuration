@@ -1,4 +1,4 @@
-{ lib, config, ... }:
+{ pkgs, lib, config, ... }:
 
 {
   options = {
@@ -9,7 +9,10 @@
   config = lib.mkIf config.virtualization.enable {
     programs.virt-manager.enable = true;
     users.groups.libvirtd.members = ["rowan"];
-    virtualisation.libvirtd.enable = true;
+    virtualisation.libvirtd = {
+      enable = true;      
+      qemu.vhostUserPackages = [ pkgs.virtiofsd ];
+    };
     virtualisation.spiceUSBRedirection.enable = true;
     users.users.rowan.extraGroups = [ "libvirtd" ];
   };
