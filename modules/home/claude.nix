@@ -1,10 +1,10 @@
 { lib, config, pkgs, ... }:
 
 let
-  reaVersion = "6.3.0";
+  reaVersion = "6.5.0";
   reaSrc = pkgs.fetchzip {
     url = "https://registry.npmjs.org/rea-agents/-/rea-agents-${reaVersion}.tgz";
-    hash = "sha256-CasX80vUEj7eVIi77G39G/sMdB3biihDWI179x03Jxg=";
+    hash = "sha256-OsXkOnJSnwlPusLTQvXhfq7/TH0t/iOctzJstQ/rAjQ=";
     stripRoot = false;
   };
   mattpocockSkills = pkgs.fetchFromGitHub {
