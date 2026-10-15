@@ -15,6 +15,7 @@
     ./../../modules/home/prismlauncher.nix
     ./../../modules/home/obs.nix
     ./../../modules/home/ide/vscode.nix
+    ./../../modules/home/steam.nix
   ];
 
   # Enable my custom configs
@@ -24,6 +25,7 @@
   home-prismlauncher.enable = true;
   home-obs.enable = true;
   home-vscode.enable = true;
+  home-steam.enable = true;
 
   home.username = "rowan";
   home.homeDirectory = "/home/rowan";
