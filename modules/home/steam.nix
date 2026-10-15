@@ -1,4 +1,4 @@
-{inputs, lib, config, ... }:
+{ inputs, lib, config, ... }:
 
 {
   imports = [ "${inputs.mastercomfig}/mastercomfig.nix" ];
@@ -28,7 +28,32 @@
         j = "Team message";
         l = "Party message";
         k = "Explode (self)";
-        "=" = "View/Accept alert";
+        m = "Open loadout";
+        q = "Last weapon used";
+        u = "Open Map information";
+        v = "Push to Talk";
+        space = "Jump";
+        tab = "Show scoreboard";
+        escape = "cancelselect";
+        b = "Spy: Last Disguise";
+        z = "Voice Menu 1";
+        x = "Voice Menu 2";
+        c = "Voice Menu 3";
+        "-" = "cl_decline_first_notification";
+        "=" = "cl_trigger_first_notification";
+        e = "Kill (self)";
+        i = "Drop";
+        shift = "Duck";
+        mouse5 = "Action Slot";
+        uparrow = "Loadout A";
+        leftarrow = "Loadout B";
+        downarrow = "Loadout C";
+        rightarrow = "Loadout D";
+        "[" = "say this is also a bind";
+        "]" = "say this is a bind";
+        "`" = "toggleconsole";
+        "," = "changeclass";
+        "." = "changeteam";
       };
     };
   };
