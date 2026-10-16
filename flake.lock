@@ -20,22 +20,6 @@
         "type": "github"
       }
     },
-    "mastercomfig": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1792037459,
-        "narHash": "sha256-K6uvE8VUT2j7emdqu0V+Sda6LVPlPmQoHovja7T61wg=",
-        "owner": "RowanTL",
-        "repo": "mastercomfig-nix",
-        "rev": "2d2ec683741fced96158b545be5719b3564c11c9",
-        "type": "github"
-      },
-      "original": {
-        "owner": "RowanTL",
-        "repo": "mastercomfig-nix",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1791956154,
@@ -63,6 +47,22 @@
       "original": {
         "type": "tarball",
         "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.zst"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1791956154,
+        "narHash": "sha256-jBYGPi4udQ9uo4KQp9m2J0546nJVQitG15gvZSaVVAs=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "55bfb4d7437bd4e09ab7cba58a43bd68eb310044",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "noctalia": {
@@ -106,10 +106,28 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "mastercomfig": "mastercomfig",
         "nixpkgs": "nixpkgs",
         "noctalia": "noctalia",
-        "noctalia-greeter": "noctalia-greeter"
+        "noctalia-greeter": "noctalia-greeter",
+        "tf2-nix": "tf2-nix"
+      }
+    },
+    "tf2-nix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1792184868,
+        "narHash": "sha256-0NbgjBaLOtrOFlJEpIwuS2bJeasG2Qw4fdTiSQHFf1k=",
+        "owner": "RowanTL",
+        "repo": "tf2-nix",
+        "rev": "0d2c80097c3bed92e117db33680be87361dffe70",
+        "type": "github"
+      },
+      "original": {
+        "owner": "RowanTL",
+        "repo": "tf2-nix",
+        "type": "github"
       }
     }
   },

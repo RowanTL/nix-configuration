@@ -14,9 +14,8 @@
       url = "github:noctalia-dev/noctalia-greeter";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    mastercomfig = {
-      url = "github:RowanTL/mastercomfig-nix";
-      flake = false;
+    tf2-nix = {
+      url = "github:RowanTL/tf2-nix";
     };
   };
 

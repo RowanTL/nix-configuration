@@ -1,7 +1,7 @@
 { inputs, lib, config, ... }:
 
 {
-  imports = [ "${inputs.mastercomfig}/mastercomfig.nix" ];
+  imports = [ inputs.tf2-nix.homeManagerModules.default ];
 
   options = {
     home-steam.enable
@@ -68,6 +68,17 @@
         "," = "changeclass";
         "." = "changeteam";
       };
+
+      crosshairs = {
+        weapons = {
+          tf_weapon_rocketlauncher_directhit = "dot";
+        };
+        scale.soldier = 20;
+      };
+    };
+
+    programs.budhud = {
+      enable = true;
     };
   };
 }
