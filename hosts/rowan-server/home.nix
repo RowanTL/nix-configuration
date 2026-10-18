@@ -5,7 +5,10 @@
 {
   imports = [
     ./../../modules/home
+    ./../../modules/home/ide/zed.nix
   ];
+
+  home-zed.enable = true;
 
   home.username = "rowan";
   home.homeDirectory = "/home/rowan";
