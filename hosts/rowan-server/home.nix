@@ -5,13 +5,21 @@
 {
   imports = [
     ./../../modules/home
+    ./../../modules/home/ide/zed.nix
   ];
+
+  home-zed.enable = true;
 
   home.username = "rowan";
   home.homeDirectory = "/home/rowan";
 
   # Also set here just in case
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
   
   # Import files from the current configuration directory into the Nix store,
   # and create symbolic links pointing to those store files in the Home directory.
