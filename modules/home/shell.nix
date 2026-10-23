@@ -54,6 +54,7 @@ in
           source ${extraPassCompletions}/pass_extensions_completions.nu
           source ${personalNuShellConfig}/source_me.nu
         '';
+        loadSessionVariables = false;
       };
       carapace = {
         enable = true;
