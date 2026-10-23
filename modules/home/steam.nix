@@ -86,7 +86,8 @@
       vpks = {
         market-gardener.source = "${pkgs.fetchzip {
           url = "https://gamebanana.com/dl/1240416";
-          hash = "sha256-t1s+xygZBIW4BrmTiLenBn4dYoiZuMpxvt8rynSjoMA=";
+          extension = "zip";
+          hash = "sha256-2V5eCOLt/UXJQx808pxD5vvCkVVm69tQezKsf4YT10k=";
           stripRoot = false;
         }}/elfi_minecraft_diamond_shovel_market_gardener V1.vpk";
       };
