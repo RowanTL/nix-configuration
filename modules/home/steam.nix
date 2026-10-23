@@ -1,4 +1,4 @@
-{ inputs, lib, config, ... }:
+{ inputs, lib, config, pkgs, ... }:
 
 {
   imports = [ inputs.tf2-nix.homeManagerModules.default ];
@@ -79,6 +79,17 @@
 
     programs.budhud = {
       enable = true;
+    };
+
+    programs.tf2-preload = {
+      enable = true;
+      vpks = {
+        market-gardener.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/1240416";
+          hash = "sha256-t1s+xygZBIW4BrmTiLenBn4dYoiZuMpxvt8rynSjoMA=";
+          stripRoot = false;
+        }}/elfi_minecraft_diamond_shovel_market_gardener V1.vpk";
+      };
     };
   };
 }
