@@ -13,6 +13,7 @@
         visualstudiotoolsforunity.vstuc  # Unity development package
         james-yu.latex-workshop
         anthropic.claude-code
+        ms-python.python
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "lean4";
