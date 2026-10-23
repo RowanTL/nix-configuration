@@ -117,11 +117,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1792795406,
-        "narHash": "sha256-WlFHlKyXjNqfEm6MwIFhwdZ0FX2vhr1WDjol4DNEmF4=",
+        "lastModified": 1792796498,
+        "narHash": "sha256-iLmSFnrgFg2XPQGPkO4+DB8jFiwDeBhqLtmjIlJZR5M=",
         "owner": "RowanTL",
         "repo": "tf2-nix",
-        "rev": "a56ecd8d8f2d7141e64da6cf901783bb4e09c9d0",
+        "rev": "6fb4333f876b01463475d2de942a4749bfce6737",
         "type": "github"
       },
       "original": {
