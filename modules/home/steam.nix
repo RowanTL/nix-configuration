@@ -91,6 +91,16 @@
           stripRoot = false;
         }}/elfi_minecraft_diamond_shovel_market_gardener V1.vpk";
       };
+
+      particleMods.toon-explosions.source = "${pkgs.fetchzip {
+        url = "https://gamebanana.com/dl/39707";
+        extension = "rar";
+        nativeBuildInputs = [ pkgs.unar ];
+        hash = "sha256-yrnpQ6KzMNheem2bkWlSgLA7vaomULRGt4BTwBS6CRQ=";
+        stripRoot = false;
+      }}/download/toon_explosions_v1.1.vpk";
+      # Rocket, stickybomb and grenade explosions
+      particles.explosion = "toon-explosions";
     };
   };
 }
