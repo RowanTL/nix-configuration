@@ -99,8 +99,16 @@
         hash = "sha256-yrnpQ6KzMNheem2bkWlSgLA7vaomULRGt4BTwBS6CRQ=";
         stripRoot = false;
       }}/download/toon_explosions_v1.1.vpk";
+      particleMods.reduced-flames.source = "${pkgs.fetchzip {
+        url = "https://gamebanana.com/dl/1027935";
+        extension = "rar";
+        nativeBuildInputs = [ pkgs.unar ];
+        hash = "sha256-5nyZEQPFdn8RIuUxbQ1eeQoLho+BJyTijRvXVD3puYM=";
+        stripRoot = false;
+      }}/nofire";
       # Rocket, stickybomb and grenade explosions
       particles.explosion = "toon-explosions";
+      particles.flamethrower = "reduced-flames";
     };
   };
 }
