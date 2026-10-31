@@ -92,12 +92,21 @@
     distrobox
   ];
 
-  # intel integrated settings
-  services.xserver.videoDrivers = [ "modesetting" ];
+  # nvidia settings, rtx 2080 ti
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
   };
+  hardware.nvidia = {
+    modesetting.enable = true;
+    open = true;
+    # Keep VRAM across suspend so sway comes back without corruption
+    powerManagement.enable = true;
+  };
+  # sway refuses to start on the nvidia driver without this
+  programs.sway.extraOptions = [ "--unsupported-gpu" ];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
