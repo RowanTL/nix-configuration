@@ -1,5 +1,13 @@
 { inputs, lib, config, pkgs, ... }:
 
+let
+  heavyAnimations = pkgs.fetchzip {
+    url = "https://gamebanana.com/dl/1227659";
+    extension = "zip";
+    hash = "sha256-SKRbhCHhhpwxDfLdN9E6ViPP2nfrwdLuCnOnUPJxtRI=";
+    stripRoot = false;
+  };
+in
 {
   imports = [ inputs.tf2-nix.homeManagerModules.default ];
 
@@ -81,6 +89,7 @@
       enable = true;
     };
 
+    # Bowless huntsman: https://gamebanana.com/mods/654496
     programs.tf2-preload = {
       enable = true;
       vpks = {
@@ -90,6 +99,61 @@
           hash = "sha256-2V5eCOLt/UXJQx808pxD5vvCkVVm69tQezKsf4YT10k=";
           stripRoot = false;
         }}/elfi_minecraft_diamond_shovel_market_gardener V1.vpk";
+
+        # First person animations, using the 70 FOV versions to match my
+        # viewmodel_fov
+        sniper-animations.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/428381";
+          extension = "zip";
+          hash = "sha256-FjAJG8f7qV3eS0QOFREX2LTWgVLVwdwashcLNxiEQVA=";
+          stripRoot = false;
+        }}/Sniper FP Anim Overhaul.vpk";
+        engineer-animations.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/873373";
+          extension = "zip";
+          hash = "sha256-zSGsozh5Gkc0lHuxD4oRDcT68Ybk0xI3vHr8saVqLM4=";
+          stripRoot = false;
+        }}/Engy.vpk";
+        medic-animations.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/520054";
+          extension = "zip";
+          hash = "sha256-xA0zNnhVM1miMP6fANn3p1saRhuCl31qw9UyLOh21Uw=";
+          stripRoot = false;
+        }}/70FovFix.vpk";
+        # Earlier names in custom/ take priority, so the alts have to sort
+        # before the main VPK, which also has the classic versions
+        heavy-animations-alt-fists.source =
+          "${heavyAnimations}/70+ FOV/Heavy FP Animation Overhaul V3.1 - Alt Fist Animations.vpk";
+        heavy-animations-alt-minigun.source =
+          "${heavyAnimations}/70+ FOV/Heavy FP Animation Overhaul V3.1 - Alt Minigun Animations.vpk";
+        heavy-animations-main.source =
+          "${heavyAnimations}/70+ FOV/Heavy FP Animation Overhaul V3.11.vpk";
+        scout-animations.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/387155";
+          extension = "zip";
+          hash = "sha256-KZYMhDKkoAyStcKIRaLfegOS8ISFNIow2NCHEgUmhbI=";
+          stripRoot = false;
+        }}/ScoutOverhaulV3/Scout FP Overhaul - 70+ FOV.vpk";
+        spy-animations.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/210154";
+          extension = "rar";
+          nativeBuildInputs = [ pkgs.unar ];
+          hash = "sha256-NISWFsi4cxxrl+F/Q65PmQWBsmSVnmokBiYAvidlceo=";
+          stripRoot = false;
+        }}/download/00A - Spy Overhaul - Alt Revolver Draw.vpk";
+        soldier-animations.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/206752";
+          extension = "rar";
+          nativeBuildInputs = [ pkgs.unar ];
+          hash = "sha256-0QEkYZIF3At5vA+MDtnfi6AfYYJqVgOjZsZaSO4tUTU=";
+          stripRoot = false;
+        }}/download/Soldier FP Anims Remade V.1.5.0 - 70 FOV.vpk";
+        demoman-animations.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/387943";
+          extension = "zip";
+          hash = "sha256-TW3MzM/v6Vog2NG+9de9xvrogpLcVQzS7x7PeInfhXY=";
+          stripRoot = false;
+        }}/Demo FP Anims - Far.vpk";
       };
 
       particleMods.toon-explosions.source = "${pkgs.fetchzip {
