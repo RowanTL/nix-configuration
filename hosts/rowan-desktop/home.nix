@@ -77,7 +77,7 @@
           name = "main";
           outputs = [
             {
-              criteria = "DP-1";
+              criteria = "DP-3";
               scale = 1.0;
               status = "enable";
               mode = "1920x1080@143.855Hz";
