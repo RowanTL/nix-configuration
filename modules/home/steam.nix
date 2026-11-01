@@ -93,12 +93,56 @@ in
     programs.tf2-preload = {
       enable = true;
       vpks = {
+        direct-hit.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/1819008";
+          extension = "zip";
+          hash = "sha256-Cd5/bP41uzw/Qd28GaJY5Qe4urwxvpnH3tXsWrmdPFM=";
+          stripRoot = false;
+        }}/pg3d_stinger_directhit.vpk";
+        escape-plan.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/1230943";
+          extension = "zip";
+          hash = "sha256-2AuXybrTDOhosoYobbBsWHekOmoPUJcjNhGlPfUdxUk=";
+          stripRoot = false;
+        }}/elfi_minecraft_pickaxe_escape_plan_V2.vpk";
+        eyelander.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/1318793";
+          extension = "zip";
+          hash = "sha256-cTYpOT5bbVIbLA8TSJzZppto//uHYSgE8s0yto6ok7Y=";
+          stripRoot = false;
+        }}/kb claymore.vpk";
+        gunboats.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/1750684";
+          extension = "zip";
+          hash = "sha256-yXli7mnmuFkwVcRWNtGpyPhZjURJzetnCtYCUUY0jRo=";
+          stripRoot = false;
+        }}/GunboatsToLoafers/GunboatsToLoafers_Pink as Hell.vpk";
+        mantreads.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/1036415";
+          extension = "rar";
+          nativeBuildInputs = [ pkgs.unar ];
+          hash = "sha256-rKi/+2v9DPKuebZe3Q+IfxVrnpc9+cICwQzgHlg9oWQ=";
+          stripRoot = false;
+        }}/DRIPTREADS.vpk";
         market-gardener.source = "${pkgs.fetchzip {
           url = "https://gamebanana.com/dl/1240416";
           extension = "zip";
           hash = "sha256-2V5eCOLt/UXJQx808pxD5vvCkVVm69tQezKsf4YT10k=";
           stripRoot = false;
         }}/elfi_minecraft_diamond_shovel_market_gardener V1.vpk";
+        skullcutter = {
+          source = "${pkgs.fetchzip {
+            url = "https://gamebanana.com/dl/194733";
+            extension = "zip";
+            hash = "sha256-vmHmn2id8rUu2ZEJ7a4OOebh7ikiCiyV8x0ZnRryKmU=";
+            stripRoot = false;
+          }}/pendulumer_skullcutter_replace.vpk";
+          # The game moved this weapon to models/workshop since the mod was made
+          relocate = {
+            "models/weapons/c_models/c_battleaxe" = "models/workshop/weapons/c_models/c_battleaxe";
+            "materials/backpack/weapons/c_models/c_battleaxe" = "materials/backpack/workshop/weapons/c_models/c_battleaxe";
+          };
+        };
 
         # First person animations, using the 70 FOV versions to match my
         # viewmodel_fov
