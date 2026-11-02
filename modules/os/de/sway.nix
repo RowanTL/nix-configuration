@@ -45,6 +45,13 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+
+      # pipewire 1.6.9's x11-bell module segfaults in x11_io_error_exit_handler
+      # whenever XWayland goes away, which takes down wireplumber and
+      # pipewire-pulse with it. Nothing here needs the X11 bell.
+      extraConfig.pipewire."99-no-x11-bell" = {
+        "module.x11.bell" = false;
+      };
     };
   };
 }
