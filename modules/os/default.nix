@@ -9,6 +9,8 @@
   config = {
     # cache to speed up package building
     nix.settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+
       substituters = [
         "https://nix-community.cachix.org"
       ];
@@ -33,5 +35,10 @@
     tmux.enable = true;
 
     programs.nix-ld.enable = true;
+
+    programs.nh = {
+      enable = true;
+      flake = "/home/rowan/nix-configuration";
+    };
   };
 }
