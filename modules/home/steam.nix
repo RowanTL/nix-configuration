@@ -93,6 +93,12 @@ in
     programs.tf2-preload = {
       enable = true;
       vpks = {
+        bazaar-bargain.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/1569713";
+          extension = "zip";
+          hash = "sha256-ktryD9NHPOYuiKh4ibVxyqsk+LOA1DtgD1HXBBhJ8+8=";
+          stripRoot = false;
+        }}/pg3d_bonesniper.vpk";
         direct-hit.source = "${pkgs.fetchzip {
           url = "https://gamebanana.com/dl/1819008";
           extension = "zip";
