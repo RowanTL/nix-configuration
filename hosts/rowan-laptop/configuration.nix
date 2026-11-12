@@ -32,6 +32,10 @@
         scanRandMacAddress = true;
       };
       ethernet.macAddress = "random";
+      settings.connection = {
+        "ipv4.dhcp-send-hostname" = false;
+        "ipv6.dhcp-send-hostname" = false;
+      };
     };
   };
 
