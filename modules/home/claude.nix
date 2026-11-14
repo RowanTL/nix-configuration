@@ -1,17 +1,17 @@
 { lib, config, pkgs, ... }:
 
 let
-  reaVersion = "6.5.0";
+  reaVersion = "6.8.0";
   reaSrc = pkgs.fetchzip {
     url = "https://registry.npmjs.org/rea-agents/-/rea-agents-${reaVersion}.tgz";
-    hash = "sha256-OsXkOnJSnwlPusLTQvXhfq7/TH0t/iOctzJstQ/rAjQ=";
+    hash = "sha256-OKeV2yZE56BEkkaM0n91k7oeSrS/ScqCD+EivIVLpx0=";
     stripRoot = false;
   };
   mattpocockSkills = pkgs.fetchFromGitHub {
     owner = "mattpocock";
     repo = "skills";
-    rev = "v1.3.1";
-    hash = "sha256-/mAmj7QFdyOWhLmy3Rt2/Hfsh5qwirTRax7hmQffFdo=";
+    rev = "v1.3.2";
+    hash = "sha256-ej0ATi0BWaAx+83dBwgCQxr9J2L2qEwKhUIeIRJ03Go=";
   };
   mattpocockCategories = [ "engineering" "productivity" ];
   mattpocockSkillSet = lib.foldl' (acc: category:

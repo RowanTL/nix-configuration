@@ -45,6 +45,13 @@
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
+
+      # To cosistent pirewire crash for now
+      extraConfig.pipewire."99-no-x11-bell" = {
+        "context.properties" = {
+          "module.x11.bell" = false;
+        };
+      };
     };
   };
 }
