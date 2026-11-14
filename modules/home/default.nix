@@ -93,6 +93,7 @@
     "x-scheme-handler/https" = "librewolf.desktop";
     "text/html" = "librewolf.desktop";
     "video/mp4" = "vlc.desktop";
+    "x-scheme-handler/claude-cli" = "claude-code-url-handler.desktop";
     # "x-scheme-handler/http" = "floorp.desktop";
     # "x-scheme-handler/https" = "floorp.desktop";
     # "text/html" = "floorp.desktop";

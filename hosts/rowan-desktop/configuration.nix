@@ -1,8 +1,3 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-# May need to place pkgs or config as arguments later
 { pkgs, ... }:
 
 {
@@ -18,8 +13,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # secondary drives, kept here rather than hardware-configuration.nix since
-  # that file gets overwritten by nixos-generate-config
   fileSystems."/mnt/storage" =
     { device = "/dev/disk/by-uuid/7f0a653d-9588-480e-821e-3f6299624521";
       fsType = "ext4";
@@ -33,7 +26,8 @@
     };
 
   # custom kernel for gaming
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  # boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
   networking.hostName = "rowan-desktop";
 
@@ -44,7 +38,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  # custom rowan stuff
   bluetooth.enable = true;
   sddm.enable = true;
   steam.enable = true;
@@ -56,9 +49,7 @@
   # Set your time zone.
   time.timeZone = "America/Chicago";
 
-  # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
-
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
@@ -71,7 +62,6 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.rowan = {
     isNormalUser = true;
     description = "rowan";
