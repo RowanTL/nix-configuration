@@ -33,7 +33,8 @@
     };
 
   # custom kernel for gaming
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  # boot.kernelPackages = pkgs.linuxPackages_zen;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
 
   networking.hostName = "rowan-desktop";
 
