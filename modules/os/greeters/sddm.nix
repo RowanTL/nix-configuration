@@ -35,6 +35,25 @@ let
         --replace-fail "let layouts = keyboard.layouts;" \
                        "let layouts = Array.from(keyboard.layouts);"
 
+      # Plasma 6.8 dropped VirtualKeyboardLoader from org.kde.breeze.components,
+      # so Main.qml fails to load and SDDM falls back to its embedded theme.
+      # Provide a no-op stand-in (no on-screen keyboard) and hide its button.
+      cat > "$theme/VirtualKeyboardLoader.qml" <<'EOF'
+      import QtQuick 2.15
+
+      Item {
+          property Item screenRoot
+          property Item mainStack
+          property Item mainBlock
+          property Item passwordField
+          readonly property bool keyboardActive: false
+          function showHide() {}
+      }
+      EOF
+      # The only "visible: true" in Main.qml is the virtual keyboard button.
+      substituteInPlace "$theme/Main.qml" \
+        --replace-fail "visible: true" "visible: false"
+
       runHook postInstall
     '';
 
