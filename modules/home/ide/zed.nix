@@ -34,6 +34,7 @@ in
         claude-code
         matlab-language-server
         matlab_ls
+        gnumake
       ];
       extensions = [
         "nix"
@@ -49,6 +50,7 @@ in
         "matlab"
         "haskell"
         "elm"
+        "make"
       ];
       userSettings = {
         helix_mode = true;
