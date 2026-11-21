@@ -61,6 +61,7 @@
   home.packages = with pkgs; [
     goofcord
     rand-al'thor
+    davinci-resolve
   ];
 
   programs.bash = {

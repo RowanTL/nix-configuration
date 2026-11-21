@@ -57,7 +57,6 @@
     rand-al'thor
     # libreoffice-fresh
     blender
-    kdePackages.kdenlive
     godot
   ];
 

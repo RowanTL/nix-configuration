@@ -21,9 +21,6 @@
 
     fastfetch
     signal-desktop
-    protonmail-desktop
-    proton-pass
-    proton-vpn
 
     # archives
     zip
