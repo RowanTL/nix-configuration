@@ -82,6 +82,9 @@
     # ];
   # };
   xdg.mimeApps.enable = true;
+  xdg.mimeApps.associations.added = {
+    "x-scheme-handler/claude-cli" = "claude-code-url-handler.desktop";
+  };
   xdg.mimeApps.defaultApplications = {
     "x-scheme-handler/discord" = "legcord.desktop";
     "x-scheme-handler/sgnl" = "signal.desktop";
