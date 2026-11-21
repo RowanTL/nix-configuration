@@ -77,6 +77,11 @@ in
         "." = "changeteam";
       };
 
+      autoexec = ''
+        sensitivity 1.1
+        zoom_sensitivity_ratio 0.8
+      '';
+
       crosshairs = {
         weapons = {
           tf_weapon_rocketlauncher_directhit = "dot";
