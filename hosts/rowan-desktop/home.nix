@@ -28,7 +28,7 @@
   home-steam.enable = true;
 
   # sway refuses to start on the nvidia driver without this. Needed here as well
-  # as in configuration.nix, since sddm's session runs whichever sway is in PATH.
+  # as in configuration.nix, since the greeter's session runs whichever sway is in PATH.
   wayland.windowManager.sway.extraOptions = [ "--unsupported-gpu" ];
 
   home.username = "rowan";

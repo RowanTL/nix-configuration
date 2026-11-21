@@ -5,7 +5,7 @@
     ./hardware-configuration.nix
     ../../modules/os # basic configuration nice for all systems
     ../../modules/os/bluetooth.nix
-    ../../modules/os/greeters/sddm.nix
+    ../../modules/os/greeters/noctalia-greeter.nix
     ../../modules/os/steam.nix
     ../../modules/os/de/sway.nix
   ];
@@ -39,7 +39,7 @@
   networking.networkmanager.enable = true;
 
   bluetooth.enable = true;
-  sddm.enable = true;
+  noctalia-greeter.enable = true;
   steam.enable = true;
   sway.enable = true;
 
