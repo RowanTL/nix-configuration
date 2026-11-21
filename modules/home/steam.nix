@@ -79,7 +79,7 @@ in
 
       autoexec = ''
         sensitivity 1.1
-        zoom_sensitivity_ratio 0.8
+        zoom_sensitivity_ratio 0.7
       '';
 
       crosshairs = {
