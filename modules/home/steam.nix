@@ -185,6 +185,19 @@ in
             "materials/backpack/weapons/c_models/c_battleaxe" = "materials/backpack/workshop/weapons/c_models/c_battleaxe";
           };
         };
+        # Mod originally for the baby faces blaster. Switch it out for the scattergun instead.
+        witch-hunter-scattergun = {
+          source = "${pkgs.fetchzip {
+            url = "https://gamebanana.com/dl/1860856";
+            extension = "zip";
+            hash = "sha256-1z53drq15fyyi5s4blbpsdp7ngiwl0f7n25x7bqhadmk98bllz0n";
+            stripRoot = false;
+          }}/Witch Hunter Scattergun.vpk";
+          relocate = {
+            "models/weapons/c_models/c_baby_face_blaster" = "models/weapons/c_models/c_scattergun";
+            "materials/models/weapons/c_models/c_baby_face_blaster" = "materials/models/weapons/c_models/c_scattergun";
+          };
+        };
 
         # First person animations, using the 70 FOV versions to match my
         # viewmodel_fov
