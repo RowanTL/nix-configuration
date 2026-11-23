@@ -111,6 +111,30 @@ in
           hash = "sha256-oPwNfPpaB2XcH2krKs7Nrimp2Klk9lAj5R8iSBPIZo4=";
           stripRoot = false;
         }}/download/googly_eyesontheside.vpk";
+        grenade-launcher.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/1439662";
+          extension = "zip";
+          hash = "sha256-GuwYqMk1YzUa/kX+gz469GDcH+J8khSy7JwRgUHxnmM=";
+          stripRoot = false;
+        }}/pg3d_mines_launcher.vpk";
+        stickybomb-launcher.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/1439043";
+          extension = "zip";
+          hash = "sha256-2bvvGOCukYs9OzMhYweYoQqcXXvGZTFvm7lIYpKkyU4=";
+          stripRoot = false;
+        }}/pg3d_demoman_stickybomb.vpk";
+        machina.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/1668109";
+          extension = "zip";
+          hash = "sha256-CQ3gFdA4QPtpMtS9sIpyAVd/zCU5fB4aj9n6qu5+ObQ=";
+          stripRoot = false;
+        }}/pg3d_comet_machina.vpk";
+        hitmans-heatmaker.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/1822817";
+          extension = "zip";
+          hash = "sha256-/3uUCI/QuxMHBkCtMirDo2pqa3mEzPfjiiNYk2i4E5Q=";
+          stripRoot = false;
+        }}/pg3d_black_label.vpk";
         direct-hit.source ="${pkgs.fetchzip {
           url = "https://gamebanana.com/dl/1819008";
           extension = "zip";
