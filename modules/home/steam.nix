@@ -104,7 +104,14 @@ in
           hash = "sha256-ktryD9NHPOYuiKh4ibVxyqsk+LOA1DtgD1HXBBhJ8+8=";
           stripRoot = false;
         }}/pg3d_bonesniper.vpk";
-        direct-hit.source = "${pkgs.fetchzip {
+        original.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/1178453";
+          extension = "rar";
+          nativeBuildInputs = [ pkgs.unar ];
+          hash = "sha256-oPwNfPpaB2XcH2krKs7Nrimp2Klk9lAj5R8iSBPIZo4=";
+          stripRoot = false;
+        }}/download/googly_eyesontheside.vpk";
+        direct-hit.source ="${pkgs.fetchzip {
           url = "https://gamebanana.com/dl/1819008";
           extension = "zip";
           hash = "sha256-Cd5/bP41uzw/Qd28GaJY5Qe4urwxvpnH3tXsWrmdPFM=";
