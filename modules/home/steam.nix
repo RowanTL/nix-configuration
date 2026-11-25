@@ -104,7 +104,38 @@ in
           hash = "sha256-ktryD9NHPOYuiKh4ibVxyqsk+LOA1DtgD1HXBBhJ8+8=";
           stripRoot = false;
         }}/pg3d_bonesniper.vpk";
-        direct-hit.source = "${pkgs.fetchzip {
+        original.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/1178453";
+          extension = "rar";
+          nativeBuildInputs = [ pkgs.unar ];
+          hash = "sha256-oPwNfPpaB2XcH2krKs7Nrimp2Klk9lAj5R8iSBPIZo4=";
+          stripRoot = false;
+        }}/download/googly_eyesontheside.vpk";
+        grenade-launcher.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/1439662";
+          extension = "zip";
+          hash = "sha256-GuwYqMk1YzUa/kX+gz469GDcH+J8khSy7JwRgUHxnmM=";
+          stripRoot = false;
+        }}/pg3d_mines_launcher.vpk";
+        stickybomb-launcher.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/1439043";
+          extension = "zip";
+          hash = "sha256-2bvvGOCukYs9OzMhYweYoQqcXXvGZTFvm7lIYpKkyU4=";
+          stripRoot = false;
+        }}/pg3d_demoman_stickybomb.vpk";
+        machina.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/1668109";
+          extension = "zip";
+          hash = "sha256-CQ3gFdA4QPtpMtS9sIpyAVd/zCU5fB4aj9n6qu5+ObQ=";
+          stripRoot = false;
+        }}/pg3d_comet_machina.vpk";
+        hitmans-heatmaker.source = "${pkgs.fetchzip {
+          url = "https://gamebanana.com/dl/1822817";
+          extension = "zip";
+          hash = "sha256-/3uUCI/QuxMHBkCtMirDo2pqa3mEzPfjiiNYk2i4E5Q=";
+          stripRoot = false;
+        }}/pg3d_black_label.vpk";
+        direct-hit.source ="${pkgs.fetchzip {
           url = "https://gamebanana.com/dl/1819008";
           extension = "zip";
           hash = "sha256-Cd5/bP41uzw/Qd28GaJY5Qe4urwxvpnH3tXsWrmdPFM=";
@@ -152,6 +183,19 @@ in
           relocate = {
             "models/weapons/c_models/c_battleaxe" = "models/workshop/weapons/c_models/c_battleaxe";
             "materials/backpack/weapons/c_models/c_battleaxe" = "materials/backpack/workshop/weapons/c_models/c_battleaxe";
+          };
+        };
+        # Mod originally for the baby faces blaster. Switch it out for the scattergun instead.
+        witch-hunter-scattergun = {
+          source = "${pkgs.fetchzip {
+            url = "https://gamebanana.com/dl/1860856";
+            extension = "zip";
+            hash = "sha256-1z53drq15fyyi5s4blbpsdp7ngiwl0f7n25x7bqhadmk98bllz0n";
+            stripRoot = false;
+          }}/Witch Hunter Scattergun.vpk";
+          relocate = {
+            "models/weapons/c_models/c_baby_face_blaster" = "models/weapons/c_models/c_scattergun";
+            "materials/models/weapons/c_models/c_baby_face_blaster" = "materials/models/weapons/c_models/c_scattergun";
           };
         };
 
