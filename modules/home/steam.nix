@@ -185,17 +185,18 @@ in
             "materials/backpack/weapons/c_models/c_battleaxe" = "materials/backpack/workshop/weapons/c_models/c_battleaxe";
           };
         };
-        # Mod originally for the baby faces blaster. Switch it out for the scattergun instead.
+
+        # Witch Hunter skin, made for the Baby Face's Blaster. Put it on the scattergun.
         witch-hunter-scattergun = {
           source = "${pkgs.fetchzip {
             url = "https://gamebanana.com/dl/1860856";
             extension = "zip";
-            hash = "sha256-1z53drq15fyyi5s4blbpsdp7ngiwl0f7n25x7bqhadmk98bllz0n";
+            hash = "sha256-wX6ZxrypXSjYj8YHjhgGMjBpmTWJ+KEhUOqLilWvhJc=";
             stripRoot = false;
-          }}/Witch Hunter Scattergun.vpk";
-          relocate = {
-            "models/weapons/c_models/c_baby_face_blaster" = "models/weapons/c_models/c_scattergun";
-            "materials/models/weapons/c_models/c_baby_face_blaster" = "materials/models/weapons/c_models/c_scattergun";
+          }}/pg3d_witch_hunter";
+          rename = {
+            "models/workshop/weapons/c_models/c_pep_scattergun/c_pep_scattergun" = "models/weapons/c_models/c_scattergun";
+            "materials/backpack/workshop/weapons/c_models/c_pep_scattergun/c_pep_scattergun" = "materials/backpack/weapons/c_models/c_scattergun";
           };
         };
 
